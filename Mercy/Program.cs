@@ -58,7 +58,7 @@ namespace Mercy
             var request = new Request
             {
                 Method = firstRows[0],
-                Path = firstRows[1],
+                Path = firstRows[1].Split('?')[0],
                 HttpVersion = firstRows[2]
             };
             for (int i = 1; i < lines.Length; i++)
@@ -130,11 +130,18 @@ namespace Mercy
                 var stream = tcp.GetStream();
                 Task.Run(async () =>
                 {
-                    var httpContext = new HttpContext();
-                    httpContext.Request = await Builder.Build(stream);
-                    await Excuter.Excute(httpContext);
-                    await Reporter.Report(httpContext.Response, stream);
-                    await Recorder.Record(httpContext);
+                    try
+                    {
+                        var httpContext = new HttpContext();
+                        httpContext.Request = await Builder.Build(stream);
+                        await Excuter.Excute(httpContext);
+                        await Reporter.Report(httpContext.Response, stream);
+                        await Recorder.Record(httpContext);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Mercy server crashed: " + e.Message);
+                    }
 
                 }).GetAwaiter();
             }
