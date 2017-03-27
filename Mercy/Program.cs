@@ -84,6 +84,7 @@ namespace Mercy
         {
             context.Response = new Response();
             Middlewares.Run(context);
+            context.Response.Headers.Add("Server","Mercy");
         }
     }
     public class HttpReporter
@@ -247,6 +248,7 @@ namespace Mercy
             var fileExtension = Path.GetExtension(filePath).TrimStart('.');
             context.Response.ResponseCode = 200;
             context.Response.Message = "OK";
+            context.Response.Headers.Add("cache-control", "max-age=3600");
             context.Response.Headers.Add("Content-Type", MIME.MIMETypesDictionary[fileExtension]);
             context.Response.Body = File.ReadAllBytes(filePath);
         }

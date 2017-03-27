@@ -1,0 +1,1784 @@
+/*-----------------------------------------------------------------------------------
+
+  Template Name: Subash Ecommerce Responsive Bootstrap Template
+  Description: This is html5 template
+  Author: codecarnival
+  Author URI: http://www.codecarnival.net/
+  Version: 1.0
+
+-----------------------------------------------------------------------------------
+    
+  CSS INDEX
+  ===================
+	
+  1. Theme Default CSS (css/shortcode/default.css)
+  2. Header CSS (css/shortcode/header.css)
+  3. Slider CSS (css/shortcode/slider.css)
+  4. Footer CSS (css/shortcode/footer.css)
+  5. Google Fonts
+  6. Custom-content all
+  7. Home-1 
+    7.1 By brand section 
+    7.2 Featured product section
+    7.3 Up comming product section
+    7.4 Banner section
+    7.5 Product tab section 
+    7.6 Blog section
+  8.  Home version-2
+    8.1 Banner section 2
+    8.2 Section background top bottom
+    8.3 Product item 2
+    8.4 Up comming product 2
+    8.5 Up comming time 2
+    8.6 Blog item 2
+    8.7 Newsletter
+  9. Shop Page
+    9.1 Breadcrumbs section
+    9.2 Shop Option
+    9.3 Shop List
+    9.4 Pagination
+    9.5 Sidebar Widget
+    9.6 Widget search
+    9.7 Widget categories
+    9.8 Price Filter
+    9.9 Widget color
+    9.10 Widget operating system
+    9.11 Widget product
+  10. Single Product Page
+    10.1 Image zoom area
+    10.2 Single product info
+    10.3 Product reviews tab
+    10.4 product color and rating
+    10.5 Product Cart plus minus
+  11. Cart Page
+    11.1 Cart option
+    11.2 Cart table content
+    11.2 Coupon-discount
+    11.3 Payment-details
+    11.4 Payment-method
+    11.5 Order information
+  12. Single Blog Page
+    12.1 Blog option
+    12.2 blog main post
+    12.3 Blog share tags
+    12.4 Blog post and comments
+  13. About Page
+    13.1 Team member
+  14. Contact Page
+    14.1 Contact Address
+    14.2 Google Map
+    14.3 Dynamic contact form
+  15. 404 Page
+  16. Bankground youtube video
+  17. Dotted-overlay
+-----------------------------------------------------------------------------------*/
+
+/*----------------------------------------
+  5. Google Fonts
+----------------------------------------*/
+@import 'https://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Roboto:400,500,700';
+
+
+
+
+/*************************************
+  6. Custom-content all   
+ **************************************/
+.boxed-layout .wrapper {
+    box-shadow: -3px 0 50px -2px rgba(0, 0, 0, 0.14);
+    margin: auto;
+    position: relative;
+    width: 1240px;
+}
+.boxed-layout .sticky {
+    left: auto;
+    margin: auto;
+    width: 1240px;
+}
+/* ========================================
+  7. Home Version-1
+======================================== */
+/* -------------------------------------
+    7.1 By brand section 
+------------------------------------- */
+.single-brand-product {
+  position: relative;
+}
+.single-brand-product > a {
+  display: block;
+}
+.single-brand-product img {
+  width: 100%;
+}
+.single-brand-product .brand-title {
+  bottom: 15px;
+  margin: 0;
+  position: absolute;
+  right: 20px;
+}
+/* -------------------------------------
+    7.2 Featured product section
+------------------------------------- */
+.product-item {
+  margin-bottom: 30px;
+  transition: all 0.3s ease 0s;
+}
+.product-img img {
+  width: 100%;
+}
+.product-info {
+  background: #f6f6f6 none repeat scroll 0 0;
+  padding: 20px 0;
+  text-align: center;
+}
+.product-title {
+  color: #434343;
+  font-family: "Raleway",sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pro-rating {
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.pro-rating a {
+  color: #ff7f00;
+  font-size: 14px;
+}
+.pro-price {
+  color: #666666;
+  font-family: "Roboto",sans-serif;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 20px;
+  z-index: 9;
+}
+.action-button {}
+.action-button > li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.action-button > li:last-child {
+  margin-right: 0;
+}
+.action-button > li > a {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  color: #999999;
+  display: block;
+  font-size: 14px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  width: 30px;
+}
+.action-button > li:hover > a {
+  background: #FF7F00;
+  border-color: #FF7F00;
+  color: #fff;
+}
+.product-item:hover {
+  box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.15);
+}
+/* -------------------------------------
+    7.3 Up comming product section
+------------------------------------- */
+.up-comming-pro {}
+.up-comming-pro-img {
+  width: 47.3%;
+}
+.up-comming-pro-img img {
+  width: 100%;
+}
+.up-comming-pro-info {
+  padding: 0 30px;
+  width: 52.7%;
+}
+.up-comming-pro-info h3 {
+  color: #575757;
+  font-weight: 600;
+  margin: 45px 0 20px;
+}
+.up-comming-pro-info > p {
+  margin-bottom: 40px;
+}
+.up-comming-time .cdown {
+  display: inline-block;
+  margin-right: 30px;
+  text-align: center;
+}
+.up-comming-time .cdown:last-child {
+  margin-right: 0;
+}
+.up-comming-time .time-count {
+  border: 1px solid #fcab5b;
+  border-radius: 50%;
+  color: #999999;
+  display: block;
+  font-family: roboto;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+}
+.up-comming-time .cdown p {
+  color: #8a8888;
+  line-height: 10px;
+  margin: 10px 0 0;
+}
+/* -------------------------------------
+    7.4 Banner section
+------------------------------------- */
+.banner {}
+.banner-item {
+  position: relative;
+}
+.banner-1::before {
+  background: rgba(0, 0, 0, 0) url("img/bg/ribbon.png") repeat scroll 0 0;
+  content: "";
+  height: 137px;
+  left: -11px;
+  position: absolute;
+  top: -11px;
+  width: 146px;
+}
+.ribbon-price {
+  left: 15px;
+  position: absolute;
+  top: 30px;
+  transform: rotate(-42deg);
+}
+.ribbon-price span {
+  color: #fefefe;
+  font-family: roboto;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.banner-img img {
+  width: 100%;
+}
+.banner-info {
+  left: 30px;
+  position: absolute;
+  top: 35%;
+}
+.banner-featured-list li {
+  color: #666666;
+}
+.banner-featured-list li i {
+  margin-right: 10px;
+}
+/* -------------------------------------
+    7.5 Product tab section
+------------------------------------- */
+.pro-tab-menu {
+  margin: 25px 0 30px;
+}
+.pro-tab-menu > ul {}
+.pro-tab-menu ul li {
+  display: inline-block;
+  margin-left: 30px;
+}
+.pro-tab-menu ul li:first-child {
+  margin-left: 0;
+}
+.pro-tab-menu ul li a {
+  color: #999999;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.pro-tab-menu ul li.active a {
+  border-bottom: 1px solid #ffbf7f;
+  color: #666666;
+}
+/* -------------------------------------
+    7.6 Blog section
+------------------------------------- */
+.blog-img {}
+.blog-img > a {
+  display: block;
+}
+.blog-img img {
+  width: 100%;
+}
+.blog-title {
+  font-weight: 700;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.blog-desc p {
+  margin-bottom: 25px;
+}
+.blog-item .read-more {
+  margin-bottom: 45px;
+}
+.read-more a {
+  display: inline-block;
+  font-weight: 500;
+  line-height: 14px;
+}
+.blog-meta {
+  line-height: 1;
+}
+.blog-meta li {
+  display: inline-block;
+  margin-left: 15px;
+}
+.blog-meta li:first-child {
+  margin-left: 0;
+}
+.blog-meta li a {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+}
+.blog-meta li a i {
+  font-size: 13px;
+  margin-right: 10px;
+}
+.blog-item {
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+}
+.blog-item img {
+  width: 100%;
+}
+.blog-item .blog-desc {
+  backface-visibility: hidden;
+  background: rgba(255, 127, 0, 0.95) none repeat scroll 0 0;
+  height: 100%;
+  left: 0;
+  padding: 40px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s ease 0s;
+}
+.blog-item .blog-desc::before, .blog-item .blog-desc::after {
+  bottom: 20px;
+  content: "";
+  left: 20px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  transition: opacity 0.35s ease 0s, transform 0.5s ease 0s;
+}
+.blog-item .blog-desc::before {
+border-bottom: 1px solid #fefefe;
+border-top: 1px solid #fefefe;
+transform: scale(0, 1);
+}
+.blog-item .blog-desc::after {
+border-left: 1px solid #fefefe;
+border-right: 1px solid #fefefe;
+transform: scale(1, 0);
+}
+.blog-item:hover .blog-desc::before, .blog-item:hover .blog-desc::after {
+opacity: 1;
+transform: scale(1);
+}
+.blog-item:hover .blog-desc {
+  opacity: 1;
+}
+.blog-title {
+  text-transform: uppercase;
+}
+.blog-item .blog-title,
+.blog-item .blog-desc p,
+.blog-item .read-more a,
+.blog-item .blog-meta li a { color: #fefefe; }
+
+.blog-item .blog-title:hover a,
+.blog-item .read-more a:hover,
+.blog-item .blog-meta li a:hover { color: #ccc; }
+/* ==========================================
+  8.  Home version-2
+============================================= */
+/* -------------------------------------
+    8.1 Banner section 2
+------------------------------------- */
+.banner-title-2 {
+  color: #666666;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.banner-2 .banner-title-2 {
+  position: absolute;
+  right: 18px;
+  top: 25%;
+}
+.banner-2 .pro-price {
+  bottom: 20px;
+  left: 20px;
+  margin-bottom: 0;
+  position: absolute;
+}
+.banner-2 .banner-button {
+  bottom: 20px;
+  position: absolute;
+  right: 20px;
+  z-index: 99;
+}
+.banner-button a {
+  color: #999999;
+  font-size: 13px;
+}
+.banner-button a:hover {
+  color: #FF7F00;
+}
+.banner-2::before {
+  border-right: 270px solid #f6f6f6;
+  border-top: 90px solid rgba(0, 0, 0, 0);
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+}
+.banner-2::after {
+  border-left: 270px solid #f6f6f6;
+  border-top: 90px solid rgba(0, 0, 0, 0);
+  bottom: 0;
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.banner-3 .banner-info {
+  top: 17%;
+}
+.banner-3 .banner-button {
+  margin-top: 15px;
+}
+.banner-4 .banner-title-2 {
+  left: 10%;
+  position: absolute;
+  top: 25%;
+}
+.banner-4 .banner-button {
+  left: 10%;
+  position: absolute;
+  top: 35%;
+}
+/* -------------------------------------
+    8.2 Section background top bottom
+------------------------------------- */
+.section-bg-tb {
+  margin: 25px 0;
+  position: relative;
+  z-index: 1;
+}
+.section-bg-tb::before {
+  background: #f6f6f6 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: skewY(-1.7deg);
+  width: 100%;
+  z-index: -1;
+}
+/* -------------------------------------
+    8.3 Product item 2
+------------------------------------- */
+.product-item-2 {
+  position: relative;
+  top: 0;
+  transition: all 0.3s ease 0s;
+}
+.product-item-2 img {
+  border-radius: 10px 10px 0 0;
+}
+.product-item-2 .product-info {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 0 0 10px 10px;
+  border-top: 2px solid #f6f6f6;
+  padding: 15px 30px;
+  text-align: left;
+}
+.active-featured-product .product-item-2 {
+  margin-top: 20px;
+}
+.brand-name {
+  color: #666666;
+  font-size: 13px;
+  font-weight: 500;
+}
+.product-item-2 .pro-price {
+  margin-bottom: 0;
+}
+.product-item-2 .action-button {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 0 0 10px 10px;
+  border-top: 2px solid #f6f6f6;
+  bottom: 0;
+  opacity: 0;
+  padding: 5px 25px;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+  width: 100%;
+}
+.product-item-2 .action-button > li > a {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+}
+.product-item-2 .action-button > li:hover > a {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  color: #ff7f00;
+}
+.product-item-2:hover {
+  box-shadow: 0 5px 2px rgba(0, 0, 0, 0.15);
+  top: -20px;
+}
+.product-item-2:hover .product-info {
+  border-radius: 0;  
+}
+.product-item-2:hover .action-button {
+  bottom: -40px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  visibility: visible;
+}
+.pro-tab-menu-2 ul li {
+  margin-left: 25px;
+  position: relative;
+}
+.pro-tab-menu-2 ul li.active::before {
+  background: #ff7f00 none repeat scroll 0 0;
+  content: "";
+  height: 11px;
+  left: 0;
+  position: absolute;
+  top: 6px;
+  width: 2px;
+}
+.pro-tab-menu-2 ul li.active a {
+  border-bottom: 0 none;
+}
+.pro-tab-menu-2 ul li a {
+  padding-left: 5px;
+}
+/* -------------------------------------
+    8.4 Up comming product 2
+------------------------------------- */
+.up-comming-pro-2 .up-comming-pro-img {
+  width: 53.3%;
+}
+.up-comming-pro-2 .up-comming-pro-info {
+  width: 46.7%;
+}
+/* -------------------------------------
+    8.5 Up comming time 2
+------------------------------------- */
+.up-comming-time-2 {
+  width: 100%;
+}
+.up-comming-time-2 .cdown {
+  float: left;
+  width: 25%;
+}
+.up-comming-time-2 .time-count {
+  border-bottom: 1px solid #999999;
+  color: #999999;
+  display: inline-block;
+  font-family: roboto;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.up-comming-time-2 p {
+  color: #8a8888;
+  font-family: raleway;
+  font-weight: 500;
+  padding-top: 5px;
+  text-transform: uppercase;
+}
+.up-comming-time-2 .time-count {
+  position: relative;
+}
+.up-comming-time-2 .time-count::before {
+  background: #f6f6f6 none repeat scroll 0 0;
+  bottom: -3px;
+  content: "";
+  height: 5px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 2px;
+}
+/* -------------------------------------
+    8.6 Blog item 2
+------------------------------------- */
+.blog-item-2 {
+  margin-bottom: 30px;
+}
+.blog-item-2 img {
+  width: 100%;
+  transition: all 0.3s ease 0s;
+}
+.blog-item-2 .blog-desc {
+  text-align: center;
+}
+.blog-title-2 {
+  color: #666666;
+  font-weight: 700;
+  line-height: 30px;
+  margin-top: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.blog-title-2 > a {
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 4px;
+}
+.blog-item-2 .blog-image {
+  overflow: hidden;
+}
+.blog-item-2:hover img {
+  opacity: 0.4;
+  transform: scale3d(1.1, 1.1, 1);
+}
+/* -------------------------------------
+    8.7 Newsletter
+------------------------------------- */
+.newsletter-info {
+  margin-bottom: 35px;
+}
+.newsletter-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.newsletter-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+.subcribe {
+  border: 2px solid #d4d4d4;
+  margin: auto;
+  width: calc(100% - 70px);
+}
+.subcribe input {
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  box-shadow: none;
+  float: left;
+  height: 45px;
+  margin: 0;
+  width: 80%;
+}
+.subcribe input:focus {
+  border: 0;
+}
+.subcribe .submit-btn-2 {
+  border-left: 2px solid #d4d4d4;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  height: 45px;
+  text-transform: uppercase;
+  width: 20%;
+}
+/*=======================================
+  9. Shop Page
+=======================================*/
+/* -------------------------------------
+    9.1 Breadcrumbs section
+------------------------------------- */
+.breadcrumbs-section {}
+.breadcrumbs {
+  background: #f6f6f6 url("img/breadcrumb/1.png") no-repeat scroll center center; 
+}
+.overlay-bg { 
+  position: relative;
+}
+.overlay-bg::before {
+  background: #f6f6f6 none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+.breadcrumbs-inner {
+  position: relative;
+  z-index: 10;
+}
+.breadcrumbs-title {
+  color: #575757;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 0;
+  padding: 115px 0 85px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.breadcrumb-list {
+  line-height: 1;
+  padding-bottom: 20px;
+}
+.breadcrumb-list > li {
+  color: #999999;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 15px;
+  text-transform: uppercase;
+}
+.breadcrumb-list > li::before {
+  content: "_";
+  left: 0;
+  color: #666666; 
+  transition: all 0.3s ease 0s;
+}
+.breadcrumb-list > li:hover::before {
+  color: #ff7f00; 
+}
+.breadcrumb-list > li > a {
+  color: #666666;
+}
+.breadcrumb-list > li:hover > a {
+  color: #ff7f00;
+}
+/* -------------------------------------
+    9.2 Shop Option
+------------------------------------- */
+.shop-option {
+  padding: 10px 30px;
+}
+.shop-tab {
+  line-height: 1;
+}
+.shop-tab > li {
+  display: inline-block;
+  margin-right: 5px;
+}
+.shop-tab > li:last-child {
+  margin-right: 0px;
+}
+.shop-tab li a {
+  color: #999999;
+  display: block;
+  font-size: 25px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 30px;
+}
+.shop-tab li.active a {
+  color: #ff7f00;
+}
+.shop-tab, .short-by, .showing {
+  width: 33.3337%;
+}
+.short-by > span {
+  margin-right: 10px;
+}
+.showing span {
+  color: #999999;
+  display: block;
+  line-height: 30px;
+}
+/* -------------------------------------
+    9.3 Shop List
+------------------------------------- */
+ .shop-list.product-item {
+  background: #f6f6f6 none repeat scroll 0 0;
+  overflow: hidden;
+}
+.shop-list .product-img {
+  background: #ffffff none repeat scroll 0 0;
+  float: left;
+  padding-right: 30px;
+  width: 35%;
+}
+.shop-list .product-info {
+  float: left;
+  padding: 30px 40px;
+  text-align: left;
+  width: 65%;
+}
+.shop-list .brand-name {
+  color: #999999;
+  font-style: italic;
+  font-weight: 400;
+}
+.shop-list p {
+  color: #666;
+  margin-bottom: 30px;
+}
+/* -------------------------------------
+    9.4 Pagination
+------------------------------------- */
+.shop-pagination {
+  padding: 10px;
+}
+.shop-pagination > li {
+  display: inline-block;
+  margin-right: 3px;
+}
+.shop-pagination > li:last-child {
+  margin-right: 0;
+}
+.shop-pagination > li > a {
+  border: 1px solid #eee;
+  color: #999999;
+  display: block;
+  font-family: roboto;
+  font-size: 13px;
+  font-weight: 400;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 30px;
+}
+.shop-pagination > li.active a,
+.shop-pagination > li:hover a {
+  border-color: #ff7f00;
+  color: #ff7f00;
+}
+/* -------------------------------------
+    9.5 Sidebar Widget
+------------------------------------- */
+.widget {
+  padding: 20px 30px;
+}
+.widget-title {
+  color: #666666;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+/* -------------------------------------
+    9.6 Widget search
+------------------------------------- */
+.widget-search {
+  position: relative;
+}
+.widget-search input {
+  height: 50px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+.widget-search button {
+  background: transparent none repeat scroll 0 0;
+  color: #999;
+  font-size: 20px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  transition: all 0.3s ease 0s;
+  width: 50px;
+}
+.widget-search button:hover {
+  color: #ff7f00;
+}
+/* -------------------------------------
+    9.7 Widget categories
+------------------------------------- */
+.product-cat > ul > li > ul {
+  padding-left: 20px;
+}
+.product-cat .treeview > li > a,
+.product-cat .treeview > li > ul > li > a {
+  color: #999999;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.product-cat .treeview > li > a {
+  font-size: 14px;
+  line-height: 30px;
+}
+.product-cat .treeview > li > ul > li > a {
+  font-size: 13px;
+  line-height: 25px;
+}
+.product-cat .treeview li {
+  position: relative;
+}
+.product-cat .hitarea {
+  cursor: pointer;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.product-cat .treeview .collapsable > a {
+  color: #ff7f00;
+}
+/* -------------------------------------
+    9.8 Price Filter
+------------------------------------- */
+.price_filter {
+  padding-bottom: 13px;
+}
+.price_slider_amount {
+  overflow: hidden;
+}
+.price_slider_amount > input {
+  background: transparent none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: none;
+  float: left;
+  height: 25px;
+  padding: 0;
+  text-align: left;
+  width: 50%;
+}
+.price_slider_amount > input#amount {}
+.ui-widget-content {
+  background: #eee none repeat scroll 0 0;
+  border: medium none;
+  color: #222;
+  height: 3px;
+}
+.ui-slider .ui-slider-range {
+  background: #ff7f00 none repeat scroll 0 0;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: #ff7f00 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 0;
+  height: 12px;
+  margin-left: 0;
+  margin-top: -6px;
+  top: 50%;
+  width: 5px;
+}
+/* -------------------------------------
+    9.9 Widget color
+------------------------------------- */
+.widget-color ul li {
+  display: block;
+  position: relative;
+}
+.widget-color ul li::before {
+  background: #ff7f00 none repeat scroll 0 0;
+  border-radius: 50%;
+  content: "";
+  height: 12px;
+  left: 0;
+  margin-top: -6px;
+  position: absolute;
+  top: 50%;
+  width: 12px;
+}
+.widget-color ul li a {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 30px;
+  padding-left: 20px;
+}
+.widget-color ul li.color-1:before {background: #ffa07a;}
+.widget-color ul li.color-2:before {background: #e9967a;}
+.widget-color ul li.color-3:before {background: #fe5858;}
+.widget-color ul li.color-4:before {background: #00b2ee;}
+.widget-color ul li.color-5:before {background: #00eeb3;}
+.widget-color ul li.color-6:before {background: #8dc63f;}
+/* -------------------------------------
+    9.10 Widget operating system
+------------------------------------- */
+.operating-system input[type="checkbox"] {
+  margin: 4px 20px 0 0;
+}
+/* -------------------------------------
+    9.11 Widget product
+------------------------------------- */
+.widget-product .product-item {
+  overflow: hidden;
+}
+.widget-product .product-item:last-child {
+  margin-bottom: 0;
+}
+.widget-product .product-img {
+  float: left;
+  width: 35%;
+}
+.widget-product .product-info {
+  background: #fff none repeat scroll 0 0;
+  float: left;
+  padding: 15px 0 0 10px;
+  text-align: left;
+  width: 65%;
+}
+.widget-product .product-title {
+  color: #666;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.widget-product .pro-price {
+  color: #999999;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 0;
+}
+/*=====================================
+  10. Single Product Page
+======================================*/
+/* -------------------------------------
+    10.1 Image zoom area
+------------------------------------- */
+.imgs-zoom-area {
+  width: 100%;
+}
+.imgs-zoom-area img {
+  width: 100% !important;
+}
+#gallery_01 img {
+  width: 100%;
+}
+#gallery_01 {
+  padding: 0 30px;
+}
+.p-c {
+  border: 1px solid #fff;
+  padding: 0 5px;
+}
+.p-c a.active img {
+  border: 1px solid #FF7F00;
+}
+#gallery_01.slick-arrow-3 .arrow-next.slick-arrow {
+  right: -3px;
+}
+/* -------------------------------------
+    10.2 Single product info
+------------------------------------- */
+.single-product-info h3 {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.brand-name-2 {
+  color: #999999;
+  font-style: italic;
+  text-transform: capitalize;
+}
+/* -------------------------------------
+    10.3 Product reviews tab
+------------------------------------- */
+.reviews-tab li {
+  display: inline-block;
+  margin-right: 35px;
+}
+.reviews-tab li:last-child {
+  margin-right: 0;
+}
+.reviews-tab li a {
+  display: block;
+  font-weight: 500;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.reviews-tab li.active a {
+  border-bottom: 1px solid #ffcc99;
+}
+.reply-delate ul li {
+  display: inline-block;
+}
+.reply-delate ul li a {
+  font-size: 13px;
+}
+.saparator {
+  margin: auto 5px;
+}
+/* -------------------------------------
+    10.4 product color and rating
+------------------------------------- */
+.color-title {
+  color: #575757;
+  line-height: 25px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  width: 70px;
+}
+.single-pro-color-rating .widget-color ul li {
+  display: inline-block;
+}
+.sin-pro-rating span {
+  font-size: 13px;
+}
+/* -------------------------------------
+    10.5 Product Cart plus minus
+------------------------------------- */
+.cart-plus-minus {
+  border: 1px solid #cccccc;
+  height: 25px;
+  text-align: center;
+  width: 90px;
+  color: #666666;
+}
+.qtybutton {
+  background: #cccccc none repeat scroll 0 0;
+  height: 100%;
+  width: 30%;
+}
+.dec.qtybutton {
+  float: left;
+}
+.inc.qtybutton {
+  float: right;
+}
+input.cart-plus-minus-box {
+  background: transparent none repeat scroll 0 0;
+  box-shadow: none;
+  font-family: roboto;
+  height: 100%;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: center;
+  width: 40%;
+}
+/*=========================================
+  11. Cart Page
+==========================================*/
+/* -------------------------------------
+    11.1 Cart option
+------------------------------------- */
+.cart-tab li {
+  display: block;
+  margin-bottom: 100px;
+  position: relative;
+  text-align: center;
+}
+.cart-tab li::before {
+  background: #ddd none repeat scroll 0 0;
+  content: "";
+  height: 40px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 130%;
+  width: 2px;
+}
+.cart-tab li:last-child {
+  margin-bottom: 0;
+}
+.cart-tab li:last-child::before {
+  display: none;
+}
+.cart-tab li a {
+  color: #999999;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.cart-tab li a span {
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  font-family: roboto;
+  font-size: 20px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 50px;
+  margin: auto auto 20px;
+  text-align: center;
+  width: 50px;
+}
+.cart-tab li a.active {
+  color: #ff7f00;
+}
+.cart-tab li a.active span {
+  box-shadow: 0 0 4px rgba(255, 127, 0, 0.1);
+  border: 1px solid #ff7f00;
+}
+/* -------------------------------------
+    11.2 Cart table content
+------------------------------------- */
+.table-content table, .table-content table th, .table-content table td {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+}
+table {width: 100%}
+.table-content table thead th {
+  color: #666666;
+  font-family: raleway;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 18px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.table-content table tr td {
+  color: #999;
+  padding: 20px 30px;
+}
+.product-thumbnail {
+  width: 420px;
+}
+.pro-thumbnail-img {
+  float: left;
+  width: 28%;
+}
+.pro-thumbnail-img img {
+  width: 100%;
+}
+.pro-thumbnail-info {
+  float: left;
+  padding-left: 20px;
+  width: 72%;
+}
+.product-title-2 {
+  color: #666666;
+  font-weight: 500;
+  margin-top: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pro-thumbnail-info > p {
+  margin-bottom: 0;
+}
+.product-price, .product-subtotal {
+  font-family: roboto;
+  font-size: 16px;
+  font-weight: 700;
+}
+.product-remove a {
+  color: #999;
+  display: block;
+  font-size: 18px;
+  height: 20px;
+  line-height: 20px;
+  transition: all 0.3s ease 0s;
+  width: 20px;
+}
+.product-remove a:hover {
+  color: #ff7f00;
+}
+.product-stock {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.product-add-cart a {
+  color: #999;
+  font-size: 25px;
+}
+.product-add-cart a:hover {
+  color: #ff7f00;
+}
+/* -------------------------------------
+    11.2 Coupon-discount
+------------------------------------- */
+.coupon-discount input {
+  margin-bottom: 28.5px;
+}
+/* -------------------------------------
+    11.3 Payment-details
+------------------------------------- */
+.payment-details tr {
+  border-bottom: 1px solid #eee;
+}
+.payment-details tr:last-child {
+  border-bottom: 0 none;
+}
+.payment-details td {
+  padding: 5px 0;
+}
+.td-title-1 {
+  color: #999;
+  font-size: 13px;
+  text-align: left;
+}
+.td-title-2 {
+  color: #999;
+  font-family: roboto;
+  font-weight: 500;
+  text-align: right;
+}
+.order-total {
+  color: #ff7f00;
+  font-weight: 500;
+  text-align: left;
+}
+.order-total-price {
+  color: #ff7f00;
+  font-family: roboto;
+  font-weight: 700;
+  text-align: right;
+}
+/*custom-select*/
+.custom-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.custom-select {
+  background: rgba(0, 0, 0, 0) url("img/icon/down-arrow.png") no-repeat scroll 97% center;
+  border: medium none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  height: 40px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.custom-select option {
+  font-size: 13px;
+  padding: 2px 0 0 20px;
+}
+.custom-textarea {
+  height: 110px;
+}
+/* -------------------------------------
+    11.4 Payment-method
+------------------------------------- */
+.payment-method .panel {
+  border: medium none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+.payment-content {
+  padding: 20px 20px 0;
+}
+.payment-method .panel:last-child {
+  padding-bottom: 0;
+}
+.payment-title {
+  color: #666666;
+  font-size: 13px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 0;
+  padding-left: 20px;
+  text-transform: uppercase;
+}
+.payment-content > p {
+  margin-bottom: 5px;
+}
+.payent-type li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.payent-type li:last-child {
+  margin-right: 0;
+}
+.payent-type li a {
+  border: 1px solid #e5e5e5;
+  padding: 5px;
+  display: block;
+}
+/* -------------------------------------
+    11.5 Order information
+------------------------------------- */
+.order-info {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+}
+.order-info-list {
+  text-transform: uppercase;  
+  text-align: center;
+}
+.order-info-list li {
+  border-right: 1px solid #eee;
+  display: inline-block;
+  padding: 0 35px;
+}
+.order-info-list li:last-child {
+  border-right: 0;
+}
+.order-info-list li h6 {
+  color: #666;
+  font-weight: 500;
+}
+.order-info-list li p {
+  font-family: roboto;
+  margin-bottom: 0;
+}
+.bill-address > li {
+  color: #999999;
+  display: block;
+  font-size: 13px;
+}
+.bill-address li span {
+  color: #666666;
+  display: inline-block;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 85px;
+}
+/*========================================
+  12. Single Blog Page
+========================================*/
+/* -------------------------------------
+    12.1 Blog option
+------------------------------------- */
+.blog-option {
+  padding: 18px 0;
+}
+.option-btn {
+  margin-left: 30px;
+  padding: 0;
+}
+.option-btn i {
+  margin-left: 5px;
+}
+.dropdown-menu {
+  border: 0 none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.dropdown-width {
+  width: 270px;
+}
+.multi-line {
+  overflow: inherit;
+  text-overflow: inherit;
+  white-space: inherit;
+}
+.widget-tags-list > li {
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.widget-tags-list li a {
+  color: #999999;
+  font-size: 13px;
+}
+.widget-tags-list li:hover a {
+  color: #ff7f00;
+}
+/* -------------------------------------
+    12.2 blog main post
+------------------------------------- */
+.blog-details-photo {
+  position: relative;
+}
+.bg-img-1 {
+  background: rgba(255, 255, 255, 0.5) url("img/bg/blog-photo-bg.png") repeat scroll 0 0;
+}
+.blog-details-photo > img {
+  width: 100%;
+}
+.today-date {
+  bottom: 20px;
+  height: 100px;
+  left: 20px;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+}
+.today-date span {
+  color: #434343;
+  display: block;
+}
+.meta-date {
+  font-family: roboto;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 30px;
+  padding-top: 20px;
+}
+.meta-month {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 15px;
+  padding-top: 15px;
+  text-transform: uppercase;
+}
+.blog-like-share {
+  line-height: 1;
+}
+.blog-like-share li {
+  display: inline-block;
+}
+.blog-like-share li + li {
+  margin-left: 20px;
+}
+.blog-like-share li a {
+  color: #999999;
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+}
+.blog-like-share li a:hover {
+  color: #ff7f00;
+}
+.blog-like-share li a i {
+  margin-right: 10px;
+}
+.blog-details-title {
+  color: #666;
+  font-weight: 700;
+  line-height: 16px;
+}
+.quote-border {
+  position: relative;
+}
+.quote-border::before {
+  background: #ff9f40 none repeat scroll 0 0;
+  content: "";
+  height: 90%;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 2px;
+}
+/* -------------------------------------
+    12.3 Blog share tags
+------------------------------------- */
+.blog-share-tags {
+  padding: 15px 20px;
+}
+.share-tags-title {
+  color: #666666;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 0;
+  margin-right: 30px;
+  text-transform: uppercase;
+}
+.blog-tags-list li {
+  display: inline-block;
+}
+.blog-tags-list li + li {
+  margin-left: 20px;
+}
+.blog-tags-list li a {
+  color: #999;
+  font-size: 13px;
+  line-height: 30px;
+}
+/* -------------------------------------
+    12.4 Blog post and comments
+------------------------------------- */
+.blog-section-title {
+  color: #575757;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+.author-post {
+  padding: 20px;
+}
+.media-heading {
+  color: #666666;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.author-post .media-heading {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.reply-delate {
+  line-height: 1;
+}
+.reply-delate > li {
+  display: inline-block;
+  font-size: 13px;
+}
+.reply-delate li a {
+  color: #666666;
+  display: block;
+}
+.reply-delate li:hover a {
+  color: #ff7f00;
+  display: block;
+}
+/* --------------------
+  blog-audio
+----------------------- */
+.blog-audio audio {
+  width: 100%;
+}
+/*===================================
+  13. About Page
+===================================*/
+.about-photo img {
+  width: 100%;
+}
+.about-description {}
+.about-description p {
+  color: #666;
+}
+/* -------------------------------------
+    13.1 Team member
+------------------------------------- */
+.team-member {
+  margin-bottom: 30px;
+  padding: 20px 20px 30px;
+  text-align: center;
+}
+.team-member-photo img {
+  margin: auto;
+}
+.member-name {
+  color: #666;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.member-position {
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+/*bg-shape*/
+.bg-shape {
+  overflow: hidden;
+  position: relative;
+}
+.bg-shape::before {
+  background: #434343 none repeat scroll 0 0;
+  content: "";
+  height: 150px;
+  left: 0;
+  margin-top: -65px;
+  position: absolute;
+  top: 0;
+  transform: skewY(-25deg);
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  z-index: -1;
+}
+.bg-shape:hover:before {
+ background: #ff7f00 none repeat scroll 0 0;
+}
+/*====================================
+  14. Contact Page
+====================================*/
+/* -------------------------------------
+    14.1 Contact Address
+------------------------------------- */
+.contact-address {
+  padding: 40px 20px 30px;
+  text-align: center;
+  min-height: 230px;
+}
+.contact-address i {
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  color: #999999;
+  font-size: 30px;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 60px;
+  transition: all 0.3s ease 0s;
+}
+.contact-address:hover i {
+  background: #ff7f00 none repeat scroll 0 0;
+  color: #fff;
+}
+.contact-address h6 {
+  color: #666;
+}
+/* -------------------------------------
+    14.2 Google Map
+------------------------------------- */
+#googleMap {
+  height: 350px;
+  width: 100%;
+}
+.message-box-section {
+  /*margin-top: -50px;*/
+}
+.message-box {
+  padding: 40px 60px;
+}
+.message-box input {
+  margin-bottom: 30px;
+}
+/* -------------------------------------
+    14.3 Dynamic contact form
+------------------------------------- */
+.form-messege {
+  margin-top: 10px;
+}
+.form-messege.success{
+  color: #1AA162;
+}
+.form-messege.error {
+  color: #f10;
+}
+/*==================================
+  15. 404 Page
+==================================*/
+.error-404 {
+  padding: 20px;
+  position: relative;
+}
+.error-404 img {
+  width: 100%;
+}
+.go-to-btn {
+  bottom: 20%;
+  position: absolute;
+  right: 27%;
+}
+.go-to-btn a {
+  background: #333 none repeat scroll 0 0;
+  color: #fff;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 25px;
+  text-transform: uppercase;
+}
+/* wrapper */
+.wrapper {
+  background: #fff none repeat scroll 0 0;
+}
+/* -------------------------------------
+  16. Bankground youtube video
+------------------------------------- */
+.mb_YTPBar {
+  display: none!important;
+}
+.mbYTP_wrapper {
+  z-index: -2!important;
+}
+/* -------------------------------------
+  17. Dotted-overlay
+------------------------------------- */
+.dotted-overlay::after {
+  background: rgba(0, 0, 0, 0) url("img/bg/grid.png") repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+/*================================================*/
+

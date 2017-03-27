@@ -1,0 +1,181 @@
+/* -----------------------------------
+  Template Name: Subash Ecommerce Responsive Bootstrap Template
+  Description: This is html5 template
+  Author: codecarnival
+  Version: 1.0
+  Design and Developed by: codecarnival
+
+  NOTE: This is Footer style file. All footer related style included in this file.
+--------------------------------------*/
+
+
+
+
+.footer-top {}
+.footer-top-inner {
+  padding: 60px 100px;
+}
+.footer-about {
+  padding-right: 70px;
+}
+.footer-logo {
+  margin-bottom: 35px;
+}
+.footer-brief {
+  margin-bottom: 33px;
+}
+.footer-social li {
+  display: inline-block;
+}
+.footer-social li + li {
+  margin-left: 10px;
+} 
+.footer-social li a {
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 50%;
+  color: #999;
+  display: block;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  width: 30px;
+}
+.footer-social li a:hover {
+  border-color: transparent;
+  color: #fff; 
+}
+.facebook:hover {
+    background: #3B5998;
+}
+.google-plus:hover {
+    background: #DD493D;
+}
+.twitter:hover {
+    background: #1DA1F2;
+}
+.rss:hover {
+    background: #F36F24;
+}
+.pinterest:hover {
+  background: #cb2027 none repeat scroll 0 0;
+}
+.footer-title {
+  font-weight: 700;
+  margin: 10px 0 30px;
+  text-transform: uppercase;
+}
+.footer-menu > li {
+  display: block;
+}
+.footer-menu li a {
+  color: #666666;
+  display: inline-block;
+  line-height: 30px;
+}
+.footer-menu li a i {
+  color: #999999;
+  font-size: 5px;
+  margin-right: 10px;
+  position: relative;
+  top: -3px;
+}
+.footer-menu li a span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.footer-menu li:hover a, .footer-menu li:hover a i {
+  color: #ff7f00;
+}
+.border-left {
+  position: relative;
+  padding-left: 10px;
+}
+.border-left::before {
+  background: #ff7f00 none repeat scroll 0 0;
+  content: "";
+  height: 12px;
+  left: 0;
+  margin-top: -6px;
+  position: absolute;
+  top: 50%;
+  width: 2px;
+}
+.border-left {}
+.border-left {}
+/*footer-message*/
+.footer-message input[type="text"] {
+  box-shadow: none;
+  margin-bottom: 10px;
+}
+.footer-message textarea {
+  box-shadow: none;
+}
+/*copyright*/
+.footer-bottom {}
+.copyright {
+  padding: 0 100px;
+}
+.copyright-text {
+  padding: 14px 0;
+}
+.copyright-text p {
+  line-height: 1;
+  margin: 0;
+}
+.copyright-text p a {
+  color: #999999;
+}
+.copyright-text p a:hover {
+  color: #ff7f00;
+}
+.footer-payment {
+  line-height: 1;
+  padding: 12px 0;
+}
+.footer-payment li {
+  display: inline-block;
+  margin-left: 6px;
+}
+.footer-payment li a {
+  display: block;
+  line-height: 1;
+}
+
+/*================= footer-area-2 ==================*/
+.footer-menu-2 {
+  line-height: 1;
+}
+.footer-menu-2 li {
+  display: inline-block;
+  margin-right: 30px;
+  position: relative;
+}
+.footer-menu-2 li::before {
+  background: #ff7f00 none repeat scroll 0 0;
+  content: "";
+  height: 11px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 1px;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+  width: 2px;
+}
+.footer-menu-2 li:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+.footer-menu-2 li a {
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+.footer-social-2 {
+  padding: 6px 0;
+}
+.footer-social-2 li a {
+  border: 0 none;
+  border-radius: 0;
+}

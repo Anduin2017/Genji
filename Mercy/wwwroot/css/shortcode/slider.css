@@ -1,0 +1,134 @@
+/* -----------------------------------
+  Template Name: Subash Ecommerce Responsive Bootstrap Template
+  Description: This is html5 template
+  Author: codecarnival
+  Version: 1.0
+  Design and Developed by: codecarnival
+
+  NOTE: This is Slider style file. All Slider related style included in this file.
+
+--------------------------------------*/
+
+
+.layer-1 {
+  position: relative;
+}
+.slider-img {
+  width: 53%;
+}
+.slider-img > img {
+  width: 100%;
+}
+.slider-info {
+  height: calc(100% - 100px);
+  padding: 50px 80px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55%;
+}
+.slider-info .slider-info-inner {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slider-title-1 {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 47px;
+  margin-bottom: 15px;
+}
+.slider-brief p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 35px;
+}
+
+/* -------------- Home 2  ---------------- */
+.slider-2 {
+  position: relative;
+}
+.slider2-title-1 {
+  color: #575757;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 5px;
+  position: relative;
+  text-transform: uppercase;
+}
+.slider2-title-2 {
+  color: #575757;
+  font-size: 55px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0;
+  position: relative;
+  text-transform: uppercase;
+}
+.slider2-title-3 {
+  color: #666666;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 33px;
+  margin-bottom: 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+.slider2-title-4 {
+  color: #737373;
+  font-size: 16px;
+  line-height: 26px;
+  position: relative;
+}
+.slider-button {
+  margin-top: 40px;
+}
+.layer-1-1 img {
+  padding-top: 135px;
+  width: 35%;
+  left: 10%;
+}
+.layer-1-1.layer-2-1 img {
+  left: auto;
+  right: 10%;
+}
+.title-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42%;
+}
+.slider-content-1 .title-container {
+  right: 10%;
+}
+.slider-content-2 .title-container {
+  left: 10%;
+}
+/*slider-desc-3*/
+.slider-desc-3 {
+  margin: auto;
+  width: calc(100% - 35%);
+}
+.slider-desc-3 .slider2-title-1,
+.slider-desc-3 .slider2-title-2 {
+  margin-bottom: 10px;
+}
+.slider-desc-3 .slider2-title-1 {
+  color: #fff;
+}
+.slider-desc-3 .slider2-title-2 {
+  color: #fff;
+}
+.slider-desc-3 .slider2-title-3 {
+  color: #fff;
+}
+.slider-desc-3 .slider2-title-4 {
+  color: #fff;
+}
+
+.slider-desc-4 {
+  margin: auto;
+  width: calc(100% - 20%);
+}
