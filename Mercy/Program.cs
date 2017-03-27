@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Mercy
 {
@@ -36,10 +37,10 @@ namespace Mercy
     public class Response
     {
         public string HttpVersion { get; set; } = "HTTP/1.1";
-        public byte ResponseCode { get; set; } = 200;
+        public short ResponseCode { get; set; } = 200;
         public string Message { get; set; } = "Found";
         public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
-        public string Body { get; set; }
+        public byte[] Body { get; set; }
     }
     public class HttpContext
     {
@@ -74,13 +75,15 @@ namespace Mercy
 
     public class HttpExcuter
     {
-        public async Task<Response> Excute(Request request)
+        public Middleware Middlewares { get; set; }
+        public HttpExcuter(Middleware middlewares)
         {
-            //await Task.Delay(3000);
-            var response = new Response();
-            response.Body = $"<h1>{DateTime.Now}</h1>";
-            response.Headers.Add("Content-type", " text/html; charset=utf-8");
-            return response;
+            Middlewares = middlewares;
+        }
+        public async Task Excute(HttpContext context)
+        {
+            context.Response = new Response();
+            Middlewares.Run(context);
         }
     }
     public class HttpReporter
@@ -88,13 +91,21 @@ namespace Mercy
         public async Task Report(Response response, NetworkStream stream)
         {
             await stream.WriteLine($"{response.HttpVersion} {response.ResponseCode} {response.Message}");
-            foreach(var header in response.Headers)
+            foreach (var header in response.Headers)
             {
                 await stream.WriteLine($"{header.Key}: {header.Value}");
             }
             await stream.WriteLine(string.Empty);
-            await stream.WriteLine(response.Body);
+            await stream.WriteAsync(response.Body, 0, response.Body.Length);
             stream.Dispose();
+        }
+    }
+
+    public class HttpRecorder
+    {
+        public async Task Record(HttpContext context)
+        {
+            Console.WriteLine($"[{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.Path}");
         }
     }
 
@@ -104,6 +115,7 @@ namespace Mercy
         public HttpBuilder Builder { get; set; }
         public HttpExcuter Excuter { get; set; }
         public HttpReporter Reporter { get; set; }
+        public HttpRecorder Recorder { get; set; }
         public MercyServer(int port)
         {
             Port = port;
@@ -120,9 +132,9 @@ namespace Mercy
                 {
                     var httpContext = new HttpContext();
                     httpContext.Request = await Builder.Build(stream);
-                    httpContext.Response = await Excuter.Excute(httpContext.Request);
+                    await Excuter.Excute(httpContext);
                     await Reporter.Report(httpContext.Response, stream);
-                    Console.WriteLine($"HTTP {httpContext.Request.Method} [{httpContext.Response.ResponseCode}]: {httpContext.Request.Path}");
+                    await Recorder.Record(httpContext);
 
                 }).GetAwaiter();
             }
@@ -133,13 +145,167 @@ namespace Mercy
     {
         public static void Main(string[] args)
         {
-            var server = new MercyServer(12222);
+            int port = 12222;
+            var server = new MercyServer(port);
+
+            string root = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "wwwroot";
+
+            var middlewares = new MiddlewareContainer()
+                .InsertMiddleware(new DefaultFileMiddleware())
+                .InsertMiddleware(new StaticFileMiddleware(root))
+                .InsertMiddleware(new MvcMiddleware())
+                .InsertMiddleware(new NotFoundMiddleware());
+
             server.Builder = new HttpBuilder();
-            server.Excuter = new HttpExcuter();
+            server.Excuter = new HttpExcuter(middlewares);
             server.Reporter = new HttpReporter();
-            Console.WriteLine("Application started at http://localhost:12222");
+            server.Recorder = new HttpRecorder();
+
+            Console.WriteLine($"Application started at http://localhost:{port}/");
             server.Start().Wait();
         }
+    }
+    public abstract class Middleware
+    {
+        public Middleware NextMiddleware { get; set; }
+        public virtual bool Excutable(HttpContext context)
+        {
+            return false;
+        }
+        public virtual Middleware InsertMiddleware(Middleware newMiddleware)
+        {
+            var pointer = this;
+            while (pointer.NextMiddleware != null)
+            {
+                pointer = pointer.NextMiddleware;
+            }
+            pointer.NextMiddleware = newMiddleware;
+            return this;
+        }
+        public void Run(HttpContext context)
+        {
+            if (Excutable(context))
+            {
+                Excute(context);
+            }
+            else
+            {
+                NextMiddleware.Run(context);
+            }
+        }
+        public virtual void Excute(HttpContext context)
+        {
+
+        }
+
+    }
+    public class MiddlewareContainer : Middleware
+    {
+    }
+
+    public class NotFoundMiddleware : Middleware
+    {
+        public override bool Excutable(HttpContext context)
+        {
+            return true;
+        }
+        public override void Excute(HttpContext context)
+        {
+            context.Response.ResponseCode = 404;
+            context.Response.Message = "Not found";
+            context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes("<h1>Not found!</h1>");
+            context.Response.Headers.Add("Content-type", " text/html; charset=utf-8");
+        }
+    }
+
+    public class StaticFileMiddleware : Middleware
+    {
+        public string RootPath { get; set; }
+        public StaticFileMiddleware(string rootPath)
+        {
+            RootPath = rootPath;
+        }
+
+        public override bool Excutable(HttpContext context)
+        {
+            string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
+            string filePath = RootPath + contextPath;
+            return File.Exists(filePath);
+        }
+
+        public override void Excute(HttpContext context)
+        {
+            string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
+            string filePath = RootPath + contextPath;
+            var fileExtension = Path.GetExtension(filePath).TrimStart('.');
+            context.Response.ResponseCode = 200;
+            context.Response.Message = "OK";
+            context.Response.Headers.Add("Content-Type", MIME.MIMETypesDictionary[fileExtension]);
+            context.Response.Body = File.ReadAllBytes(filePath);
+        }
+    }
+
+    public class DefaultFileMiddleware : Middleware
+    {
+
+    }
+
+    public class MvcMiddleware : Middleware
+    {
+
+    }
+
+
+    public class MIME
+    {
+        public static readonly Dictionary<string, string> MIMETypesDictionary = new Dictionary<string, string>
+        {
+            {"avi", "video/x-msvideo"},
+            {"apk","application/vnd.android.package-archive"},
+            {"bmp", "image/bmp"},
+            {"css", "text/css"},
+            {"dll", "application/octet-stream"},
+            {"doc", "application/msword"},
+            {"docx","application/vnd.openxmlformats-officedocument.wordprocessingml.document"},
+            {"gif", "image/gif"},
+            {"htm", "text/html"},
+            {"html", "text/html"},
+            {"ico", "image/x-icon"},
+            {"jpeg", "image/jpeg"},
+            {"jpg", "image/jpeg"},
+            {"js", "application/x-javascript"},
+            {"m4a", "audio/mp4a-latm"},
+            {"mid", "audio/midi"},
+            {"mov", "video/quicktime"},
+            {"mp3", "audio/mpeg"},
+            {"mp4", "video/mp4"},
+            {"mpeg", "video/mpeg"},
+            {"mpg", "video/mpeg"},
+            {"ogg", "application/ogg"},
+            {"pdf", "application/pdf"},
+            {"png", "image/png"},
+            {"ppt", "application/vnd.ms-powerpoint"},
+            {"pptx","application/vnd.openxmlformats-officedocument.presentationml.presentation"},
+            {"ppsx","application/vnd.openxmlformats-officedocument.presentationml.slideshow"},
+            {"swf", "application/x-shockwave-flash"},
+            {"svg", "image/svg+xml"},
+            {"tif", "image/tiff"},
+            {"txt", "text/plain"},
+            {"xhtml", "application/xhtml+xml"},
+            {"xls", "application/vnd.ms-excel"},
+            {"xlsx","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
+            {"zip", "application/zip"},
+            {"iso", "application/iso" },
+            {"7z","application/x-7z-compressed" },
+            {"rtf", "text/rtf"},
+            {"m4u", "video/vnd.mpegurl"},
+            {"tiff", "image/tiff"},
+            {"woff","application/x-font-woff"},
+            {"woff2","application/x-font-woff2"},
+            {"ttf","application/x-font-truetype"},
+            {"otf","application/x-font-opentype"},
+            {"eot","application/application/vnd.ms-fontobject"}
+        };
     }
     //public static class Program
     //{
