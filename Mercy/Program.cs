@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace MiSP
 {
-    class Program
+    public static class Program
     {
         static void Main(string[] args)
         {
-            var host = new HostBuilder()
-                .UseWelcome();
-
-            host.Run();
+            Method.Wait();
         }
 
         public static async Task Method()
