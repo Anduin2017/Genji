@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Mercy
 {
-
     public static class Library
     {
         public static async Task<string> ReadToEnd(this NetworkStream stream)
@@ -77,6 +76,7 @@ namespace Mercy
     {
         public async Task<Response> Excute(Request request)
         {
+            //await Task.Delay(3000);
             var response = new Response();
             response.Body = $"<h1>{DateTime.Now}</h1>";
             response.Headers.Add("Content-type", " text/html; charset=utf-8");
@@ -122,6 +122,8 @@ namespace Mercy
                     httpContext.Request = await Builder.Build(stream);
                     httpContext.Response = await Excuter.Excute(httpContext.Request);
                     await Reporter.Report(httpContext.Response, stream);
+                    Console.WriteLine($"HTTP {httpContext.Request.Method} [{httpContext.Response.ResponseCode}]: {httpContext.Request.Path}");
+
                 }).GetAwaiter();
             }
         }
@@ -135,6 +137,7 @@ namespace Mercy
             server.Builder = new HttpBuilder();
             server.Excuter = new HttpExcuter();
             server.Reporter = new HttpReporter();
+            Console.WriteLine("Application started at http://localhost:12222");
             server.Start().Wait();
         }
     }
