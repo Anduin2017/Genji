@@ -8,5 +8,6 @@ namespace Mercy.Models.Abstract
     {
         IMiddleware NextMiddleware { get; set; }
         void Run(HttpContext context);
+        IMiddleware InsertMiddleware(IMiddleware newMiddleware);
     }
 }

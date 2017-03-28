@@ -5,17 +5,23 @@ using System.Text;
 
 namespace Mercy.Models.Middlewares
 {
-    public class ServerNameMiddleware : Middleware, IMiddleware
+    public class DefaultHeadersMiddleware : Middleware, IMiddleware
     {
         public string ServerName { get; set; }
-        public ServerNameMiddleware(string serverName)
+        public bool KeepAlive { get; set; }
+        public DefaultHeadersMiddleware(string serverName = "Mercy", bool keepAlive = true)
         {
             ServerName = serverName;
+            KeepAlive = keepAlive;
         }
 
         protected override void Mix(HttpContext context)
         {
             context.Response.Headers.Add("Server", ServerName);
+            if (KeepAlive)
+            {
+                context.Response.Headers.Add("Connection", "keep-alive");
+            }
         }
 
         protected override bool Excutable(HttpContext context)

@@ -8,25 +8,30 @@ namespace Mercy.Models.Workers
 {
     public class HttpRecorder : IHttpRecorder
     {
+        public bool RecordingIncoming { get; set; }
+        public HttpRecorder(bool recordingIncoming = false)
+        {
+            RecordingIncoming = recordingIncoming;
+        }
         public string ToTimeString(DateTime t)
         {
             return t.TimeOfDay.ToString();
         }
-        public async Task Record(HttpContext context)
+        public void Record(HttpContext context)
         {
-            await Task.Delay(0);
             Console.WriteLine($"{ToTimeString(DateTime.Now)} [{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.Path}");
         }
-        public async Task RecordException(Exception e)
+        public void RecordException(Exception e)
         {
-            await Task.Delay(0);
             Console.WriteLine("Mercy server crashed: " + e.Message);
         }
 
-        public async Task RecordIncoming()
+        public void RecordIncoming()
         {
-            await Task.Delay(0);
-            Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP Incoming....");
+            if (RecordingIncoming)
+            {
+                Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP Incoming....");
+            }
         }
     }
 }

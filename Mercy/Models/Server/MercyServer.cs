@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Mercy.Models.Server
 {
-    public class MercyServer
+    public class MercyServer : IServer
     {
         private int Port { get; set; }
         public IHttpBuilder Builder { get; set; }
@@ -18,39 +18,36 @@ namespace Mercy.Models.Server
         public IHttpRecorder Recorder { get; set; }
 
         public Dictionary<ICondition, IMiddleware> Conditions { get; set; } = new Dictionary<ICondition, IMiddleware>();
-
         public MercyServer()
         {
             Port = 9000;
         }
-
-        public MercyServer UsePort(int port)
+        public IServer UsePort(int port = 9000)
         {
             Port = port;
             return this;
         }
-
-        public MercyServer Bind(ICondition when, IMiddleware run)
+        public IServer UseBuilder(IHttpBuilder Builder)
+        {
+            this.Builder = Builder;
+            return this;
+        }
+        public IServer UseReporter(IHttpReporter Reporter)
+        {
+            this.Reporter = Reporter;
+            return this;
+        }
+        public IServer UseRecorder(IHttpRecorder Recorder)
+        {
+            this.Recorder = Recorder;
+            return this;
+        }
+        public IServer Bind(ICondition when, IMiddleware run)
         {
             this.Conditions.Add(when, run);
             return this;
         }
 
-        public MercyServer UseBuilder(IHttpBuilder Builder)
-        {
-            this.Builder = Builder;
-            return this;
-        }
-        public MercyServer UseReporter(IHttpReporter Reporter)
-        {
-            this.Reporter = Reporter;
-            return this;
-        }
-        public MercyServer UseRecorder(IHttpRecorder Recorder)
-        {
-            this.Recorder = Recorder;
-            return this;
-        }
         public void Start()
         {
             Console.WriteLine($"Application started at http://localhost:{Port}/");
@@ -71,7 +68,7 @@ namespace Mercy.Models.Server
 
         private async Task Excute(NetworkStream stream)
         {
-            await Recorder.RecordIncoming();
+            Recorder.RecordIncoming();
             try
             {
                 await Calculate(stream);
@@ -79,7 +76,7 @@ namespace Mercy.Models.Server
             catch (Exception e)
             {
                 stream.Dispose();
-                await Recorder.RecordException(e);
+                Recorder.RecordException(e);
             }
         }
 
@@ -99,7 +96,7 @@ namespace Mercy.Models.Server
                 }
             }
             await Reporter.Report(httpContext.Response, stream);
-            await Recorder.Record(httpContext);
+            Recorder.Record(httpContext);
         }
     }
 }

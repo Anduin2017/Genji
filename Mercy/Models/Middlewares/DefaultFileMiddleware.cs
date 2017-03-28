@@ -8,7 +8,7 @@ namespace Mercy.Models.Middlewares
     public class DefaultFileMiddleware : Middleware, IMiddleware
     {
         public string DefaultFileName { get; set; }
-        public DefaultFileMiddleware(string defaultFileName)
+        public DefaultFileMiddleware(string defaultFileName = "index.html")
         {
             DefaultFileName = defaultFileName;
         }

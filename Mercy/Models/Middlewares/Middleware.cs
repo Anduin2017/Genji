@@ -12,7 +12,7 @@ namespace Mercy.Models.Middlewares
         protected abstract void Excute(HttpContext context);
         protected abstract void Mix(HttpContext context);
 
-        public Middleware InsertMiddleware(IMiddleware newMiddleware)
+        public IMiddleware InsertMiddleware(IMiddleware newMiddleware)
         {
             IMiddleware pointer = this;
             while (pointer.NextMiddleware != null)

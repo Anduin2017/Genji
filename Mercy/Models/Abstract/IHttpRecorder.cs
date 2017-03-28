@@ -7,8 +7,8 @@ namespace Mercy.Models.Abstract
 {
     public interface IHttpRecorder
     {
-        Task Record(HttpContext context);
-        Task RecordException(Exception e);
-        Task RecordIncoming();
+        void Record(HttpContext context);
+        void RecordException(Exception e);
+        void RecordIncoming();
     }
 }
