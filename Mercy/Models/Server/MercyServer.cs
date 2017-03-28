@@ -51,27 +51,34 @@ namespace Mercy.Models.Server
             return this;
         }
 
-        private async Task _Accept(TcpListener listener)
+
+
+
+
+        public void Start()
         {
-            var tcp = await listener.AcceptTcpClientAsync();
-            var stream = tcp.GetStream();
-            var httpContext = new HttpContext()
+            Console.WriteLine($"Application started at http://localhost:{Port}/");
+            Task.Run(Listening);
+        }
+
+        private async Task Listening()
+        {
+            var listener = new TcpListener(IPAddress.Any, Port);
+            listener.Start();
+            while (true)
             {
-                Request = await Builder.Build(stream),
-                Response = new Response()
-            };
+                var tcp = await listener.AcceptTcpClientAsync();
+                var stream = tcp.GetStream();
+                Excute(stream).GetAwaiter();
+            }
+        }
+
+        private async Task Excute(NetworkStream stream)
+        {
+            await Recorder.RecordIncoming();
             try
             {
-                foreach (var condition in Conditions)
-                {
-                    if (condition.Key.SatisfyAllConditions(httpContext))
-                    {
-                        condition.Value.Run(httpContext);
-                        break;
-                    }
-                }
-                await Reporter.Report(httpContext.Response, stream);
-                await Recorder.Record(httpContext);
+                await Calculate(stream);
             }
             catch (Exception e)
             {
@@ -80,18 +87,23 @@ namespace Mercy.Models.Server
             }
         }
 
-        public void Start()
+        private async Task Calculate(NetworkStream stream)
         {
-            Task.Run(() =>
+            var httpContext = new HttpContext()
             {
-                var listener = new TcpListener(IPAddress.Any, Port);
-                listener.Start();
-                Console.WriteLine($"Application started at http://localhost:{Port}/");
-                while (true)
+                Request = await Builder.Build(stream),
+                Response = new Response()
+            };
+            foreach (var condition in Conditions)
+            {
+                if (condition.Key.SatisfyAllConditions(httpContext))
                 {
-                    _Accept(listener).GetAwaiter();
+                    condition.Value.Run(httpContext);
+                    break;
                 }
-            });
+            }
+            await Reporter.Report(httpContext.Response, stream);
+            await Recorder.Record(httpContext);
         }
     }
 }

@@ -13,6 +13,10 @@ namespace Mercy.Models.Workers
         public async Task<Request> Build(NetworkStream stream)
         {
             var source = await stream.ReadToEnd();
+            if (string.IsNullOrWhiteSpace(source))
+            {
+                throw new Exception("We recieved an empty network stream request!");
+            }
             var lines = source.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             var firstRows = lines[0].Split(' ');
 

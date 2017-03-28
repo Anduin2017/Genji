@@ -9,5 +9,6 @@ namespace Mercy.Models.Abstract
     {
         Task Record(HttpContext context);
         Task RecordException(Exception e);
+        Task RecordIncoming();
     }
 }
