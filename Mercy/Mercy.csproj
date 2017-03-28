@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="wwwroot\**\*;">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Mercy
 {
@@ -190,6 +191,7 @@ namespace Mercy
 
             var filter = new FilterCollection()
                 .InsertFilter(new DomainFilter("localhost"));
+
 
             var filter2 = new FilterCollection()
                 .InsertFilter(new DomainFilter("127.0.0.1"));
