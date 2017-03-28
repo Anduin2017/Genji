@@ -1,0 +1,803 @@
+<!-- Site Setting Panel -->
+<div id="settings" ng-include="'views/settings/settings.html'" style="display:none"></div>
+<!-- Site Setting Panel End -->
+
+<div class="pageheader">
+  <h3><i class="fa fa-css3"></i> Buttons </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> Buttons </li>
+    </ol>
+  </div>
+</div>
+<div class="page">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Default Button </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" data-ng-init="initWaves()">
+          <button class="waves-effect waves-button waves-float waves-default">Default</button>
+          <button class="waves-effect waves-button waves-float waves-info">Info</button>
+          <button class="waves-effect waves-button waves-float waves-primary">Primary</button>
+          <button class="waves-effect waves-button waves-float waves-success">Success</button>
+          <button class="waves-effect waves-button waves-float waves-warning">Warning</button>
+          <button class="waves-effect waves-button waves-float waves-danger">Danger</button>
+          <button class="waves-effect waves-button waves-float waves-pink">Pink</button>
+          <button class="waves-effect waves-button waves-float waves-purple">Purple</button>       
+          <button class="waves-effect waves-button waves-float waves-deeppurple">Deep Purple</button>
+          <button class="waves-effect waves-button waves-float waves-indigo">Indigo</button>
+          <button class="waves-effect waves-button waves-float waves-blue">Blue</button>
+          <button class="waves-effect waves-button waves-float waves-lightblue">Light Blue</button>
+          <button class="waves-effect waves-button waves-float waves-cyan">Cyan</button>
+          <button class="waves-effect waves-button waves-float waves-lightgreen">Light Green</button>
+          <button class="waves-effect waves-button waves-float waves-lime">Lime</button>
+          <button class="waves-effect waves-button waves-float waves-amber">Amber</button>
+        </div>
+      </section>
+    </div>
+   </div>
+   
+   <div class="row">
+    <div class="col-lg-12">
+      <section class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Link Button </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" data-ng-init="initWaves()">
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-default">Default</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-info">Info</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-primary">Primary</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-success">Success</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-warning">Warning</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-danger">Danger</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-pink">Pink</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-purple">Purple</a>       
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-deeppurple">Deep Purple</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-indigo">Indigo</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-blue">Blue</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-lightblue">Light Blue</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-cyan">Cyan</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-lightgreen">Light Green</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-lime">Lime</a>
+          <a href="javascript:void(0)" class="waves-effect waves-button waves-float waves-amber">Amber</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Button Sizes</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" data-ng-init="initWaves()">
+          <button class="btn btn-cxs waves-effect waves-float waves-cyan">Large</button>
+          <button class="btn btn-csm waves-effect waves-float waves-lightgreen">Default</button>
+          <button class="btn btn-cmd waves-effect waves-danger">Small</button>
+          <button class="btn btn-clg waves-effect waves-float waves-pink"> Extra Small </button> 
+        </div>
+      </section>
+    </div>
+   </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Button Icons</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" data-ng-init="initWaves()">
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-camera"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-check"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-cloud-upload"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-cogs"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-database"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-envelope"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-magic"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-camera"></i></button>
+        </div>
+      </section>
+    </div>
+   </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Button Icons - Color</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" ng-init="initWaves()">
+          <button class="waves-effect waves-button waves-float waves-default"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-float waves-info"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-float waves-warning"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-float waves-success"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-float waves-danger"><i class="fa fa-camera"></i></button>
+          <button class="waves-effect waves-button waves-float waves-primary"><i class="fa fa-check"></i></button>
+          <button class="waves-effect waves-button waves-float waves-pink"><i class="fa fa-cloud-upload"></i></button>
+          <button class="waves-effect waves-button waves-float waves-purple"><i class="fa fa-cogs"></i></button>
+          <button class="waves-effect waves-button waves-float waves-deeppurple"><i class="fa fa-database"></i></button>
+          <button class="waves-effect waves-button waves-float waves-indigo"><i class="fa fa-envelope"></i></button>
+          <button class="waves-effect waves-button waves-float waves-blue"><i class="fa fa-magic"></i></button>
+          <button class="waves-effect waves-button waves-float waves-lightblue"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-float waves-cyan"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-float waves-lightgreen"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-float waves-lime"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-float waves-amber"><i class="fa fa-camera"></i></button>
+        </div>
+      </div>
+    </div>
+   </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Button Icons</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" ng-init="initWaves()">
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-camera"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-check"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-cloud-upload"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-cogs"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-database"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-envelope"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-magic"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-camera"></i></button>
+        </div>
+      </div>
+    </div>
+   </div>
+   
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Button Icons</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body" ng-init="initWaves()">
+          <button class="waves-effect waves-button waves-circle waves-float waves-default"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-info"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-primary"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-success"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-warning"><i class="fa fa-camera"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-danger"><i class="fa fa-check"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-pink"><i class="fa fa-cloud-upload"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-purple"><i class="fa fa-cogs"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-deeppurple"><i class="fa fa-database"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-indigo"><i class="fa fa-envelope"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-blue"><i class="fa fa-magic"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-lightblue"><i class="fa fa-home"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-cyan"><i class="fa fa-anchor"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-lightgreen"><i class="fa fa-bars"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-lime"><i class="fa fa-bell"></i></button>
+          <button class="waves-effect waves-button waves-circle waves-float waves-amber"><i class="fa fa-camera"></i></button>
+        </div>
+      </div>
+    </div>
+   </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Full Width Button</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <div class="col-md-12">Add <code>.btn-block</code> to use block button</div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-default">Default</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-info">Info</button>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-warning">Warning</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-4">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-success">Success</button>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-lightgreen">Light Green</button>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-pink">Pink</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-3">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-lightblue">Light Blue</button>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-cyan">Cyan</button>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-lime">Lime</button>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-block waves-effect waves-button waves-float waves-amber">Amber</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong>Button Groups</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <p>Wrap a series of buttons with <code>.btn</code> in <code>.btn-group</code>.</p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default waves-effect waves-default">Left</button>
+            <button type="button" class="btn btn-default waves-effect waves-default">Middle</button>
+            <button type="button" class="btn btn-default waves-effect waves-default">Right</button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-danger">Left</button>
+            <button type="button" class="btn waves-effect waves-danger">Middle</button>
+            <button type="button" class="btn waves-effect waves-danger">Right</button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-info">Left</button>
+            <button type="button" class="btn waves-effect waves-info">Middle</button>
+            <button type="button" class="btn waves-effect waves-info">Right</button>
+          </div>
+          <br>
+          <br>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-lightgreen"><i class="fa fa-align-left"></i></button>
+            <button type="button" class="btn waves-effect waves-lightgreen"><i class="fa fa-align-center"></i></button>
+            <button type="button" class="btn waves-effect waves-lightgreen"><i class="fa fa-align-right"></i></button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-lightblue"><i class="fa fa-align-left"></i></button>
+            <button type="button" class="btn waves-effect waves-lightblue"><i class="fa fa-align-center"></i></button>
+            <button type="button" class="btn waves-effect waves-lightblue"><i class="fa fa-align-right"></i></button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-warning"><i class="fa fa-align-left"></i></button>
+            <button type="button" class="btn waves-effect waves-warning"><i class="fa fa-align-center"></i></button>
+            <button type="button" class="btn waves-effect waves-warning"><i class="fa fa-align-right"></i></button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-pink"><i class="fa fa-align-left"></i></button>
+            <button type="button" class="btn waves-effect waves-pink"><i class="fa fa-align-center"></i></button>
+            <button type="button" class="btn waves-effect waves-pink"><i class="fa fa-align-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Disabled Button</strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <p>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</p>
+          <button class="btn waves-pink waves-effect disabled">Default</button>
+          <button class="btn waves-warning  waves-effect disabled">Primary</button>
+          <button class="btn waves-lightgreen waves-effect disabled">Info</button>
+          <button class="btn waves-lightblue waves-effect disabled">Sucess</button>
+          <button class="btn waves-danger waves-effect disabled">Warning</button>
+          <button class="btn waves-amber waves-effect disabled">Danger</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Button Groups Toolbar & Dropdown </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <p>Combine sets of <code>&lt;div class="btn-group"&gt;</code> into a <code>&lt;div class="btn-toolbar"&gt;</code> for more complex components.</p>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group">
+              <button class="btn btn-default waves-effect waves-default" type="button">1</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">2</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">3</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">4</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">5</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">6</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">7</button>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-default waves-effect waves-default" type="button">8</button>
+              <button class="btn btn-default waves-effect waves-default" type="button">9</button>
+            </div>
+          </div>
+          <h4>Nesting</h4>
+          <p>Place a <code>.btn-group</code> within another <code>.btn-group</code> when you want dropdown menus mixed with a series of buttons.</p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default waves-effect waves-default">1</button>
+            <button type="button" class="btn btn-default waves-effect waves-default">2</button>
+            <div class="btn-group" dropdown is-open="status.isopen8">
+              <button type="button" class="btn btn-default waves-effect waves-default dropdown-toggle" dropdown-toggle> Dropdown <span class="caret"></span> </button>
+              <ul class="dropdown-menu animated fadeInRight" role="menu">
+                <li><a href="javascript:;">Dropdown link</a></li>
+                <li><a href="javascript:;">Dropdown link</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-pink">1</button>
+            <button type="button" class="btn waves-effect waves-pink">2</button>
+            <div class="btn-group" dropdown is-open="status.isopen9">
+              <button type="button" class="btn waves-effect waves-pink dropdown-toggle" dropdown-toggle> Dropdown <span class="caret"></span> </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="javascript:;">Dropdown link</a></li>
+                <li><a href="javascript:;">Dropdown link</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn waves-effect waves-danger">1</button>
+            <button type="button" class="btn waves-effect waves-danger">2</button>
+            <div class="btn-group" dropdown is-open="status.isopen10">
+              <button type="button" class="btn waves-effect waves-danger dropdown-toggle" dropdown-toggle> Dropdown <span class="caret"></span> </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="javascript:;">Dropdown link</a></li>
+                <li><a href="javascript:;">Dropdown link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Button Group Width </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <p>Instead of applying button sizing classes to every button in a group, just add <code>.btn-group-*</code> to the <code>.btn-group</code>.</p>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group btn-group-lg">
+              <button type="button" class="btn waves-effect waves-pink">Left</button>
+              <button type="button" class="btn waves-effect waves-pink">Middle</button>
+              <button type="button" class="btn waves-effect waves-pink">Right</button>
+            </div>
+          </div>
+          <p role="toolbar" class="btn-toolbar"> </p>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group">
+              <button type="button" class="btn waves-effect waves-blue">Left</button>
+              <button type="button" class="btn waves-effect waves-blue">Middle</button>
+              <button type="button" class="btn waves-effect waves-blue">Right</button>
+            </div>
+          </div>
+          <p role="toolbar" class="btn-toolbar"> </p>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group btn-group-sm">
+              <button type="button" class="btn waves-effect waves-amber">Left</button>
+              <button type="button" class="btn waves-effect waves-amber">Middle</button>
+              <button type="button" class="btn waves-effect waves-amber">Right</button>
+            </div>
+          </div>
+          <p role="toolbar" class="btn-toolbar"> </p>
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group btn-group-xs">
+              <button type="button" class="btn waves-effect waves-info">Left</button>
+              <button type="button" class="btn waves-effect waves-info">Middle</button>
+              <button type="button" class="btn waves-effect waves-info">Right</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Single Button Dropdown </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <p>Turn a button into a dropdown toggle with some basic markup changes.</p>
+          <div class="btn-group" dropdown is-open="status.isopen1">
+            <button type="button" class="btn btn-default waves-effect waves-default dropdown-toggle" dropdown-toggle> Action <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen2">
+            <button type="button" class="btn waves-effect waves-cyan dropdown-toggle" dropdown-toggle> Action <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen3">
+            <button type="button" class="btn waves-effect waves-warning dropdown-toggle" dropdown-toggle> Action <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen4">
+            <button type="button" class="btn waves-effect waves-success dropdown-toggle" dropdown-toggle> Action <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen5">
+            <button type="button" class="btn waves-effect waves-danger dropdown-toggle" dropdown-toggle> Action <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen6">
+            <button type="button" class="btn waves-effect waves-lightblue dropdown-toggle" dropdown-toggle> Action <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Split Button Dropdown </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <p>Turn a button into a dropdown toggle with some basic markup changes.</p>
+          <div class="btn-group" dropdown is-open="status.isopen18">
+            <button class="btn btn-default waves-effect waves-default" type="button">Action</button>
+            <button class="btn btn-default waves-effect waves-default dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen19">
+            <button class="btn waves-effect waves-success" type="button">Action</button>
+            <button class="btn waves-effect waves-success dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen20">
+            <button class="btn waves-effect waves-blue" type="button">Action</button>
+            <button class="btn waves-effect waves-blue dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen21">
+            <button class="btn waves-effect waves-info" type="button">Action</button>
+            <button class="btn waves-effect waves-info dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen22">
+            <button class="btn waves-effect waves-warning" type="button">Action</button>
+            <button class="btn waves-effect waves-warning dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group" dropdown is-open="status.isopen23">
+            <button class="btn waves-effect waves-danger" type="button">Action</button>
+            <button class="btn waves-effect waves-danger dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Button Dropup </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <div class="btn-group dropup" dropdown is-open="status.isopen11">
+            <button type="button" class="btn btn-default waves-effect waves-default">Action</button>
+            <button type="button" class="btn btn-default waves-effect waves-default dropdown-toggle" dropdown-toggle> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen12">
+            <button type="button" class="btn waves-effect waves-cyan">Action</button>
+            <button type="button" class="btn waves-effect waves-cyan dropdown-toggle" dropdown-toggle> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen13">
+            <button type="button" class="btn waves-effect waves-warning">Action</button>
+            <button type="button" class="btn waves-effect waves-warning dropdown-toggle" dropdown-toggle> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen14">
+            <button type="button" class="btn waves-effect waves-success">Action</button>
+            <button type="button" class="btn waves-effect waves-success dropdown-toggle" dropdown-toggle> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen15">
+            <button type="button" class="btn waves-effect waves-danger">Action</button>
+            <button type="button" class="btn waves-effect waves-danger dropdown-toggle" dropdown-toggle> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen16">
+            <button type="button" class="btn waves-effect waves-lightblue">Action</button>
+            <button type="button" class="btn waves-effect waves-lightblue dropdown-toggle" dropdown-toggle> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> 
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Split Button Dropup </strong> 
+          <span class="pull-right"> 
+            <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+            <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+            <i class="fa fa-times" data-widget-close=""></i> 
+          </span> 
+        </header>
+        <div class="panel-body">
+          <div class="btn-group dropup" dropdown is-open="status.isopen25">
+            <button class="btn btn-default waves-effect waves-default" type="button">Action</button>
+            <button class="btn btn-default waves-effect waves-default dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen26">
+            <button class="btn waves-effect waves-info" type="button">Action</button>
+            <button class="btn waves-effect waves-info dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen27">
+            <button class="btn waves-effect waves-warning" type="button">Action</button>
+            <button class="btn waves-effect waves-warning dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen28">
+            <button class="btn waves-effect waves-success" type="button">Action</button>
+            <button class="btn waves-effect waves-success dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen29">
+            <button class="btn waves-effect waves-danger" type="button">Action</button>
+            <button class="btn waves-effect waves-danger dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          <div class="btn-group dropup" dropdown is-open="status.isopen30">
+            <button class="btn waves-effect waves-lightblue" type="button">Action</button>
+            <button class="btn waves-effect waves-lightblue dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

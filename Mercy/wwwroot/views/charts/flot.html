@@ -1,0 +1,156 @@
+<!-- Site Setting Panel -->
+<section id="settings" ng-include="'views/settings/settings.html' " style="display:none"></section>
+<!-- Site Setting Panel End -->
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h3><i class="fa fa-line-chart"></i> Flot Chart </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> 
+    <span class="label">You are here:</span>
+      <ol class="breadcrumb">
+        <li> <a href="#"> Home </a> </li>
+        <li class="active"> Flot </li>
+      </ol>
+  </div>
+</div>
+<!-- Page Header End --> 
+
+<!-- Flot Chart Start -->
+<div class="page" ng-controller="flotChartCtrl">
+  <div class="row">
+  
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong> Bar Chart (negative)</strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="barChart3.data" data-options="barChart3.options" class="height-300"></div>
+        <!-- Flot Chart Body End -->
+       
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Simple Flot <strong> Bar Chart </strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="barChart4.data" data-options="barChart4.options" class="height-300"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+  
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong> Spline Chart </strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="line1.data" data-options="line1.options" class="height-300"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong> Stacked Bar Chart </strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="barChart.data" data-options="barChart.options" class="height-300"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="row">
+  
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong> Real Time Chart </strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart-realtime data-type="realtime" class="height-300"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+  
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong> Line and Area Chart </strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="area.data" data-options="area.options" class="height-300"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+  
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong>Pie Chart</strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="pieChart.data" data-options="pieChart.options" class="height-250"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong>Donut Chart</strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="donutChart.data" data-options="donutChart.options" class="height-250"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Flot <strong>Styled Donut Chart</strong> </h4>
+        <div class="panel-body">
+        
+        <!-- Flot Chart Body Start -->
+          <div flot-chart data="donutChart2.data" data-options="donutChart2.options" class="height-250"></div>
+        <!-- Flot Chart Body End -->
+        
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- Flot Chart End -->

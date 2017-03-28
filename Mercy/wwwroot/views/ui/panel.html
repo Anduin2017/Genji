@@ -1,0 +1,261 @@
+<!-- Site Setting Panel -->
+<section id="settings" ng-include="'views/settings/settings.html'" style="display:none"></section>
+<!-- Site Setting Panel End -->
+
+<div class="pageheader">
+  <h3><i class="fa fa-home"></i> Dashboard </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> Dashboard </li>
+    </ol>
+  </div>
+</div>
+<div class="page" data-ng-init="initWaves()"> 
+  
+  <!-- Simple Panel -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> Basic Panel </strong> </header>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> Basic Panel </strong> </header>
+        <div class="panel-body"> Panel Content </div>
+        <div class="panel-footer"> Panel footer </div>
+      </div>
+    </div>
+  </div>
+  <!-- Simple Panel End --> 
+  
+  <!-- Simple Panel With Tab -->
+  <div class="row">
+    <div class="col-md-6"> 
+      <!-- Bootstrap Simple Tab -->
+      <div class="panel panel-default" data-ng-controller="TabsDemoCtrl">
+        <tabset> 
+          <tab heading="Panel Tab">
+          <div class="pad-10"> Tab 1 content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </div>
+          </tab> <tab heading="Panel Tab">
+          <div class="pad-10"> Tab 2 content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </div>
+          </tab> <tab heading="Panel Tab">
+          <div class="pad-10"> Tab 3 content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </div>
+          </tab> 
+         </tabset>
+      </div>
+      <!-- end Bootstrap Simple Tab --> 
+    </div>
+    <div class="col-md-6"> 
+      <!-- Bootstrap Simple Tab -->
+      <div class="panel panel-default" data-ng-controller="TabsDemoCtrl">
+        <tabset> 
+          <tab heading="Panel Tab" class="pull-right">
+          <div class="pad-10"> Tab 1 content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </div>
+          </tab> <tab heading="Panel Tab" class="pull-right">
+          <div class="pad-10"> Tab 2 content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </div>
+          </tab> <tab heading="Panel Tab" class="pull-right">
+          <div class="pad-10"> Tab 3 content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </div>
+          </tab> 
+        </tabset>
+      </div>
+      <!-- end Bootstrap Simple Tab --> 
+    </div>
+  </div>
+  <!-- Simple Panel With Tab End-->
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> With icon Dropdown </strong> <span class="pull-right panel-toolbar">
+          <div class="btn-group" dropdown data-is-open="status.isopen">
+            <button class="waves-effect waves-danger btn btn-md dropdown-toggle" type="button" dropdown-toggle> <i class="fa fa-cog"></i> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          </span> </header>
+        <div class="panel-body"> contents goes here </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong>With All Option</strong> <span class="pull-right"> <i class="fa fa-chevron-down mr-10" data-panel-toggle=""></i> <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> <i class="fa fa-times" data-widget-close=""></i> </span> </header>
+        <div class="panel-body"> contents goes here </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> With Switch </strong> <span class="pull-right panel-toolbar">
+          <label class="switch switch-danger">
+            <input type="checkbox" ng-model="oneAtATime">
+            <i></i></label>
+          </span> </header>
+        <div class="panel-body"> contents goes here </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> With Button </strong> <span class="pull-right panel-toolbar">
+          <button class="waves-effect waves-info waves-button btn btn-md" type="button">info</button>
+          <button class="waves-effect waves-danger waves-button btn btn-md" type="button">Danger</button>
+          </span> </header>
+        <div class="panel-body"> contents goes here </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> With Split Button Dropdown </strong> <span class="pull-right panel-toolbar">
+          <div class="btn-group" dropdown is-open="status.isopen18">
+            <button class="waves-effect waves-danger btn btn-sm" type="button">Action</button>
+            <button class="waves-effect waves-danger btn btn-sm dropdown-toggle" type="button" dropdown-toggle> <span class="caret"></span> </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:;">Action</a></li>
+              <li><a href="javascript:;">Another action</a></li>
+              <li><a href="javascript:;">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:;">Separated link</a></li>
+            </ul>
+          </div>
+          </span> </header>
+        <div class="panel-body"> contents goes here </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> With Button Group </strong> <span class="pull-right panel-toolbar">
+          <div class="btn-group">
+            <button class="btn btn-default waves-effect waves-default" type="button">Left</button>
+            <button class="btn btn-default waves-effect waves-default" type="button">Middle</button>
+            <button class="btn btn-default waves-effect waves-default" type="button">Right</button>
+          </div>
+          </span> </header>
+        <div class="panel-body"> contents goes here </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> Initail Collaps bar </strong> <span class="pull-right"> <i class="fa fa-chevron-down mr-10" panel-Toggle=""></i> </span> </header>
+        <div class="panel-body" collapse="isCollapsed"> contents goes here </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> <strong> Panel With Scroll </strong> </header>
+        <div class="panel-body">
+          <div class="overflow" slim-scroll scroll-height="130px">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> <strong> Panel Title </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"> <strong> Panel Title </strong> </div>
+        <div class="panel-body"> Panel Content </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-success">
+        <div class="panel-heading"> <strong> Panel Title </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading"> <strong> Panel Title </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-warning">
+        <div class="panel-heading"> <strong> Panel Title </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-danger">
+        <div class="panel-heading"> <strong> Panel Title </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+      <!-- end Panels --> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-orange">
+        <div class="panel-heading"> <strong> Contextual Panel - Soft Orange</strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-pink">
+        <div class="panel-heading"> <strong> Contextual Panel - Pink </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-grey">
+        <div class="panel-heading"> <strong> Contextual Panel - Grey </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-tint">
+        <div class="panel-heading"> <strong> Contextual Panel - Tint </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-azure">
+        <div class="panel-heading"> <strong> Contextual Panel - Azure </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-bricky">
+        <div class="panel-heading"> <strong> Contextual Panel - bricky </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-purple">
+        <div class="panel-heading"> <strong> Contextual Panel - Purple </strong> </div>
+        <div class="panel-body"> Panel content </div>
+      </div>
+    </div>
+  </div>
+</div>

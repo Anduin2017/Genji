@@ -1,0 +1,46 @@
+<div class="lock-wrapper">
+    <div class="panel lock-box">
+        <div class="center"> <img alt="" src="images/photos/user.png" class="img-circle" /> </div>
+        <h4> Hello Guest !</h4>
+        <p class="text-center">Please login your Obisoft Account</p>
+        <div class="row" ng-controller="signupController as suCtrl">
+            <form class="form-inline" role="form" ng-submit="suCtrl.signuptoServer()">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <div class="iconic-input right">
+                        <label for="signupInputEmail" class="text-muted">Full Name</label>
+                        <input id="signupInputEmail1" type="text" ng-model="suCtrl.userInfo.fullName" placeholder="Enter Full Name" class="form-control ph-15" required="required" />
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="iconic-input right">
+                        <label for="signupInputEmail" class="text-muted">Email address</label>
+                        <input id="signupInputEmail1" type="email" ng-model="suCtrl.userInfo.email" placeholder="Enter email" class="form-control ph-15" required="required" />
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="iconic-input right">
+                        <label for="signupInputPassword" class="text-muted">Password</label>
+                        <input id="signupInputPassword" type="password" ng-model="suCtrl.userInfo.password" placeholder="Password" class="form-control lock-input" required="required" />
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="iconic-input right" ng-hide="suCtrl.userInfo.password===''">
+                        <label for="signupInputPassword" class="text-muted">Retype Password</label>
+                        <input id="signupInputPassword" type="password" ng-model="suCtrl.userInfo.repassword" placeholder="Retype Password" class="form-control lock-input" required="required" />
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="square-blue pull-left pv-15" ng-show="suCtrl.ableInfo()">
+                        <p><strong>I agree with the terms</strong></p>
+                        <label class="switch switch-primary">
+                            <input name="rememberme" type="checkbox" ng-model="suCtrl.userInfo.agree">
+                            <i></i>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary"
+                            ng-disabled="suCtrl.userInfo.agree !== true||!suCtrl.ableInfo()">
+                        Sign Up
+                    </button>
+                </div>
+                <div class="panel-footer" ng-hide="suCtrl.errorinfo === ''"><code>{{suCtrl.errorinfo}}</code></div>
+            </form>
+        </div>
+    </div>
+    <div class="registration"> Already registered ? <a href="#/pages/signin"> <span class="text-primary"> Please Login </span> </a> </div>
+</div>

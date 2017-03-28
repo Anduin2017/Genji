@@ -1,0 +1,299 @@
+﻿<div id="settings" ng-include="'views/settings/settings.html'" style="display:none"></div>
+<div class="pageheader">
+    <h2><i class="fa fa-users"></i> Team </h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li> <a href="/"> Home </a> </li>
+            <li class="active"> Team </li>
+        </ol>
+    </div>
+</div>
+<div class="page" ng-controller="teamprofile">
+    <div class="row">
+        <div class="col-xs-12 col-md-3 col-lg-3 np">
+            <div class="col-md-12" ng-init="initWaves()">
+                <div class="panel">
+                    <div class="panel-body np">
+                        <img src="images/photos/big-user-image.jpg" alt="Cover">
+                        <div class="text-center">
+                            <h4 class="mt-15">{{o}} Armstrong</h4>
+                            <p class="text-small">Digital Marketing Director</p>
+                            <div class="pv-15 btn-group">
+                                <a href="javascript:void(0)" class="btn waves-effect waves-danger"> <i class="fa fa-facebook"></i> </a>
+                                <a href="javascript:void(0)" class="btn waves-effect waves-danger"> <i class="fa fa-google-plus"></i> </a>
+                                <a href="javascript:void(0)" class="btn waves-effect waves-danger"> <i class="fa fa-linkedin"></i> </a>
+                                <a href="javascript:void(0)" class="btn waves-effect waves-danger"> <i class="fa fa-twitter"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="panel">
+                    <header class="panel-heading nb"> <i class="fa fa-user ph-5"></i> User Information </header>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td><i class="fa fa-external-link ph-5"></i></td>
+                                    <td> URL </td>
+                                    <td> www.google.com</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-envelope-o ph-5"></i></td>
+                                    <td> Email </td>
+                                    <td>peter@google.com </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-phone ph-5"></i></td>
+                                    <td> Phone </td>
+                                    <td> (641)-734-4763 </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-skype ph-5"></i></td>
+                                    <td> Skype </td>
+                                    <td> peterclark82 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel">
+                    <header class="panel-heading"> <i class="fa fa-users ph-5"></i> Friends </header>
+                    <div class="panel-body">
+                        <ul class="list-inline">
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user1.png" alt=""><i class="on bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user2.png" alt=""><i class="busy bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user3.png" alt=""><i class="on bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user4.png" alt=""><i class="away bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user5.png" alt=""><i class="off bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user6.png" alt=""><i class="on bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user7.png" alt=""><i class="busy bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user1.png" alt=""><i class="on bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user2.png" alt=""><i class="off bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user3.png" alt=""><i class="on bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user4.png" alt=""><i class="busy bottom text-white"></i></div>
+                            </li>
+                            <li class="pad-5">
+                                <div class="media-object avatar"><img src="images/photos/user5.png" alt=""><i class="on bottom text-white"></i></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel">
+                    <header class="panel-heading nb"> <i class="fa fa-user ph-5"></i> General information </header>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Position</td>
+                                    <td> UI Designer </td>
+                                </tr>
+                                <tr>
+                                    <td>Last Logged In</td>
+                                    <td>56 min</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td><span class="label label-sm label-info">Administrator</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-9 col-lg-9">
+            <!-- Bootstrap Justified Tab -->
+            <section class="panel panel-default">
+                <tabset class="tab-block">
+                    <tab heading="Timeline">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <!-- START TIMELINE -->
+                                        <div class="profile-timeline timeline-right">
+
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-main">
+                                                <div class="timeline-date bg-primary">Now</div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-purple"><span class="fa fa-check"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading"> <img src="images/photos/user2.png" alt="" /> John Doe posted a new blog. </div>
+                                                    <div class="timeline-body">
+                                                        <img src="images/gallery/image1.png" alt="" class="img-text" width="150" align="left" />
+                                                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</h4>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+                                                    </div>
+                                                    <div class="timeline-footer">
+                                                        <a href="javascript:void(0)">Read more</a>
+                                                        <div class="pull-right"> <a href="javascript:void(0)"><span class="fa fa-comment"></span> 35</a> <a href="javascript:void(0)"><span class="fa fa-share"></span></a> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-success"><span class="fa fa-users"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading" style="padding-bottom: 10px;"> <img src="images/photos/user1.png" alt="" /> Shirley Anderson started following <img src="images/photos/user3.png" alt="" /> <img src="images/photos/user4.png" alt="" /> </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-info"><span class="fa fa-image"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading"> <img src="images/photos/user3.png" alt="" /> Jonathan Anderson Uploaded 5 images </div>
+                                                    <div class="timeline-body" id="links">
+                                                        <div class="row">
+                                                            <div class="col-md-4"> <a href="images/gallery/image1.png" title="Nature Image 1" data-gallery> <img src="images/gallery/image1.png" class="img-responsive img-text" alt="" /> </a> </div>
+                                                            <div class="col-md-4"> <a href="images/gallery/image2.png" title="Nature Image 2" data-gallery> <img src="images/gallery/image2.png" class="img-responsive img-text" alt="" /> </a> </div>
+                                                            <div class="col-md-4"> <a href="images/gallery/image3.png" title="Nature Image 3" data-gallery> <img src="images/gallery/image3.png" class="img-responsive img-text" alt="" /> </a> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-danger"><span class="fa fa-star"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading" style="padding-bottom: 10px;"> <img src="images/photos/user3.png" alt="" /> Jonathan Smith completed the task “Application UI Re-design” within the dead line </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-azure"><span class="fa fa-star"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading" style="padding-bottom: 10px;"> <img src="images/photos/user5.png" alt="" /> <a href="javascript:void(0)">John Doe</a> joined group <a href="javascript:void(0)">Web Developers</a> </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-warning"><span class="fa fa-map-marker"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading"> <img src="images/photos/user3.png" alt="" /> <a href="javascript:void(0)">John Doe</a> invite you to <a href="javascript:void(0)">@Event</a> </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+                                            <!-- START TIMELINE ITEM -->
+                                            <div class="timeline-item timeline-item-right">
+                                                <div class="timeline-item-icon bg-info"><span class="fa fa-users"></span></div>
+                                                <div class="timeline-item-content">
+                                                    <div class="timeline-heading" style="padding-bottom: 10px;"> <img src="images/photos/user1.png" alt="" /> <a href="javascript:void(0)"> Smith Johnson </a> added to friends <img src="images/photos/user2.png" alt="" /> <img src="images/photos/user3.png" alt="" /> <img src="images/photos/user4.png" alt="" /> </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TIMELINE ITEM -->
+
+                                        </div>
+                                        <!-- END TIMELINE -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="Projects">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Project</th>
+                                            <th> Project Deadline </th>
+                                            <th>Status</th>
+                                            <th>Client</th>
+                                            <th>Progress</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>IT Help Desk</td>
+                                            <td>11 Feb 2015</td>
+                                            <td><span class="label label-danger">Critical</span></td>
+                                            <td>Amery Lee</td>
+                                            <td><progressbar class="progressbar-xs no-margin" value="55"></progressbar></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Product Dev</td>
+                                            <td>12 june 2015</td>
+                                            <td><span class="label label-warning">High</span></td>
+                                            <td>Romayne Carlyn</td>
+                                            <td><progressbar class="progressbar-xs no-margin" value="34" type="success"></progressbar></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td> Website Redesign</td>
+                                            <td>11 november 2015</td>
+                                            <td><span class="label label-success">Normal</span></td>
+                                            <td>Marybeth Joanna</td>
+                                            <td><progressbar class="progressbar-xs no-margin" value="68" type="info"></progressbar></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td> Local Ad </td>
+                                            <td>15 april 2015</td>
+                                            <td><span class="label label-success">Normal</span></td>
+                                            <td>Jonah Benny</td>
+                                            <td><progressbar class="progressbar-xs no-margin" value="52" type="warning"></progressbar></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Design new theme</td>
+                                            <td>2 May 2015</td>
+                                            <td><span class="label label-warning">High</span></td>
+                                            <td>Daly Royle</td>
+                                            <td><progressbar class="progressbar-xs no-margin" value="77" type="danger"></progressbar></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Mockup Testing</td>
+                                            <td>6 June 2015</td>
+                                            <td><span class="label label-info">On Hold</span></td>
+                                            <td>Jane Swift</td>
+                                            <td><progressbar class="progressbar-xs no-margin" value="55" type="success"></progressbar></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </tab>
+                </tabset>
+            </section>
+        </div>
+    </div>
+</div>

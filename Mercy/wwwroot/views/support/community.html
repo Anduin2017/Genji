@@ -1,0 +1,69 @@
+﻿<div id="settings" ng-include="'views/settings/settings.html'" style="display:none"></div>
+
+<section class="panel panel-default" ng-controller="communityController">
+    <tabset class="tab-block">
+        <tab heading="Timeline">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-offset-8 col-md-3 blockbtn">
+                            <a class="btn btn-block waves-effect waves-button waves-float waves-lightblue" href="#/support/publish">
+                                <i class="fa fa-edit"></i> Publish
+                            </a>
+                        </div>
+                        <!--Community Timeline-->
+                        <div class="col-md-12" ng-init="initArticles()">
+                            <div class="profile-timeline timeline-right">
+                                <div class="timeline-item timeline-main">
+                                    <div class="timeline-date bg-primary">Now</div>
+                                </div>
+                                <div class="timeline-item timeline-item-right" ng-repeat="art in articles">
+                                    <div class="timeline-item-icon bg-purple" ng-show="!art.HasImage">
+                                        <span class="fa fa-check"></span>
+                                    </div>
+                                    <div class="timeline-item-icon bg-warning" ng-show="art.HasImage">
+                                        <span class="fa fa-image"></span>
+                                    </div>
+                                    <div class="timeline-item-content">
+                                        <div class="timeline-heading">
+                                            <img ng-src="{{art.IconAddress}}" alt="" />
+                                            {{art.PublisherNickName}} posted a new blog.
+                                        </div>
+                                        <div class="timeline-body" style="overflow:hidden">
+                                            <img ng-show="art.HasImage" src="{{art.FirstImage}}" alt="" class="img-text" width="150" align="left" />
+                                            <h4>{{art.Title| limitTo:40}}...</h4>
+                                            <p>{{art.PureContent}}...</p>
+                                        </div>
+                                        <div class="timeline-footer">
+                                            <a href="javascript:void(0)" ng-click="navArt(art.CommunityArticleId)">Read more</a>
+                                            <div class="pull-right">
+                                                <a href="javascript:void(0)"><span class="fa fa-comment"></span>{{art.CommentsCount}}</a>
+                                                <a href="javascript:void(0)"><span class="fa fa-eye"></span>{{art.Views}}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tab>
+        <tab heading="Parts" ng-init="initParts()">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-lg-4 col-md-6" ng-repeat="part in parts">
+                        <h3 class="nm">{{part.CommunityName}}</h3>
+                        <p class="text-muted">{{part.ShortDescription}}</p>
+                        <progressbar class="progressbar-xs progress-rounded progress-striped active" value="55" type="success"></progressbar>
+                        <span class="text-small">Of {{part.ArticlesCount}} articles</span>
+                    </div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+</section>
+
+
+
+

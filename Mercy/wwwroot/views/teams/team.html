@@ -1,0 +1,169 @@
+﻿<div id="settings" ng-include="'views/settings/settings.html'" style="display:none"></div>
+<div class="pageheader">
+    <h2><i class="fa fa-users"></i> Team </h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li> <a href="/"> Home </a> </li>
+            <li class="active"> Team </li>
+        </ol>
+    </div>
+</div>
+<div class="page" ng-init="initWaves()" ng-controller="teamController as teamCtrl">
+    <div class="row">
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <div class="mail-categories">
+                <div class="blockbtn">
+                    <a ng-href="#/teams/createnew" class="btn btn-block waves-effect waves-button waves-float waves-danger">
+                        <i class="fa fa-slideshare"></i>
+                        Create new Team
+                    </a>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-coffee"></i>Joined <span class="label label-info pull-right">{{data.Object.Joined}}</span> </a></li>
+                    <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-save"></i>Owned <span class="label label-danger pull-right">{{ data.Object.Owned}}</span> </a></li>
+                    <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-gears"></i>Admined <span class="label label-success pull-right">{{data.Object.Admined}}</span> </a></li>
+                    <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-users"></i>Teams <span class="label label-warning pull-right">{{data.Object.Teams}}</span> </a></li>
+                    <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-bullhorn"></i>Info Stations<span class="label label-warning pull-right">{{data.Object.InfoStations}}</span> </a></li>
+                </ul>
+            </div>
+            <div class="mail-categories">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="en in enum">
+                        <a href="javascript:;" ng-click="setEnum(en.num)">
+                            {{en.des}}
+                            <i ng-show="TypeFilter==en.num" class="fa fa-circle color-danger pull-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="widgetbox widgetbox-default widgetbox-item-icon">
+                <div class="widgetbox-item-left widgetbox-icon-success">
+                    <span class="fa fa-users"></span>
+                </div>
+                <div class="widgetbox-data">
+                    <div class="widgetbox-int">
+                        {{data.Object.PeopleYouLeading}}
+                    </div>
+                    <div class="widgetbox-title">
+                        People you are leading.
+                    </div>
+                    <div class="widgetbox-subtitle">
+                        From all teams you admined.
+                    </div>
+                </div>
+            </div>
+            <div class="widgetbox widgetbox-default widgetbox-item-icon">
+                <div class="widgetbox-item-left widgetbox-icon-danger">
+                    <span class="fa fa-tags"></span>
+                </div>
+                <div class="widgetbox-data">
+                    <div class="widgetbox-int">
+                        {{data.Object.TaskFinished}}
+                    </div>
+                    <div class="widgetbox-title">
+                        All tasks you finshed
+                    </div>
+                    <div class="widgetbox-subtitle">
+                        From all team tasks relation with you.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <div class="panel panel-default">
+                <header class="panel-heading">
+                    <strong ng-show="!OnlyIJoined" class="hidden-xs"> Search and join a group </strong>
+                    <strong ng-show="OnlyIJoined" class="hidden-xs"> Search a joined group </strong>
+                    <strong>&nbsp;</strong> <span class="pull-right panel-toolbar">
+                        <label class="switch switch-danger">
+                            Only search groups I joined.
+                            <input type="checkbox" ng-model="OnlyIJoined" class="ng-pristine ng-untouched ng-valid">
+                            <i></i>
+                        </label>
+                    </span>
+                </header>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <div class="input-group-btn">
+                            <button class="btn btn-info btn-md" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="panel panel-default mail-container">
+                <div class="mail-options">
+                    <div class="btn-toolbar">
+                        <div class="btn-group" data-dropdown data-is-open="status.isopen3">
+                            <button class="waves-effect waves-button waves-float waves-default dropdown-toggle" type="button" dropdown-toggle>
+                                <i class="fa fa-magic"></i>
+                                Action<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-unlink"></i>
+                                        Leave Selected
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-shield"></i>
+                                        Report Team
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ng-href="#/teams/createnew">
+                                        <i class="fa fa-slideshare"></i>
+                                        Create new Team
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group pull-right hidden-xs">
+                            <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-chevron-left"></i></button>
+                            <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-chevron-right"></i></button>
+                        </div>
+                        <h6 class="pull-right pv-10 hidden-xs hidden-sm hidden-md"> Showing 1 - 15 of 2368 </h6>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <tabset>
+                        <tab ng-repeat="Tab in Classify" heading="{{Tab.tabheading}}">
+                            <table class="table table-hover table-responsive">
+                                <tr ng-click="TeamDetails(Group.GroupId)" ng-repeat="Group in Groups | filter: { Type : Tab.filter, GroupType : TypeFilter }">
+                                    <td width="3%">
+                                        <label class="ui-checkbox">
+                                            <input name="checkbox1" type="checkbox" value="option1">
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td width="7%" ng-show="Group.RelationType==3"><span class="label label-danger"> Member </span></td>
+                                    <td width="7%" ng-show="Group.RelationType==2"><span class="label label-info"> Admin </span></td>
+                                    <td width="7%" ng-show="Group.RelationType==1"><span class="label label-success"> Owner </span></td>
+                                    <td ng-repeat="en in enum" class="hidden-xs" ng-show="Group.GroupType==en.num" width="7%">
+                                        <span class="label label-primary"> {{en.des}}</span>
+                                    </td>
+                                    <td width="15%">{{Group.GroupName}}</td>
+                                    <td class="hidden-xs hidden-sm">{{Group.GroupDescription}}</td>
+                                    <td width="10%">{{Group.GU_Relations.length}}<i class="fa fa-user"></i></td>
+                                    <td>{{Group.CreateTime.substring(0,10)}}</td>
+                                    <td>{{Group.CreaterName}}</td>
+                                </tr>
+                                <tr ng-hide="Groups.length!==0">
+                                    <td width="50%">
+                                        <a ng-href="#/teams/createnew" class="btn btn-block waves-effect waves-button waves-float waves-amber">
+                                            <i class="fa fa-slideshare"></i>
+                                            Not joined any group? Create a new one Now!
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab>
+                    </tabset>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

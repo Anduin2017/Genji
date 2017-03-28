@@ -1,0 +1,13 @@
+<table class="form-inline">
+  <tr> 
+    <td>{{p.id}} <input type="hidden" name="id" value="{{p.id}}"></td>
+    <td><input type="text" name="fn" class="form-control" value="{{p.fn}}"></td>
+    <td><input type="text" name="em" class="form-control" value="{{p.em}}"></td>
+    <td><input type="text" name="ln" class="form-control" value="{{p.ln}}"></td>
+    <td><input type="text" name="dc" class="form-control" value="{{p.dc}}"></td>
+    <td><input type="text" name="ph" class="form-control" value="{{p.ph}}"></td>
+    <td><input class="btn btn-warning btn-sm" type="button" value=" save " data-onclick="alert('Save :)')"></td>
+    <td><input class="btn btn-danger btn-sm" type="button" value=" cancel" ng-click="setEditId(-1)"></td>
+  </tr>
+</table>
+<!--  class="editRowTd" -->

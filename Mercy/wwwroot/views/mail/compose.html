@@ -1,0 +1,131 @@
+<!-- Site Setting Panel -->
+  <div id="settings" ng-include="'views/settings/settings.html' " style="display:none"></div>
+<!-- Site Setting Panel End -->
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h2><i class="fa fa-envelope"></i> Compose </h2>
+  <div class="breadcrumb-wrapper hidden-xs"> 
+    <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> Compose </li>
+    </ol>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="page">
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="mail-categories">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="javascript:;">
+                        <i class="fa fa-inbox"></i>Inbox
+                        <span class="label label-info pull-right">6</span>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        <i class="fa fa-envelope-o"></i>Send mail
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        <i class="fa fa-star"></i>Starred
+                        <span class="label label-danger pull-right">3</span>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        <i class="fa fa-comment-o"></i>Chat
+                        <span class="label label-success pull-right">9</span>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        <i class="fa fa-pencil"></i>Draft
+                        <span class="label label-warning pull-right">1</span>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        <i class="fa fa-trash-o"></i>Spam
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="mail-categories">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="javascript:;">
+                        Work <i class="fa fa-circle color-danger pull-right"></i>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        Friends <i class="fa fa-circle color-info pull-right"></i>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        Family <i class="fa fa-circle color-primary pull-right"></i>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        Private <i class="fa fa-circle color-warning pull-right"></i>
+                    </a></li>
+                    <li class="list-group-item"><a href="javascript:;">
+                        Classmates <i class="fa fa-circle color-success pull-right"></i>
+                    </a></li>
+                </ul>
+            </div>
+        <div class="panel">
+          <header class="panel-heading"> <i class="fa fa-users ph-5"></i>
+          Online Friends
+          </header>
+          <div class="panel-body">
+             <ul class="list-inline">
+                     <li class="pad-5"><div class="avatar"><img src="images/photos/user1.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div></li>
+                     <li class="pad-5"><div class="avatar"><img src="images/photos/user2.png" alt="" class="img40_40"><i class="busy bottom text-white"></i></div></li>
+                     <li class="pad-5"><div class="avatar"><img src="images/photos/user3.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div></li>
+                     <li class="pad-5"><div class="avatar"><img src="images/photos/user4.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div></li>
+                     <li class="pad-5"><div class="avatar"><img src="images/photos/user6.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div></li>
+                     <li class="pad-5"><div class="avatar"><img src="images/photos/user7.png" alt="" class="img40_40"><i class="busy bottom text-white"></i></div></li>
+             </ul>
+          </div>
+        </div>
+
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <div class="panel panel-default mail-container mail-compose">
+                <div class="panel-body" ng-controller="SelectCtrl">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-1">To:</label>
+                            <div class="col-md-11">
+                               <!-- Angular Select -->
+                                <ui-select multiple ng-model="multipleDemo.deSelectedPeople" theme="bootstrap" ng-disabled="disabled" close-on-select="false" title="Choose a person">
+                                   <ui-select-match placeholder="Enter Email ID..">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
+                                   <ui-select-choices group-by="someGroupFn" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+                                   <div ng-bind-html="person.name | highlight: $select.search"></div>
+                                   <small> email: {{person.email}} age: <span ng-bind-html="''+person.age | highlight: $select.search"></span> </small> 
+                                   </ui-select-choices>
+                                </ui-select>
+                               <!-- end Angular Select -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mail_subject" class="col-xs-1">Subject:</label>
+                            <div class="col-md-11">
+                                <input type="text" id="mail_subject" class="form-control">
+                            </div>
+                        </div>
+                        <div text-angular ng-model="mailContent" class="ui-editor"> 
+                          <h2>Try me!</h2>
+                           <p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p>
+                           <p><strong>Features:</strong></p>
+                           <ol>
+                            <li>Automatic Seamless Two-Way-Binding</li>
+                            <li>Super Easy <b>Theming</b> Options</li>
+                            <li>Simple Editor Instance Creation</li>
+                            <li>Safely Parses Html for Custom Toolbar Icons</li>
+                            <li>Works with Firefox, Chrome, and IE8+</li>
+                           </ol>
+                           <p><strong>Code at GitHub:</strong> <a href="https://github.com/fraywing/textAngular">Here</a> </p>
+                        </div>
+                    </form>
+                    <div class="mail-actions" ng-init="initWaves()">
+                        <div class="waves-effect waves-button waves-float waves-info">Send</div>
+                        <div class="waves-effect waves-button waves-float waves-default">Draft</div>
+                        <div class="waves-effect waves-button waves-float waves-default">Discard</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

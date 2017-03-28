@@ -1,0 +1,185 @@
+<!-- Site Setting Panel -->
+  <div id="settings" ng-include="'views/settings/settings.html' " style="display:none"></div>
+<!-- Site Setting Panel End -->
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h3><i class="fa fa-question"></i> FAQ </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> FAQ </li>
+    </ol>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="page">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="well">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search...">
+          <div class="input-group-btn">
+            <button class="btn btn-info btn-md" type="button">Search</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default" ng-controller="AccordionDemoCtrl">
+        <div class="panel-heading">
+          <div class="text-center">
+            <h4 class="nm pad-10">Frequently asked <strong> questions </strong></h4>
+            <span class="text-dark">based on the User Interactions</span> </div>
+        </div>
+        <div class="panel-body">
+          <accordion data-close-others="oneAtATime">
+            <accordion-group data-is-open="status.tab1.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do I reset the admin password?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab1.open, 'fa-plus': !status.tab1.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab2.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do I upgrade to the latest servicepack/hotfix/patch?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab2.open, 'fa-plus': !status.tab2.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab3.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do I change the database?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab3.open, 'fa-plus': !status.tab3.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab4.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do my customers access the customer portal?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab4.open, 'fa-plus': !status.tab4.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab5.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How can I bind Support Center to a single IP Address?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab5.open, 'fa-plus': !status.tab5.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab6.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do I change the Web Server Port?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab6.open, 'fa-plus': !status.tab6.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab7.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do I hide the customer portal page?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab7.open, 'fa-plus': !status.tab7.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+            <accordion-group data-is-open="status.tab8.open" class="panel-transparent">
+              <accordion-heading>
+                <div class="media">
+                  <div class="media-body">
+                    <p class="media-heading"> <strong class="block text-large"> <i class="fa fa-bullhorn"></i> How do I block the User ?</strong> <small>Added by Alex Smith <i class="fa fa-clock-o"></i> Today 2:40 pm - 24.06.2014</small> <span class="pull-right"> <i class="mr-5 fa" ng-class="{'fa-minus': status.tab8.open, 'fa-plus': !status.tab8.open}"></i> </span> </p>
+                  </div>
+                </div>
+              </accordion-heading>
+              <p class="pad-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. </p>
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="mb-15">
+        <button type="button" class="btn btn-default btn-block pv-10 mb-10">Ask Question</button>
+        <button type="button" class="btn btn-default btn-block pv-10">Contact Us</button>
+      </div>
+      <div class="panel mb-10">
+        <div class="panel-heading"> <span class="panel-icon"><i class="fa fa-life-ring"></i> </span> <span class="panel-title"> Your Latest Question</span> </div>
+        <div class="panel-body text-muted pad-10">
+          <ul class="list-unstyled">
+            <li>Dept: <strong class="text-dark"> Technical Support</strong> </li>
+            <li>Posted: 1 Day ago</li>
+            <li>Status: <strong class="text-primary">Open</strong> </li>
+          </ul>
+          <ul class="list-unstyled pt-10">
+            <li>Dept: <strong class="text-dark"> Billing</strong> </li>
+            <li>Posted: 1 week ago</li>
+            <li>Status: <strong class="text-primary">Open</strong> </li>
+          </ul>
+          <ul class="list-unstyled pt-10">
+            <li>Dept: <strong class="text-dark"> Billing</strong> </li>
+            <li>Posted: 1 week ago</li>
+            <li>Status: <strong class="text-primary">Open</strong> </li>
+          </ul>
+        </div>
+        <div class="panel-footer text-muted pad-10">
+          <ul class="list-unstyled">
+            <li>Dept: <strong class="text-dark"> Sales </strong> </li>
+            <li>Posted: 1 week ago</li>
+            <li>Status: <strong class="text-alert">Closed</strong> </li>
+          </ul>
+        </div>
+       </div>
+        <div class="panel">
+          <div class="panel-body">
+            <h3>Contact</h3>
+            <p>Feel free to contact us for any issues you might have with our products.</p>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" class="form-control" placeholder="youremail@domain.com">
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="email" class="form-control" placeholder="Message subject">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" placeholder="Your message" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <button class="btn btn-default"><span class="fa fa-paperclip"></span> Add attachment</button>
+            <button class="btn btn-success pull-right"><span class="fa fa-envelope-o"></span> Send</button>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>

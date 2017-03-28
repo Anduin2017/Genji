@@ -1,0 +1,203 @@
+<!-- Site Setting Panel -->
+  <section id="settings" ng-include="'views/settings/settings.html' " style="display:none"></section>
+<!-- Site Setting Panel End -->
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h3><i class="fa fa-envelope"></i> ngTable </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> ngTable </li>
+    </ol>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="page">
+
+  <div class="row">
+    <div class="col-lg-6" ng-controller="inlineeditCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Simple table with pagination</div>
+        <div class="panel-body">
+          <table ng-table="tableParams" class="table">
+          <tbody ng-repeat="p in $data">
+            <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
+              <td data-title="'Order'" data-sortable="'id'">{{p.id}}</td>
+              <td data-title="'Customer'" data-sortable="'fn'">{{p.fn}}</td>
+              <td data-title="'Base Price'" data-sortable="'em'">{{p.em}}</td>
+              <td data-title="'Status'" data-sortable="'ac'">{{p.ac}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <div class="col-lg-6" ng-controller="inlineeditCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Pagination template</div>
+        <div class="panel-body">
+          <table ng-table="tableParams" data-template-pagination="custom/pager" class="table">
+          <tbody ng-repeat="p in $data">
+            <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
+              <td data-title="'Order'" data-sortable="'id'">{{p.id}}</td>
+              <td data-title="'Customer'" data-sortable="'fn'">{{p.fn}}</td>
+              <td data-title="'Base Price'" data-sortable="'em'">{{p.em}}</td>
+              <td data-title="'Status'" data-sortable="'ac'">{{p.ac}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <script type="text/ng-template" id="custom/pager">
+        <ul class="pager ng-cloak">
+          <li ng-repeat="page in pages"
+                ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+                ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
+            <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+            <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+          </li>
+            <li> 
+            <div class="btn-group">
+                <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
+                <button type="button" ng-class="{'active':params.count() == 25}" ng-click="params.count(25)" class="btn btn-default">25</button>
+                <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-default">50</button>
+                <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
+            </div>
+            </li>
+        </ul>
+    </script> 
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6" ng-controller="inlineeditCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Table with sorting</div>
+        <div class="panel-body">
+          <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
+          <p><strong>Sorting:</strong> {{tableParams.sorting()|json}}
+          <table ng-table="tableParams" class="table">
+          <tbody ng-repeat="p in $data">
+            <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
+              <td data-title="'Order'" data-sortable="'id'">{{p.id}}</td>
+              <td data-title="'Customer'" data-sortable="'fn'">{{p.fn}}</td>
+              <td data-title="'Base Price'" data-sortable="'em'">{{p.em}}</td>
+              <td data-title="'Status'" data-sortable="'ac'">{{p.ac}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <div class="col-lg-6" ng-controller="ngTableCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Table with filters</div>
+        <div class="panel-body">
+          <p><strong>Filter:</strong> {{tableParams.filter()|json}}
+        <table ng-table="tableParams" data-show-filter="true" class="table">
+            <tr ng-repeat="user in $data">
+                <td data-title="'Name'" data-sortable="'name'" data-filter="{ 'name': 'text' }">
+                    {{user.name}}
+                </td>
+                <td data-title="'Age'" data-sortable="'age'" data-filter="{ 'age': 'text' }">
+                    {{user.age}}
+                </td>
+            </tr>
+        </table>
+        </div>
+      </section>
+    </div>
+  </div>
+<div class="row">
+   <div class="col-lg-12" ng-controller="inlineeditCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Editable Table</div>
+        <div class="panel-body">
+          <table ng-table="tableParams" class="table">
+          <tbody ng-repeat="p in $data">
+            <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
+              <td data-title="'ID'" data-sortable="'id'"><span ng-if="!p.$edit">{{p.id}}</span>
+                <div ng-if="p.$edit">
+                  <input class="form-control" type="text" ng-model="p.id" />
+                </div></td>
+              <td data-title="'Customer'" data-sortable="'fn'"><span ng-if="!p.$edit">{{p.fn}}</span>
+                <div ng-if="p.$edit">
+                  <input class="form-control" type="text" ng-model="p.fn" />
+                </div></td>
+              <td data-title="'Purchased On'" data-sortable="'dc'"><span ng-if="!p.$edit">{{p.dc}}</span>
+                <div ng-if="p.$edit">
+                  <input class="form-control" type="text" ng-model="p.dc" />
+                </div></td>
+              <td data-title="'Purchased Price'" data-sortable="'ph'"><span ng-if="!p.$edit">{{p.ph}}</span>
+                <div ng-if="p.$edit">
+                  <input class="form-control" type="text" ng-model="p.ph" />
+                </div></td>
+              <td data-title="'Status'" data-sortable="'ac'"><span ng-if="!p.$edit">{{p.ac}}</span>
+                <div ng-if="p.$edit">
+                  <input class="form-control" type="text" data-sng-model="p.ac" />
+                </div></td>
+              <td data-title="'Actions'"><a ng-if="!p.$edit" class="btn btn-warning btn-sm" ng-click="p.$edit = true">Edit</a> <a ng-if="p.$edit" class="btn btn-danger btn-sm" ng-click="p.$edit = false">Save</a></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div> 
+</div>
+  <div class="row">
+    <div class="col-lg-12" ng-controller="inlineeditCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Editable Table</div>
+        <div class="panel-body">
+          <table ng-table="tableParams" class="table table-striped">
+            <tbody ng-repeat="p in $data">
+              <tr id="tr{{p.id}}" ng-class-odd="'odd'" ng-class-even="'even'">
+                <td data-title="'ID'" data-sortable="'id'">{{p.id}}</td>
+                <td data-title="'Firstname'" data-sortable="'fn'">{{p.fn}}</td>
+                <td data-title="'Purchased On'" data-sortable="'dc'">{{p.dc}}</td>
+                <td data-title="'Purchased Price'" data-sortable="'ph'">{{p.ph}}</td>
+                <td ><input class="btn btn-warning btn-sm" type=button id="editRowBtn{{p.id}}" value="edit"
+                                      ng-click="setEditId(p.id)"></td>
+              </tr>
+              <tr ng-show="editId===p.id" ng-if="editId===p.id">
+                 <td>{{p.id}} <input type="hidden" name="id" value="{{p.id}}"></td>
+                 <td><input type="text" name="fn" class="form-control" value="{{p.fn}}"></td>
+                 <td><input type="text" name="dc" class="form-control" value="{{p.dc}}"></td>
+                 <td><input type="text" name="ph" class="form-control" value="{{p.ph}}"></td>
+                 <td width="100"><div class="btn-group">
+                     <button type="button" class="btn btn-danger" data-onclick="alert('Save :)')"><i class="fa fa-floppy-o"></i></button>
+                     <button type="button" class="btn btn-danger" ng-click="setEditId(-1)"><i class="fa fa-trash-o"></i></button>
+                  </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12" ng-controller="ngTableCtrl">
+      <section class="panel panel-default">
+        <div class="panel-heading">Editable Table</div>
+        <div class="panel-body">
+        <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
+        <button ng-click="tableParams.filter({})" class="btn btn-default pull-right">Clear filter</button>
+        <p><strong>Sorting:</strong> {{tableParams.sorting()|json}}
+        <p><strong>Filter:</strong> {{tableParams.filter()|json}}
+    
+        <table ng-table="tableParams" data-show-filter="true" class="table">
+            <tr ng-repeat="user in $data">
+                <td data-title="'Name'" data-sortable="'name'" data-filter="{ 'name': 'text' }">
+                    {{user.name}}
+                </td>
+                <td data-title="'Age'" data-sortable="'age'" data-filter="{ 'age': 'text' }">
+                    {{user.age}}
+                </td>
+            </tr>
+        </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

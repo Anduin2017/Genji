@@ -1,0 +1,158 @@
+<!-- Site Setting Panel -->
+<div id="settings" ng-include="'views/settings/settings.html' " style="display:none"></div>
+<!-- Site Setting Panel End --> 
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h2><i class="fa fa-envelope"></i> Message </h2>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> Message </li>
+    </ol>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="page" ng-init="initWaves()">
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <div class="mail-categories">
+        <div class="blockbtn"> <a href="#/mail/compose" class="waves-effect waves-button waves-float waves-danger btn-block"> <i class="fa fa-edit"></i> COMPOSE</a> </div>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-inbox"></i>Inbox <span class="label label-info pull-right">6</span> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-envelope-o"></i>Send mail </a></li>
+          <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-star"></i>Starred <span class="label label-danger pull-right">3</span> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-comment-o"></i>Chat <span class="label label-success pull-right">9</span> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-pencil"></i>Draft <span class="label label-warning pull-right">1</span> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> <i class="fa fa-trash-o"></i>Spam </a></li>
+        </ul>
+      </div>
+      <div class="mail-categories">
+        <ul class="list-group">
+          <li class="list-group-item"><a href="javascript:;"> Work <i class="fa fa-circle color-danger pull-right"></i> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> Friends <i class="fa fa-circle color-info pull-right"></i> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> Family <i class="fa fa-circle color-primary pull-right"></i> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> Private <i class="fa fa-circle color-warning pull-right"></i> </a></li>
+          <li class="list-group-item"><a href="javascript:;"> Classmates <i class="fa fa-circle color-success pull-right"></i> </a></li>
+        </ul>
+      </div>
+      <section class="panel">
+        <header class="panel-heading"> <i class="fa fa-users ph-5"></i> Online Friends </header>
+        <div class="panel-body">
+          <ul class="list-inline">
+            <li class="pad-5">
+              <div class="avatar"><img src="images/photos/user1.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div>
+            </li>
+            <li class="pad-5">
+              <div class="avatar"><img src="images/photos/user2.png" alt="" class="img40_40"><i class="busy bottom text-white"></i></div>
+            </li>
+            <li class="pad-5">
+              <div class="avatar"><img src="images/photos/user3.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div>
+            </li>
+            <li class="pad-5">
+              <div class="avatar"><img src="images/photos/user4.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div>
+            </li>
+            <li class="pad-5">
+              <div class="avatar"><img src="images/photos/user6.png" alt="" class="img40_40"><i class="on bottom text-white"></i></div>
+            </li>
+            <li class="pad-5">
+              <div class="avatar"><img src="images/photos/user7.png" alt="" class="img40_40"><i class="busy bottom text-white"></i></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <section class="panel panel-default mail-container">
+        <div class="panel-body pt-5">
+          <div class="mail-header">
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-mail-reply"></i></button>
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-refresh"></i></button>
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-archive"></i></button>
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-ban"></i></button>
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-trash-o"></i></button>
+              </div>
+              <div class="btn-group" data-dropdown data-is-open="status.isopen1">
+                <button class="waves-effect waves-button waves-float waves-default dropdown-toggle" type="button" data-dropdown-toggle> <i class="fa fa-folder-open"></i> <span class="caret"></span> </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;"> <i class="fa fa-folder"></i> Conference</a></li>
+                  <li><a href="javascript:;"><i class="fa fa-folder"></i> Newsletters</a></li>
+                  <li><a href="javascript:;"><i class="fa fa-folder"></i> Invitations</a></li>
+                  <li><a href="javascript:;"><i class="fa fa-folder"></i> Promotions</a></li>
+                </ul>
+              </div>
+              <div class="btn-group" data-dropdown data-is-open="status.isopen2">
+                <button class="waves-effect waves-button waves-float waves-default dropdown-toggle" type="button" data-dropdown-toggle> <i class="fa fa-tags"></i> <span class="caret"></span> </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;"> <i class="fa fa-tags"></i> Label 1</a></li>
+                  <li><a href="javascript:;"><i class="fa fa-tags"></i> Label 2</a></li>
+                  <li><a href="javascript:;"><i class="fa fa-tags"></i> Label 3</a></li>
+                  <li><a href="javascript:;"><i class="fa fa-tags"></i> Label 4</a></li>
+                </ul>
+              </div>
+              <div class="btn-group" data-dropdown data-is-open="status.isopen3">
+                <button class="waves-effect waves-button waves-float waves-default dropdown-toggle" type="button" data-dropdown-toggle> More <span class="caret"></span> </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;"> Mark as Read </a></li>
+                  <li><a href="javascript:;"> Mark as Unread </a></li>
+                  <li><a href="javascript:;"> Add to Tasks</a></li>
+                  <li><a href="javascript:;"> Add Star</a></li>
+                  <li><a href="javascript:;"> Create Event</a></li>
+                  <li><a href="javascript:;"> Filter Messages</a></li>
+                  <li><a href="javascript:;"> Mute </a></li>
+                </ul>
+              </div>
+              <div class="btn-group pull-right hidden-xs">
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-chevron-left"></i></button>
+                <button class="waves-effect waves-button waves-float waves-default" type="button"><i class="fa fa-chevron-right"></i></button>
+              </div>
+              <h6 class="pull-right pv-10 hidden-xs hidden-sm hidden-md"> Showing 1 - 15 of 2368 </h6>
+            </div>
+          </div>
+          <div class="mail-info">
+              <div class="media">
+                  <a href="" class="pull-left">
+                       <img alt="" src="images/photos/user2.png" class="img-rounded img40_40"/>
+                  </a>
+                     <span class="pull-right">Yesterday at 1:30am</span>
+                     <h5 class="text-primary nm">Nusja Nawancali</h5>
+                    <small class="text-muted">From: hisemail@hisemail.com</small>
+              </div>
+          </div>
+          <div class="mail-content">
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ligula risus, viverra sit amet purus id, ullamcorper venenatis leo. Ut vitae semper neque. Nunc vel lacus vel erat sodales ultricies sed sed massa. Duis non elementum velit. Nunc quis molestie dui. Nullam ullamcorper lectus in mattis volutpat. Nunc egestas felis sit amet ultrices euismod. Donec lacinia neque vel quam pharetra, non dignissim arcu semper.</p>
+            <p>Donec ultricies, neque ut vehicula ultrices, ligula velit sodales purus, eget eleifend libero risus sed turpis. Fusce hendrerit vel dui ut pulvinar. Ut sed tristique ante, sed egestas turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p>Fusce sit amet dui at nunc laoreet facilisis. Proin consequat orci sollicitudin sem cursus, quis vehicula eros ultrices. Cras fermentum justo at nibh tincidunt, consectetur elementum est aliquam.</p>
+            <p>Nam dignissim convallis nulla, vitae porta purus fringilla ac. Praesent consectetur ex eu dui efficitur sollicitudin. Mauris libero est, aliquam a diam maximus, dignissim laoreet lacus.</p>
+            <p>Nulla ac nisi sodales, auctor dui et, consequat turpis. Cras dolor turpis, sagittis vel elit in, varius elementum arcu. Mauris aliquet lorem ac enim blandit, nec consequat tortor auctor. Sed eget nunc at justo congue mollis eget a urna. Phasellus in mauris quis tortor porta tristique at a risus.</p>
+            Cheers!
+            <p> - Miles Potter</p>
+            <address>
+            <strong>Real Media, Inc.</strong><br />
+            795 Folsom Ave, Suite 600<br />
+            San Francisco, CA 94107<br />
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+            </address>
+            <hr />
+          </div>
+          <div class="mail-attachments">
+            <p><i class="fa fa-paperclip"></i> 2 attachements | <a href="javascript:;">Save all attachements</a></p>
+            <ul class="list-unstyled list-inline list-attachs">
+              <li><a href="javascript:;"><img src="images/assets/600_400-1.jpg" alt=""></a></li>
+              <li><a href="javascript:;"><img src="images/assets/600_400-2.jpg" alt=""></a></li>
+              <li><a href="javascript:;"><img src="images/assets/600_400-1.jpg" alt=""></a></li>
+            </ul>
+          </div>
+          <div class="mail-actions"> 
+            <a href="#/mail/compose" class="waves-effect waves-button waves-float waves-default">Reply <i class="fa fa-mail-reply"></i></a> 
+            <a href="#/mail/compose" class="waves-effect waves-button waves-float waves-default">Forward <i class="fa fa-mail-forward"></i></a> 
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

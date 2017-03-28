@@ -10,7 +10,7 @@ namespace Mercy.Models.Middlewares
     {
         public string Root { get; set; }
         public string Page { get; set; }
-        public NotFoundMiddleware(string root,string page)
+        public NotFoundMiddleware(string root, string page)
         {
             Root = root;
             Page = page;
@@ -24,12 +24,19 @@ namespace Mercy.Models.Middlewares
         }
         protected override void Excute(HttpContext context)
         {
-            string filePath = Root + Path.DirectorySeparatorChar + Page;
             context.Response.ResponseCode = 404;
             context.Response.Message = "Not found";
             context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes("<h1>Not found!</h1>");
             context.Response.Headers.Add("Content-type", "text/html; charset=utf-8");
-            context.Response.Body = File.ReadAllBytes(filePath);
+            if (string.IsNullOrEmpty(Page))
+            {
+                context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes("<h1>Not found!</h1>");
+            }
+            else
+            {
+                string filePath = Root + Path.DirectorySeparatorChar + Page;
+                context.Response.Body = File.ReadAllBytes(filePath);
+            }
         }
     }
 }

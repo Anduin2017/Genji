@@ -1,0 +1,874 @@
+<!-- Site Setting Panel -->
+<section id="settings" ng-include="'views/settings/settings.html'" style="display:none"></section>
+<!-- Site Setting Panel End -->
+
+<div class="pageheader">
+  <h3><i class="fa fa-code"></i> Components </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="index.html"> Home </a> </li>
+      <li class="active"> Components </li>
+    </ol>
+  </div>
+</div>
+
+<div class="page">
+  <div class="row" data-ng-controller="RatingDemoCtrl"> 
+    <!-- Buttons -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+       <header class="panel-heading"> 
+         <strong> Bootstrap Rating </strong> 
+           <span class="pull-right"> 
+             <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+             <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+             <i class="fa fa-times" data-widget-close=""></i> 
+           </span> 
+       </header>
+        <div class="panel-body"> 
+          <div ng-init="successs = 3">
+            <rating class="ui-rating ui-rating-success ui-rating-h3"
+                                ng-model="success"
+                                max="4"
+                                readonly="isReadonly"
+                                on-hover="hoveringOver(value)"
+                                on-leave="overStar = null"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          <button class="btn btn-default btn-sm" ng-click="success = 0" ng-disabled="isReadonly">Clear</button>
+          <button class="btn btn-default btn-sm" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+          </div>
+          <div ng-init="info = 3">
+            <rating class="ui-rating ui-rating-info ui-rating-h3"
+                                ng-model="info"
+                                max="5"
+                                readonly="isReadonly"
+                                on-hover="hoveringOver(value)"
+                                on-leave="overStar = null"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          <button class="btn btn-default btn-sm" ng-click="info = 0" ng-disabled="isReadonly">Clear</button>
+          <button class="btn btn-default btn-sm" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+          </div>
+          <div ng-init="danger = 3">
+            <rating class="ui-rating ui-rating-danger ui-rating-h3"
+                                ng-model="danger"
+                                max="4"
+                                readonly="isReadonly"
+                                on-hover="hoveringOver(value)"
+                                on-leave="overStar = null"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          <button class="btn btn-default btn-sm" ng-click="success = 0" ng-disabled="isReadonly">Clear</button>
+          <button class="btn btn-default btn-sm" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+          </div>
+
+          <rating class="ui-rating ui-rating-h3"
+                            ng-model="rate"
+                            max="7"
+                            readonly="isReadonly"
+                            on-hover="hoveringOver(value)"
+                            on-leave="overStar = null"
+                            state-on="'fa fa-star'"
+                            state-off="'fa fa-star-o'"></rating>
+          <button class="btn btn-default btn-sm" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+          <button class="btn btn-default btn-sm" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+        </div>
+      </div>
+    </div>
+    <!-- end Buttons --> 
+    
+    <!-- Bootstrap Rating -->
+    <div class="col-lg-6">
+      <section class="panel panel-default">
+       <header class="panel-heading"> 
+         <strong> Colorful and Sizing </strong> 
+           <span class="pull-right"> 
+             <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+             <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+             <i class="fa fa-times" data-widget-close=""></i> 
+           </span> 
+       </header>
+        <div class="panel-body">
+          <div ng-init="x1 = 3">
+            <rating class="ui-rating ui-rating-success ui-rating-h1"
+                                ng-model="x1"
+                                max="5"
+                                readonly="false"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          </div>
+          <div ng-init="x2 = 3">
+            <rating class="ui-rating ui-rating-info ui-rating-h2"
+                                ng-model="x2"
+                                max="5"
+                                readonly="false"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          </div>
+          <div ng-init="x3 = 3">
+            <rating class="ui-rating ui-rating-warning ui-rating-h3"
+                                ng-model="x3"
+                                max="5"
+                                readonly="false"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          </div>
+          <div ng-init="x4 = 3">
+            <rating class="ui-rating ui-rating-danger ui-rating-h4"
+                                ng-model="x4"
+                                max="5"
+                                readonly="false"
+                                state-on="'fa fa-star'"
+                                state-off="'fa fa-star-o'"></rating>
+          </div>
+        </div>
+      </section>
+      <!-- end Rating --> 
+      
+    </div>
+  </div>
+  <div class="row"> 
+    <!-- Alert -->
+    <div class="col-lg-6">
+      <section class="panel panel-default">
+       <header class="panel-heading"> 
+         <strong> Simple Alerts </strong> 
+           <span class="pull-right"> 
+             <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+             <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+             <i class="fa fa-times" data-widget-close=""></i> 
+           </span> 
+       </header>
+        <div class="panel-body" data-ng-controller="AlertDemoCtrl">
+          <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+          <button class='btn btn-primary' ng-click="addAlert()">Add Alert</button>
+        </div>
+      </section>
+    </div>
+    <!-- end Alert -->
+    
+    <div class="col-lg-6"> 
+
+    <!-- Labels -->
+      <section class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Bootstrap Labels </strong> 
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body">
+              <ul class="list-inline">
+                     <li><span class="label label-default">2</span></li>
+                     <li><span class="label label-primary">4</span></li>
+                     <li><span class="label label-success">6</span> </li>
+                     <li><span class="label label-info">8</span> </li>
+                     <li><span class="label label-warning">10</span> </li>
+                     <li><span class="label label-danger">12</span> </li>
+              </ul>
+        </div>
+      </section>
+    <!-- end Labels --> 
+    
+    <!-- Active Button Group -->  
+      <section class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Adapts to Active Button Group </strong>
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body">
+          <p>Built-in styles are included for placing badges in active states in pill navigations or in Button Group.</p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-success">Inbox <span class="badge">15</span></button>
+            <button type="button" class="btn btn-info">Top Right <span class="badge">5</span></button>
+            <button type="button" class="btn btn-warning">Email <span class="badge">25</span></button>
+            <button type="button" class="btn btn-danger">Slide Bottom <span class="badge">15</span></button>
+            <button type="button" class="btn btn-primary">Button <span class="badge">25</span></button>
+          </div>
+        </div>
+      </section>
+    <!-- end Active Button Group -->  
+
+    <!-- Badges -->
+      <section class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Bootstrap Badges </strong>
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body">
+              <ul class="list-inline">
+                     <li><span class="badge badge-default">2</span></li>
+                     <li><span class="badge badge-primary">4</span></li>
+                     <li><span class="badge badge-success">6</span> </li>
+                     <li><span class="badge badge-info">8</span> </li>
+                     <li><span class="badge badge-warning">10</span> </li>
+                     <li><span class="badge badge-danger">12</span> </li>
+              </ul>
+        </div>
+      </section>
+    <!-- end Badges --> 
+
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6"> 
+      <!-- Popover -->
+      <section class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Bootstrap Popover </strong>
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body">
+          <div class="form-group">
+            <label>Popup Text:</label>
+            <input type="text" ng-model="dynamicPopover" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Popup Title:</label>
+            <input type="text" ng-model="dynamicPopoverTitle" class="form-control">
+          </div>
+          <button popover="{{dynamicPopover}}" popover-title="{{dynamicPopoverTitle}}" class="btn btn-danger">Dynamic Popover</button>
+          <h4 class="nm pv-10">Popover <strong>on Click</strong></h4>
+          <button popover-placement="top" popover-title="The Popover Title" popover="On the Top! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-danger btn-gap">Top</button>
+          <button popover-placement="right" popover-title="The Popover Title" popover="On the Right! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-warning btn-gap">Right</button>
+          <button popover-placement="bottom" popover-title="The Popover Title" popover="On the Bottom! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-info btn-gap">Bottom</button>
+          <button popover-placement="left" popover-title="The Popover Title" popover="On the Left! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-success btn-gap">Left</button>
+          <h4 class="nm pv-10">Popover <strong>on Hover</strong></h4>
+          <button popover-placement="top" popover-trigger="mouseenter" popover-title="The Popover Title" popover="On the Top! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-danger btn-gap">Top</button>
+          <button popover-placement="right" popover-trigger="mouseenter" popover-title="The Popover Title" popover="On the Right! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-warning btn-gap">Right</button>
+          <button popover-placement="bottom" popover-trigger="mouseenter" popover-title="The Popover Title" popover="On the Bottom! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-info btn-gap">Bottom</button>
+          <button popover-placement="left" popover-trigger="mouseenter" popover-title="The Popover Title" popover="On the Left! Here' goes the popover content..." popover-append-to-body="true" class="btn btn-w-md btn-success btn-gap">Left</button>
+          <h4 class="nm pv-10">Popover <strong>on Input:focus </strong></h4>
+          <div class="col-sm-3">
+            <input type="text" value="top " popover-placement="top" popover="I appeared on focus! Click away and I'll vanish..."  popover-trigger="focus" popover-append-to-body="true" class="form-control col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <input type="text" value="right" popover-placement="right" popover="I appeared on focus! Click away and I'll vanish..."  popover-trigger="focus" popover-append-to-body="true" class="form-control col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <input type="text" value="bottom" popover-placement="bottom" popover="I appeared on focus! Click away and I'll vanish..."  popover-trigger="focus" popover-append-to-body="true" class="form-control col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <input type="text" value="left" popover-placement="left" popover="I appeared on focus! Click away and I'll vanish..."  popover-trigger="focus" popover-append-to-body="true" class="form-control col-sm-3">
+          </div>
+        </div>
+      </section>
+      <!-- Popover --> 
+    </div>
+    <div class="col-md-6"> 
+      <!-- Tooltip -->
+      <section class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Bootstrap Tooltip </strong>
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body">
+          <div class="form-group">
+            <label>Dynamic Tooltip Text</label>
+            <input type="text" ng-model="dynamicTooltipText" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Dynamic Tooltip Popup Text</label>
+            <input type="text" ng-model="dynamicTooltip" class="form-control">
+          </div>
+          <button tooltip="{{dynamicTooltip}}" tooltip-title="{{dynamicTooltipText}}" class="btn btn-danger">Demo :- {{dynamicTooltipText}}</button>
+          <h4 class="nm pv-10">Tootlip <strong>on Click</strong></h4>
+          <button class="btn btn-w-md btn-danger btn-gap" tooltip-placement="top" tooltip="On the Top!" tooltip-append-to-body="true" tooltip-trigger="click">Top</button>
+          <button class="btn btn-w-md btn-warning btn-gap" tooltip-placement="left" tooltip="On the Left!" tooltip-append-to-body="true" tooltip-trigger="click">Left</button>
+          <button class="btn btn-w-md btn-info btn-gap" tooltip-placement="right" tooltip="On the Right!" tooltip-append-to-body="true" tooltip-trigger="click">Right</button>
+          <button class="btn btn-w-md btn-success btn-gap" tooltip-placement="bottom" tooltip="On the Bottom!" tooltip-append-to-body="true" tooltip-trigger="click">Bottom</button>
+          <h4 class="nm pv-10">Tootlip <strong>on Hover</strong></h4>
+          <button class="btn btn-w-md btn-danger btn-gap" tooltip-placement="top" tooltip="On the Top!" tooltip-append-to-body="true">Top</button>
+          <button class="btn btn-w-md btn-warning btn-gap" tooltip-placement="left" tooltip="On the Left!" tooltip-append-to-body="true">Left</button>
+          <button class="btn btn-w-md btn-info btn-gap" tooltip-placement="right" tooltip="On the Right!" tooltip-append-to-body="true">Right</button>
+          <button class="btn btn-w-md btn-success btn-gap" tooltip-placement="bottom" tooltip="On the Bottom!" tooltip-append-to-body="true">Bottom</button>
+          <h4 class="nm pv-10">Tooltip <strong>on Input:focus </strong></h4>
+          <div class="col-sm-3">
+            <input type="text" value="top" tooltip-placement="top" tooltip="I appeared on focus! Click away and I'll vanish..." tooltip-trigger="focus" tooltip-append-to-body="true" class="form-control col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <input type="text" value="left" tooltip-placement="left" tooltip="I appeared on focus! Click away and I'll vanish..." tooltip-trigger="focus" tooltip-append-to-body="true" class="form-control col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <input type="text" value="right" tooltip-placement="right" tooltip="I appeared on focus! Click away and I'll vanish..." tooltip-trigger="focus" tooltip-append-to-body="true" class="form-control col-sm-3">
+          </div>
+          <div class="col-sm-3">
+            <input type="text" value="bottom" tooltip-placement="bottom" tooltip="I appeared on focus! Click away and I'll vanish..." tooltip-trigger="focus" tooltip-append-to-body="true" class="form-control col-sm-3">
+          </div>
+        </div>
+      </section>
+      <!-- end Tooltip --> 
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default" ng-controller="CollapseDemoCtrl">
+        <header class="panel-heading"> <span class="tools pull-right">
+          <button class="btn btn-danger btn-xs" ng-click="isCollapsed = !isCollapsed">Toggle</button>
+          </span>
+          <strong> Initial Collapse bar </strong>
+        </header>
+        <div class="panel-body" collapse="isCollapsed"> contents goes here </div>
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <!-- Modal -->
+      <section class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Bootstrap Modal </strong>
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body" ng-controller="ModalDemoCtrl"> 
+          <script type="text/ng-template" id="myModalContent.html">
+            <div ng-include="'views/modal/modal.html'"></div>
+          </script>
+          <button class="btn btn-gap-v btn-default" ng-click="open()">Open me!</button>
+          <button class="btn btn-gap-v btn-default" ng-click="open()">Large Modal</button>
+          <button class="btn btn-gap-v btn-default" ng-click="open()">Small Modal</button>
+          <div class="divider"></div>
+        </div>
+      </section>
+      
+      <!-- end Modal --> 
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"> 
+      <!-- Pagination -->
+      <div class="panel panel-default">
+          <header class="panel-heading"> 
+            <strong> Bootstrap Pagination </strong>
+              <span class="pull-right"> 
+                <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+                <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+                <i class="fa fa-times" data-widget-close=""></i> 
+             </span> 
+          </header>
+        <div class="panel-body" ng-controller="PaginationDemoCtrl">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="nm pv-10"> Default <strong> Pagination </strong> </h4>
+              <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+              <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+              <pagination direction-links="false" boundary-links="true" total-items="totalItems" ng-model="currentPage"></pagination>
+              <br>
+              <pagination class="pagination-sm" direction-links="true" total-items="totalItems" ng-model="currentPage" num-pages="smallnumPages" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+              <br>
+              <pagination direction-links="false" total-items="totalItems" ng-model="currentPage" num-pages="smallnumPages"></pagination>
+              <div class="callout callout-info">
+                <p>The selected page no: {{currentPage}}</p>
+              </div>
+              <button class="btn btn-default" ng-click="setPage(6)">Set current page to: 6</button>
+            </div>
+            <div class="col-md-6">
+              <h4 class="nm pv-10"> Limit the <strong> Maximum Visible Buttons </strong> </h4>
+              <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+              <br>
+              <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+              <div class="callout callout-info">
+                <p>Page: {{bigCurrentPage}} / {{numPages}}</p>
+              </div>
+              <hr/>
+              <h4 class="nm pv-10"> Default <strong> Pager </strong> </h4>
+              <pager total-items="totalItems" ng-model="currentPage"></pager>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end Pagination --> 
+    </div>
+  </div>
+ 
+  <!-- Progressbar -->
+   <div class="row">
+    <div class="col-md-6"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Size of Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+         <p> Add<code>.progressbar-md</code>, <code>.progressbar-sm</code> or <code>.progressbar-xs</code> to change size of progressbar.</p>
+          <progressbar class="progress" value="52" type="danger"></progressbar>
+          <progressbar class="progress progressbar-md" value="52" type="danger"></progressbar>
+          <progressbar class="progress progressbar-sm" value="34" type="success"></progressbar>
+          <progressbar class="progress progressbar-xs" value="68" type="info"></progressbar>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Rounded Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+         <p> Add <code>.progress-rounded</code> to create a Rounded Progressbar.</p>
+          <progressbar class="progressbar-sm progress-rounded" value="34" type="success"></progressbar>
+          <progressbar class="progressbar-sm progress-rounded" value="68" type="info"></progressbar>
+          <progressbar class="progressbar-sm progress-rounded" value="52" type="warning"></progressbar>
+          <progressbar class="progressbar-sm progress-rounded" value="77" type="danger"></progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- End Progressbar -->
+
+  <!-- Progressbar -->
+   <div class="row">
+    <div class="col-md-6" data-ng-controller="ProgressDemoCtrl"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Stacked Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+         <progress class="progressbar-sm">
+           <bar value="40" type="success"></bar>
+           <bar value="20" type="warning"></bar>
+           <bar value="20" type="danger"></bar>
+         </progress>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Stacked Animated Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+         <progress class="progressbar-sm progress-striped active">
+           <bar value="40" type="success"></bar>
+           <bar value="20" type="warning"></bar>
+           <bar value="20" type="danger"></bar>
+         </progress>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- End Progressbar -->
+
+  <!-- Progressbar -->
+   <div class="row">
+    <div class="col-md-6" data-ng-controller="ProgressDemoCtrl"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Striped Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <p>Add <code>.progress-striped</code> to create a striped effect. Not available in IE8.</p>
+          <progressbar class="progressbar-sm progress-rounded progress-striped" value="34" type="success"></progressbar>
+          <progressbar class="progressbar-sm progress-rounded progress-striped" value="68" type="info"></progressbar>
+          <progressbar class="progressbar-sm progress-rounded progress-striped" value="52" type="warning"></progressbar>
+          <progressbar class="progressbar-sm progress-rounded progress-striped" value="77" type="danger"></progressbar>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Striped Animated Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+         <p>Add <code>.active</code> to <code>.progress-striped</code> to animate the stripes right to left. Not available in IE9 and below.</p>
+         <progressbar class="progressbar-sm progress-rounded progress-striped active" value="34" type="success"></progressbar>
+         <progressbar class="progressbar-sm progress-rounded progress-striped active" value="68" type="info"></progressbar>
+         <progressbar class="progressbar-sm progress-rounded progress-striped active" value="52" type="warning"></progressbar>
+         <progressbar class="progressbar-sm progress-rounded progress-striped active" value="77" type="danger"></progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- End Progressbar -->
+
+  <!-- Progressbar -->
+   <div class="row" data-ng-controller="ProgressDemoCtrl">
+    <div class="col-md-6"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Dynamic Progressbar </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+           <progressbar class="progress-rounded" max="max" value="dynamic"><span>{{dynamic}} / {{max}}</span></progressbar>
+           <progressbar class="progress-rounded" animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></progressbar>
+           <progressbar class="progress-striped progress-rounded active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></progressbar>
+             <button class="btn btn-sm btn-primary" type="button" ng-click="random()">Randomize</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> No Animation </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <ol class="breadcrumb">
+            <li> <a href="#"> <i class="fa fa-home"></i> </a> </li>
+            <li> <a href="#"> Profile </a> </li>
+            <li> <a href="#"> User Setting </a> </li>
+            <li class="active"> Profile Setting </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- End Progressbar -->
+ 
+  <!-- Bootstrap Pills --> 
+  <div class="row"> 
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Bootstrap Pills </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <tabset type="pills"> 
+            <tab heading="Home" class="pad-10">Home Content </tab> 
+            <tab heading="Profile" class="pad-10">Profile Content </tab> 
+            <tab heading="Message" class="pad-10">Message Content </tab> 
+            <tab heading="inbox" class="pad-10">inbox Content </tab> 
+          </tabset>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Pills --> 
+    
+    <!-- Bootstrap Vertical Pills -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Vertical Pills </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <tabset type="pills" vertical="true"> 
+            <tab heading="Home">Home Content </tab> 
+            <tab heading="Profile">Profile Content </tab> 
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- end Bootstrap Vertical Pills --> 
+
+  <div class="row">    
+    <!-- Bootstrap Simple Tab -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Dynamic Tab </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body" data-ng-controller="TabsDemoCtrl">
+          <tabset> 
+            <tab heading="Static title">Static content here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at.</tab> 
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled"> {{tab.content}} </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Simple Tab --> 
+    
+    <!-- Bootstrap Justified Tab -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Justified Dynamic Tab </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body" data-ng-controller="TabsDemoCtrl">
+          <tabset justified="true"> 
+            <tab heading="Justified">Justified content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at.</tab> 
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled"> {{tab.content}} </tab> 
+          </tabset>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Justified Tab -->     
+  </div>
+  
+  <div class="row"> 
+    <!-- Bootstrap Simple Tab -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Static Tab </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body" data-ng-controller="TabsDemoCtrl">
+          <tabset> 
+            <tab heading="Tab 1">
+              <div class="col-md-5 pad-10"> <img src="images/gallery/image1.png" class="img-responsive img-thumbnail"> </div>
+              <div class="col-md-7 pad-10">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              </div>
+            </tab> 
+            <tab heading="Tab 2">
+              <div class="col-md-7 pad-10">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              </div>
+              <div class="col-md-5 pad-10"> <img src="images/gallery/image1.png" class="img-responsive img-thumbnail"> </div>
+            </tab> 
+            <tab heading="Tab 3">
+             <div class="center pad-10"><img src="images/gallery/image1.png" class="img-responsive img-thumbnail height-230"></div>
+              <div class="col-md-12 pad-10">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              </div>
+            </tab> 
+           </tabset>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Simple Tab --> 
+    
+    <!-- Bootstrap Justified Tab -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Justified Static Tab </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body" data-ng-controller="TabsDemoCtrl">
+          <tabset justified="true"> 
+            <tab heading="Tab 1">
+              <div class="col-md-5 pad-10"> <img src="images/gallery/image1.png" class="img-responsive img-thumbnail"> </div>
+              <div class="col-md-7 pad-10">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              </div>
+            </tab> 
+            <tab heading="Tab 2">
+              <div class="col-md-7 pad-10">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              </div>
+              <div class="col-md-5 pad-10"> <img src="images/gallery/image1.png" class="img-responsive img-thumbnail"> </div>
+            </tab> 
+            <tab heading="Tab 3">
+             <div class="center pad-10"><img src="images/gallery/image1.png" class="img-responsive img-thumbnail height-230"></div>
+              <div class="col-md-12 pad-10">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              </div>
+            </tab> 
+          </tabset>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Justified Tab --> 
+    
+  </div>
+ 
+
+  <div class="row">     
+    <!-- Bootstrap Jumbotron -->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Bootstrap Jumbotron </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <div class="jumbotron">
+            <h1>Hello, world!</h1>
+            <p> This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information. </p>
+            <p> <a class="btn btn-info btn-lg" role="button"> Learn more </a> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Jumbotron --> 
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12"> 
+      <!-- Accordion -->
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Bootstrap Accordion or Collapse </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body" data-ng-controller="AccordionDemoCtrl">
+          <div class="row">
+            <div class="col-lg-3">
+              <p><strong>Open only one at a time?</strong></p>
+              <label class="switch switch-success">
+                <input type="checkbox" ng-model="oneAtATime">
+                <i></i></label>
+              <div class="divider divider-lg"></div>
+              <p><strong>Toggle Last Panel </strong></p>
+              <label class="switch switch-success">
+                <input type="checkbox" ng-click="status.open = !status.open">
+                <i></i></label>
+              <p><strong>Enable / Disable First Panel </strong></p>
+              <label class="switch switch-success">
+                <input type="checkbox" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">
+                <i></i></label>
+              <p></p>
+            </div>
+            <div class="col-lg-9">
+              <accordion close-others="oneAtATime" class="ui-accordion">
+                <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id feugiat nisi. Nulla quis ipsum faucibus, porta mi sit amet, dignissim nisi.  </accordion-group>
+                <accordion-group heading="{{group.title}}" ng-repeat="group in groups"> {{group.content}} </accordion-group>
+                <accordion-group heading="Dynamic Body Content">
+                  <p>The body of the accordion group grows to fit the contents</p>
+                  <button class="btn btn-danger btn-sm" ng-click="addItem()">Add Item</button>
+                  <div ng-repeat="item in items">{{item}}</div>
+                </accordion-group>
+                <accordion-group is-open="status.open">
+                  <accordion-heading> Custom Heading Title<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i> </accordion-heading>
+                  This is just some content to illustrate fancy headings. </accordion-group>
+              </accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end Accordion --> 
+    </div>
+  </div>
+
+
+  <div class="row">     
+    <!-- Bootstrap Well -->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Bootstrap Well </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <div class="well well-sm">Look, I'm in a small well!</div>
+          <div class="well">Look, I'm in a well!</div>
+          <div class="well well-lg">Look, I'm in a large well!</div>
+        </div>
+      </div>
+    </div>
+    <!-- end Bootstrap Well -->     
+  </div>
+  
+  <div class="row">     
+    <!-- Bootstrap Scrollable Box -->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <header class="panel-heading"> 
+          <strong> Bootstrap Scrollable Box </strong>
+            <span class="pull-right"> 
+              <i class="fa fa-chevron-down mr-10" data-panel-Toggle=""></i> 
+              <i class="fa fa-expand mr-10" data-fullscreen-widget=""></i> 
+              <i class="fa fa-times" data-widget-close=""></i> 
+            </span> 
+        </header>
+        <div class="panel-body">
+          <div class="overflow" data-slim-scroll data-scroll-height="250px">
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quidem, officiis, et ex laudantium sed cupiditate voluptatum libero nobis sit illum voluptates beatae ab. Ad, repellendus non sequi et at. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end  Bootstrap Scrollable Box --> 
+    
+  </div>
+</div>

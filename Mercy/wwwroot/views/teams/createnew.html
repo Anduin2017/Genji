@@ -1,0 +1,101 @@
+﻿<div id="settings" ng-include="'views/settings/settings.html'" style="display:none"></div>
+<div class="pageheader">
+    <h2><i class="fa fa-slideshare"></i>Create New Group</h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li> <a href="/"> Home </a> </li>
+            <li> <a href="/#/teams/team"> Team </a></li>
+            <li class="active"> Create New Group</li>
+        </ol>
+    </div>
+</div>
+<div class="page" ng-controller="createNewGroupController">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <h4 class="nm pad-15"> Create <strong> Team </strong>or<strong> Info Station </strong> </h4>
+                <div class="panel-body">
+                    <form class="form-horizontal ng-pristine ng-valid">
+
+                        <div class="form-group">
+                            <label class="col-sm-4" for="">What kind of group do you want to create?</label>
+                            <div class="col-sm-4">
+                                <a class="btn btn-block waves-effect waves-button waves-float waves-success" ng-click="SetState('Team')">
+                                    <i class="fa fa-slideshare"></i>
+                                    Create new Team
+                                </a>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <a class="btn btn-block waves-effect waves-button waves-float waves-info" ng-click="SetState('InfoStation')">
+                                    <i class="fa fa-slideshare"></i>
+                                    Create new Info Station
+                                </a>
+                            </div>
+                        </div>
+
+                        <accordion data-close-others="oneAtATime">
+                            <accordion-group data-is-open="status.tab1.open" class="panel-transparent">
+                                <accordion-heading>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <p class="media-heading">
+                                                <strong class="block text-large"> <i class="fa fa-bullhorn"></i> What's the difference between teams and infostations?</strong>
+                                                <small>Don't know what to create? Check first!</small>
+                                                <span class="pull-right">
+                                                    <i class="mr-5 fa" ng-class="{'fa-minus': status.tab1.open, 'fa-plus': !status.tab1.open}"></i>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </accordion-heading>
+                                <p class="pad-15">
+                                    Team and Info Station are both Group. But the two type of groups have different function and facing different kind of users.
+                                </p>
+                                <p class="pad-15">
+                                    Team is small group of people working together on some projects, like a small corporation. Team can focus on several projects at the same time. Different projects have independent events and tasks.
+                                </p>
+                                <p class="pad-15">
+                                    People in a Info Station do NOT work together, but have the same tasks and events. Like a math class, or a travel group. All people share the same events and tasks in one Info Station.
+                                </p>
+                            </accordion-group>
+                        </accordion>
+
+                        <div class="divider"></div>
+                        <div ng-hide="DisableToInput" class="form-group">
+                            <label class="col-sm-2" for="">{{Type}} Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" placeholder="Input your new {{Type}} Name">
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+                        <div ng-hide="DisableToInput" class="form-group">
+                            <label for="" class="col-sm-2">{{Type}} Type</label>
+                            <div class="col-sm-10">
+                                <select class="form-control">
+                                    <option ng-repeat="en in enum" value="{{en.num}}">{{en.des}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div ng-hide="DisableToInput" class="form-group">
+                            <label for="" class="col-sm-2">{{Type}} Description</label>
+                            <div class="col-sm-10">
+                                <textarea name="" id="" class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Group Type -->
+        <!-- Group Destination -->
+        <!-- Group Image -->
+        <!-- Group Name -->
+        <!-- Group Des -->
+        <!-- Group -->
+    </div>
+</div>

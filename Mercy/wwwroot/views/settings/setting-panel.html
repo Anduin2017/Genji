@@ -1,0 +1,214 @@
+<h4>Settings<a href="javascript:void(0)" data-toggle-settings class="config-link closed"><i class="fa fa-cog"></i></a></h4>
+<div class="config-swatch-wrap">
+  <div class="row">
+    <div class="col-md-12">
+    <ul class="options">
+       <li>
+          <label class="switch switch-xs switch-info pull-right">
+            <input name="checkbox" type="checkbox" ng-model="admin.menu" checked>
+            <i></i></label> Horizontal Menu
+       </li>
+    </ul>    
+    </div>
+    <div class="col-md-12">
+    <ul class="options">
+       <li>
+          <label class="switch switch-xs switch-info pull-right">
+            <input name="checkbox" type="checkbox" ng-model="admin.layout" checked>
+            <i></i></label> Boxed layout      
+       </li>
+    </ul>    
+    </div>
+    <div class="col-md-12">
+    <ul class="options">
+       <li>
+          <label class="switch switch-xs switch-info pull-right">
+            <input name="checkbox" type="checkbox" value="option" ng-model="admin.fixedHeader" checked>
+            <i></i></label>
+      Fixed header        
+       </li>
+    </ul>    
+    </div>
+    <div class="col-md-12 mb-15">
+    <ul class="options">
+       <li>
+          <label class="switch switch-xs switch-info pull-right">
+            <input name="checkbox" type="checkbox" value="option" ng-model="admin.fixedSidebar" checked>
+            <i></i></label>
+      Fixed Sidebar        
+       </li>
+    </ul>    
+    </div>
+    <div class="col-xs-4">
+      <ul class="options">
+        <li>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-dark'; 
+          admin.asideColor='bg-dark';
+         ">
+          <input type="radio" name="skin" value="11" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-dark item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> 
+          </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-primary'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="12" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-primary item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-success'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="13" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-success item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-purple'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="14" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-purple item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="admin.navbarHeaderColor='bg-white'; admin.logo='bg-warning';admin.asideColor='bg-dark';">
+            <input type="radio" name="skin" value="15" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-warning item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-danger'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="16" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-danger item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-info'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="17" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-info item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-4">
+      <ul class="options">
+        <li>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-white'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="21" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-white item-header"></span> <span class="bg-white item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-primary'; 
+          admin.logo='bg-primary'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="22" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-primary item-header"></span> <span class="bg-primary item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-success'; 
+          admin.logo='bg-success'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="23" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-success item-header"></span> <span class="bg-success item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-purple'; 
+          admin.logo='bg-purple'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="24" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-purple item-header"></span> <span class="bg-purple item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-warning'; 
+          admin.logo='bg-warning'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="25" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-warning item-header"></span> <span class="bg-warning item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-danger'; 
+          admin.logo='bg-danger'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="26" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-danger item-header"></span> <span class="bg-danger item-header"></span> <span class="bg-dark"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-info'; 
+          admin.logo='bg-info'; 
+          admin.asideColor='bg-dark';
+         ">
+            <input type="radio" name="skin" value="27" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-info item-header"></span> <span class="bg-info item-header"></span> <span class="bg-dark"></span> </span> </label>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-4">
+      <ul class="options">
+        <li>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-dark'; 
+          admin.logo='bg-dark'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="31" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-dark item-header"></span> <span class="bg-dark item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-primary'; 
+          admin.logo='bg-primary'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="32" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-primary item-header"></span> <span class="bg-primary item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-success'; 
+          admin.logo='bg-sucess'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="33" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-success item-header"></span> <span class="bg-success item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-purple'; 
+          admin.logo='bg-purple'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="34" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-purple item-header"></span> <span class="bg-purple item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-warning'; 
+          admin.logo='bg-warning'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="35" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-warning item-header"></span> <span class="bg-warning item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-danger'; 
+          admin.logo='bg-danger'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="36" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-danger item-header"></span> <span class="bg-danger item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-info'; 
+          admin.logo='bg-info'; 
+          admin.asideColor='bg-white';
+         ">
+            <input type="radio" name="skin" value="37" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-info item-header"></span> <span class="bg-info item-header"></span> <span class="bg-white"></span> </span> </label>
+        <label class="skin-check" ng-click="
+          admin.navbarHeaderColor='bg-white'; 
+          admin.logo='bg-white'; 
+          admin.asideColor='bg-white';
+         ">
+          <input type="radio" name="skin" value="10" ng-model="admin.themeID">
+            <span class="skin-item bg-body"> <span class="overlay"><span class="glyphicon glyphicon-ok"></span></span> <span class="bg-white item-header"></span> <span class="bg-white item-header"></span> <span class="bg-white"></span> </span> 
+          </label>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

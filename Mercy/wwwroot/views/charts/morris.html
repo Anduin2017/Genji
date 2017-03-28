@@ -1,0 +1,118 @@
+<!-- Site Setting Panel -->
+  <section id="settings" ng-include="'views/settings/settings.html' " style="display:none"></section>
+<!-- Site Setting Panel End -->
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h3><i class="fa fa-bar-chart"></i> Morris Chart</h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="#"> Home </a> </li>
+      <li class="active"> Morris </li>
+    </ol>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Morris Chart Start -->
+<div class="page page-charts" ng-controller="morrisChartCtrl">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Morris <strong>Line Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="simple1.data" data-type="simple1.type" data-options="simple1.options"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Morris <strong>Area Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="simple2.data" data-type="simple2.type" data-options="simple2.options"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+  
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Combined <strong> Line Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="combo1.data" data-type="combo1.type" data-options="combo1.options"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Combined <strong> Area Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="combo2.data" data-type="combo2.type" data-options="combo2.options"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+  
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Morris <strong> Bar Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="bar1.data" data-type="bar1.type" data-options="bar1.options"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Stacked <strong> Bar Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="bar2.data" data-type="bar2.type" data-options="bar2.options"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+  
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Morris <strong> Donut Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="donut1.data" data-type="donut1.type" data-options="donut1.options" class="height-250"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Colorful <strong> Donut Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="donut2.data" data-type="donut2.type" data-options="donut2.options" class="height-250"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <h4 class="nm pad-15"> Formatted <strong> Donut Chart</strong> </h4>
+        <div class="panel-body">
+          <div morris-chart data="donut3.data" data-type="donut3.type" data-options="donut3.options" class="height-250"></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+<!-- Morris Chart End -->

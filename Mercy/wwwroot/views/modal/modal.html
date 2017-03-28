@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h3>I am a modal!</h3>
+</div>
+<div class="modal-body"> <span ng-repeat="item in items" class="list-unstyled">
+  <label class="ui-radio">
+    <input name="radio1" type="radio" value="{{ item }}"  ng-checked="selected.item === item" ng-click="selected.item = item">
+    <span>{{ item }}</span></label>
+  </span> <br>
+  Selected: <b>{{ selected.item }}</b> </div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">OK</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

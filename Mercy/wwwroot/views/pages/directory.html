@@ -1,0 +1,390 @@
+<!-- Site Setting Panel -->
+
+<div id="settings" ng-include="'views/settings/settings.html' " style="display:none">
+</div>
+<!-- Site Setting Panel End -->
+
+<div class="pageheader">
+    <h3><i class="fa fa-users"></i> User Directory </h3>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                User Directory
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="page">
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-9">
+                <input placeholder="Who are you looking for?" class="form-control" type="text" />
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group nm">
+                    <select class="form-control" id="source">
+                        <option value="Name">Full Name</option>
+                        <option value="position">Position</option>
+                        <option value="company">Company</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user2.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Semantha Armstrong
+                        </h4>
+                        <span>Web Developer</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user1.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Jonathan Smith
+                        </h4>
+                        <span>Web Developer</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user3.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Jacob Armstrong
+                        </h4>
+                        <span>Media designer</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user4.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Ryan H. McJamer
+                        </h4>
+                        <span>Front end developer</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <img src="images/photos/user5.png" alt="" class="img-thumbnail img-circle">
+                        <!-- panel body -->
+                        <h4>
+                            Sandra Smith
+                        </h4>
+                        <span>Team Leader</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user6.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Will DeBrandon
+                        </h4>
+                        <span>Back end developer</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user7.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Alexander Flynn
+                        </h4>
+                        <span>Senior Manager</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user1.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Angelina Smith
+                        </h4>
+                        <span>Team Leader</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user2.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Stevan Flynn
+                        </h4>
+                        <span>Media Manager</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user3.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Alena Decosta
+                        </h4>
+                        <span>Co-founder</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user4.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Albert Decosta
+                        </h4>
+                        <span>Co-Founder</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <!-- panel body -->
+                        <img src="images/photos/user6.png" alt="" class="img-thumbnail img-circle">
+                        <h4>
+                            Jonathan
+                        </h4>
+                        <span>Sr. Developer</span>
+                        <!--/ panel body -->
+                        <div class="panel-body" ng-init="initWaves()">
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-danger">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-info">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-indigo">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="javascript:void(0)"  class="waves-effect waves-button waves-float waves-warning">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

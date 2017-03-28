@@ -1,0 +1,30 @@
+<!-- Site Setting Panel -->
+  <section id="settings" ng-include="'views/settings/settings.html' " style="display:none"></section>
+<!-- Site Setting Panel End -->
+
+<!-- Page Header Start -->
+<div class="pageheader">
+  <h3><i class="fa fa-calendar"></i> Calender </h3>
+  <div class="breadcrumb-wrapper hidden-xs"> <span class="label">You are here:</span>
+    <ol class="breadcrumb">
+      <li> <a href="#"> Home </a> </li>
+      <li class="active"> Calender </li>
+    </ol>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Calender Body Start -->
+<div class="page page-calendar" ng-controller="calendarCtrl">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel">
+        <div class="panel-body">
+          <div ng-model="eventSources" calendar="myCalendar1" config="uiConfig.calendar" ui-calendar="uiConfig.calendar" class="pv-10"></div>
+          <div class="callout callout-info" ng-show="alertMessage != undefined && alertMessage != ''"> <span>{{alertMessage}}</span> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Calender Body End -->
