@@ -8,10 +8,6 @@ namespace Mercy.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController(IHttpRecorder httpRecorder)
-        {
-
-        }
         public IActionResult Index()
         {
             return View();
