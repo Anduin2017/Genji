@@ -6,272 +6,61 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using Mercy.Library;
+using Mercy.Models;
+using Mercy.Models.Abstract;
+using Mercy.Models.Workers;
+using Mercy.Models.Server;
+using Mercy.Models.Conditions;
 
 namespace Mercy
 {
-    public static class Library
-    {
-        public static async Task<string> ReadToEnd(this NetworkStream stream)
-        {
-            byte[] bytes = new byte[1024];
-            int length = await stream.ReadAsync(bytes, 0, bytes.Length);
-            return Encoding.UTF8.GetString(bytes, 0, length);
-        }
-        public static async Task WriteString(this NetworkStream stream, string content)
-        {
-            var byt = Encoding.UTF8.GetBytes(content);
-            await stream.WriteAsync(byt, 0, byt.Length);
-        }
-
-        public static async Task WriteLine(this NetworkStream stream, string content)
-        {
-            await stream.WriteString(content + "\r\n");
-        }
-    }
-    public class Request
-    {
-        public string Method { get; set; }
-        public string Path { get; set; }
-        public string HttpVersion { get; set; }
-        public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
-    }
-    public class Response
-    {
-        public string HttpVersion { get; set; } = "HTTP/1.1";
-        public short ResponseCode { get; set; } = 500;
-        public string Message { get; set; } = "Found";
-        public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
-        public byte[] Body { get; set; } = new byte[0];
-    }
-    public class HttpContext
-    {
-        public Request Request { get; set; }
-        public Response Response { get; set; }
-    }
-    public class HttpBuilder
-    {
-        public async Task<Request> Build(NetworkStream stream)
-        {
-            var source = await stream.ReadToEnd();
-            var lines = source.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-            var firstRows = lines[0].Split(' ');
-
-            var request = new Request
-            {
-                Method = firstRows[0],
-                Path = firstRows[1].Split('?')[0],
-                HttpVersion = firstRows[2]
-            };
-            for (int i = 1; i < lines.Length; i++)
-            {
-                if (lines[i].Contains(":"))
-                {
-                    var twoStrings = lines[i].Split(':');
-                    request.Headers.Add(twoStrings[0], twoStrings[1].Trim());
-                }
-            }
-            return request;
-        }
-    }
-
-    //public class HttpExcuter
-    //{
-    //    public Middleware Middlewares { get; set; }
-    //    public HttpExcuter(Middleware middlewares)
-    //    {
-    //        Middlewares = middlewares;
-    //    }
-    //    public async Task Excute(HttpContext context)
-    //    {
-    //        context.Response = new Response();
-    //        Middlewares.Run(context);
-    //        context.Response.Headers.Add("Server", "Mercy");
-    //    }
-    //}
-    public class HttpReporter
-    {
-        public async Task Report(Response response, NetworkStream stream)
-        {
-            await stream.WriteLine($"{response.HttpVersion} {response.ResponseCode} {response.Message}");
-            foreach (var header in response.Headers)
-            {
-                await stream.WriteLine($"{header.Key}: {header.Value}");
-            }
-            await stream.WriteLine(string.Empty);
-            await stream.WriteAsync(response.Body, 0, response.Body.Length);
-            stream.Dispose();
-        }
-    }
-
-    public class HttpRecorder
-    {
-        public async Task Record(HttpContext context)
-        {
-            Console.WriteLine($"[{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.Path}");
-        }
-    }
-
-    public class MercyServer
-    {
-        public int Port { get; set; }
-        public HttpBuilder Builder { get; set; }
-        public HttpReporter Reporter { get; set; }
-        public HttpRecorder Recorder { get; set; }
-
-        public List<FilterCollection> Conditions { get; set; } = new List<FilterCollection>();
-
-        public MercyServer(int port)
-        {
-            Port = port;
-        }
-
-        public MercyServer Bind(FilterCollection Condition)
-        {
-            this.Conditions.Add(Condition);
-            return this;
-        }
-
-        public async Task Start()
-        {
-            var listener = new TcpListener(IPAddress.Any, Port);
-            listener.Start();
-            Console.WriteLine($"Application started at http://localhost:{Port}/");
-            while (true)
-            {
-                var tcp = await listener.AcceptTcpClientAsync();
-                var stream = tcp.GetStream();
-                Task.Run(async () =>
-                {
-                    try
-                    {
-                        var httpContext = new HttpContext();
-
-                        httpContext.Request = await Builder.Build(stream);
-                        httpContext.Response = new Response();
-
-                        foreach (var condition in Conditions)
-                        {
-                            if (condition.Filt(httpContext))
-                            {
-                                condition.App.Run(httpContext);
-                                break;
-                            }
-                        }
-                        await Reporter.Report(httpContext.Response, stream);
-                        await Recorder.Record(httpContext);
-                    }
-                    catch (Exception e)
-                    {
-                        stream.Dispose();
-                        Console.WriteLine("Mercy server crashed: " + e.Message);
-                    }
-
-                }).GetAwaiter();
-            }
-        }
-    }
 
     public static class Program
     {
         public static void Main(string[] args)
         {
-            int port = 12222;
-            var server = new MercyServer(port);
-
             string root = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "wwwroot";
 
             var app = new App()
+                .InsertMiddleware(new MercyServerHeaderMiddleware())
                 .InsertMiddleware(new DefaultFileMiddleware())
                 .InsertMiddleware(new StaticFileMiddleware(root))
                 .InsertMiddleware(new MvcMiddleware())
                 .InsertMiddleware(new NotFoundMiddleware());
 
-            var app2 = new App()
-                .InsertMiddleware(new NotFoundMiddleware());
+            var condition = new ConditionCollection()
+                .InsertCondition(new DomainCondition("localhost"));
 
-            var filter = new FilterCollection()
-                .InsertFilter(new DomainFilter("localhost"));
+            var server = new MercyServer()
+                .UsePort(7000)
+                .UseBuilder(new HttpBuilder())
+                .UseReporter(new HttpReporter())
+                .UseRecorder(new HttpRecorder())
+                .Bind(when: condition, run: app);
 
+            server.Start();
 
-            var filter2 = new FilterCollection()
-                .InsertFilter(new DomainFilter("127.0.0.1"));
-
-            server
-                .Bind(filter.When(app))
-                .Bind(filter2.When(app2));
-
-            server.Builder = new HttpBuilder();
-            server.Reporter = new HttpReporter();
-            server.Recorder = new HttpRecorder();
-
-            server.Start().Wait();
+            Console.ReadLine();
         }
     }
 
-    public abstract class Filter
+    public interface IMiddleware
     {
-        public Filter NextFilter { get; set; }
-        public virtual bool SatisfyFilter(HttpContext context)
-        {
-            return true;
-        }
-        public virtual bool Filt(HttpContext context)
-        {
-            if (SatisfyFilter(context))
-            {
-                return NextFilter?.Filt(context) ?? true;
-            }
-            return false;
-        }
-    }
-    public class FilterCollection : Filter
-    {
-        public Middleware App { get; set; }
-
-        public virtual FilterCollection InsertFilter(Filter newFilter)
-        {
-            Filter pointer = this;
-            while (pointer.NextFilter != null)
-            {
-                pointer = pointer.NextFilter;
-            }
-            pointer.NextFilter = newFilter;
-            return this;
-        }
-        public FilterCollection When(Middleware app)
-        {
-            App = app;
-            return this;
-        }
-    }
-    public class DomainFilter : Filter
-    {
-        public string Domain { get; set; }
-        public DomainFilter(string domain)
-        {
-            Domain = domain;
-        }
-        public override bool SatisfyFilter(HttpContext context)
-        {
-            var runningDomain = context.Request.Headers["Host"].Trim();
-            if(Domain == "*")
-            {
-                return true;
-            }
-            return Domain == runningDomain;
-        }
+        IMiddleware NextMiddleware { get; set; }
+        bool Excutable(HttpContext context);
+        void Run(HttpContext context);
     }
 
-    public abstract class Middleware
+    public abstract class Middleware : IMiddleware
     {
-        public Middleware NextMiddleware { get; set; }
-        public virtual bool Excutable(HttpContext context)
+        public IMiddleware NextMiddleware { get; set; }
+        public abstract bool Excutable(HttpContext context);
+        protected abstract void Excute(HttpContext context);
+
+        public Middleware InsertMiddleware(IMiddleware newMiddleware)
         {
-            return false;
-        }
-        public virtual Middleware InsertMiddleware(Middleware newMiddleware)
-        {
-            var pointer = this;
+            IMiddleware pointer = this;
             while (pointer.NextMiddleware != null)
             {
                 pointer = pointer.NextMiddleware;
@@ -287,26 +76,31 @@ namespace Mercy
             }
             else
             {
-                NextMiddleware.Run(context);
+                NextMiddleware?.Run(context);
             }
         }
-        public virtual void Excute(HttpContext context)
-        {
+    }
 
+    public class App : Middleware, IMiddleware
+    {
+        public override bool Excutable(HttpContext context)
+        {
+            return false;
         }
 
-    }
-    public class App : Middleware
-    {
+        protected override void Excute(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    public class NotFoundMiddleware : Middleware
+    public class NotFoundMiddleware : Middleware, IMiddleware
     {
         public override bool Excutable(HttpContext context)
         {
             return true;
         }
-        public override void Excute(HttpContext context)
+        protected override void Excute(HttpContext context)
         {
             context.Response.ResponseCode = 404;
             context.Response.Message = "Not found";
@@ -315,7 +109,7 @@ namespace Mercy
         }
     }
 
-    public class StaticFileMiddleware : Middleware
+    public class StaticFileMiddleware : Middleware, IMiddleware
     {
         public string RootPath { get; set; }
         public StaticFileMiddleware(string rootPath)
@@ -330,7 +124,7 @@ namespace Mercy
             return File.Exists(filePath);
         }
 
-        public override void Excute(HttpContext context)
+        protected override void Excute(HttpContext context)
         {
             string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
             string filePath = RootPath + contextPath;
@@ -343,14 +137,45 @@ namespace Mercy
         }
     }
 
-    public class DefaultFileMiddleware : Middleware
+    public class MercyServerHeaderMiddleware : Middleware, IMiddleware
     {
+        public override bool Excutable(HttpContext context)
+        {
+            return true;
+        }
 
+        protected override void Excute(HttpContext context)
+        {
+            context.Response.Headers.Add("Server", "Mercy");
+
+            NextMiddleware?.Run(context);
+        }
     }
 
-    public class MvcMiddleware : Middleware
+    public class DefaultFileMiddleware : Middleware, IMiddleware
     {
+        public override bool Excutable(HttpContext context)
+        {
+            return false;
+        }
 
+        protected override void Excute(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class MvcMiddleware : Middleware, IMiddleware
+    {
+        public override bool Excutable(HttpContext context)
+        {
+            return false;
+        }
+
+        protected override void Excute(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
