@@ -1,9 +1,5 @@
-# Mercy
-
-[![Build Status](https://travis-ci.org/Anduin2017/Mercy.svg?branch=master)](https://travis-ci.org/Anduin2017/Mercy)
-
 ## What is Mercy
------------
+[![Build Status](https://travis-ci.org/Anduin2017/Mercy.svg?branch=master)](https://travis-ci.org/Anduin2017/Mercy)
 
 ### So fast a framework
 Mercy is a web development framework based on dot net core.
