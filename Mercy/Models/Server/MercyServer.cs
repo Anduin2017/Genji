@@ -1,5 +1,6 @@
 ﻿using Mercy.Models.Abstract;
 using Mercy.Models.Conditions;
+using Mercy.Models.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -16,7 +17,7 @@ namespace Mercy.Models.Server
         public IHttpReporter Reporter { get; set; }
         public IHttpRecorder Recorder { get; set; }
 
-        public Dictionary<ICondition, Middleware> Conditions { get; set; } = new Dictionary<ICondition, Middleware>();
+        public Dictionary<ICondition, IMiddleware> Conditions { get; set; } = new Dictionary<ICondition, IMiddleware>();
 
         public MercyServer()
         {
@@ -29,7 +30,7 @@ namespace Mercy.Models.Server
             return this;
         }
 
-        public MercyServer Bind(ICondition when, Middleware run)
+        public MercyServer Bind(ICondition when, IMiddleware run)
         {
             this.Conditions.Add(when, run);
             return this;
@@ -50,11 +51,6 @@ namespace Mercy.Models.Server
             this.Recorder = Recorder;
             return this;
         }
-
-
-
-
-
         public void Start()
         {
             Console.WriteLine($"Application started at http://localhost:{Port}/");
