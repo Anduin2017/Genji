@@ -30,7 +30,6 @@ namespace Mercy.Models.Middlewares
             context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes("<h1>Not found!</h1>");
             context.Response.Headers.Add("Content-type", "text/html; charset=utf-8");
             context.Response.Body = File.ReadAllBytes(filePath);
-
         }
     }
 }

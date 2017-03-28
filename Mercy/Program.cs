@@ -14,24 +14,25 @@ namespace Mercy
         {
             string root = $"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}wwwroot";
 
+            var server = new MercyServer()
+                .UseBuilder(new HttpBuilder())
+                .UseReporter(new HttpReporter())
+                .UseRecorder(new HttpRecorder(recordingIncoming: false))
+                .UsePort(9000);
+
             var app = new App()
                 .UseDefaultHeaders("Mercy", keepAlive: true)
                 .UseDefaultFile("index.html")
                 .UseStaticFile(rootPath: root)
-                .UseMvc("{controller}/{action}/{id}")
+                .UseMvc()
                 .UseNotFound(root, "404.html");
 
             var condition = new ConditionCollection()
                 .InsertCondition(new DomainCondition("localhost"));
 
-            var server = new MercyServer()
-                .UseBuilder(new HttpBuilder())
-                .UseReporter(new HttpReporter())
-                .UseRecorder(new HttpRecorder(recordingIncoming: false))
-                .UsePort(9000)
-                .Bind(when: condition, run: app);
-
+            server.Bind(when: condition, run: app);
             server.Start();
+
             Console.ReadLine();
         }
     }

@@ -23,9 +23,9 @@ namespace Mercy.Library
             return host.InsertMiddleware(new StaticFileMiddleware(rootPath));
         }
 
-        public static IMiddleware UseMvc(this IMiddleware host, string route)
+        public static IMiddleware UseMvc(this IMiddleware host)
         {
-            return host.InsertMiddleware(new MvcMiddleware(route));
+            return host.InsertMiddleware(new MvcMiddleware());
         }
 
         public static IMiddleware UseNotFound(this IMiddleware host, string root, string page)

@@ -26,6 +26,14 @@ namespace Mercy.Models.Workers
                 Path = firstRows[1].Split('?')[0],
                 HttpVersion = firstRows[2]
             };
+
+            var paths = request.Path.Split('/');
+            if (paths.Length >= 3)
+            {
+                request.ControllerName = paths[1].ToLower();
+                request.ActionName = paths[2].ToLower();
+            }
+
             for (int i = 1; i < lines.Length; i++)
             {
                 if (lines[i].Contains(":"))

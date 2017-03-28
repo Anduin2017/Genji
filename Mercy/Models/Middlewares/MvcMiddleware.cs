@@ -2,18 +2,46 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Reflection;
 
 namespace Mercy.Models.Middlewares
 {
     public class MvcMiddleware : Middleware, IMiddleware
     {
-        public MvcMiddleware(string route)
+        public MvcMiddleware()
         {
 
         }
         protected override bool Excutable(HttpContext context)
         {
+            var items = Assembly.GetEntryAssembly().GetTypes();
+            foreach (var item in items)
+            {
+                if (IsController(item) && GetControllerName(item).ToLower() == context.Request.ControllerName)
+                {
+                    var methods = item.GetMethods();
+                    foreach (var method in methods)
+                    {
+                        if (method.Name.ToLower() == context.Request.ActionName)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
             return false;
+        }
+
+        private bool IsController(Type type)
+        {
+            return
+                type.Name.EndsWith("Controller") &&
+                type.Namespace.EndsWith("Controllers") &&
+                type.Name != "Controller";
+        }
+        private string GetControllerName(Type type)
+        {
+            return type.Name.Replace("Controller", "");
         }
 
         protected override void Mix(HttpContext context)
