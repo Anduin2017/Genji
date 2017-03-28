@@ -37,10 +37,10 @@ namespace Mercy
     public class Response
     {
         public string HttpVersion { get; set; } = "HTTP/1.1";
-        public short ResponseCode { get; set; } = 200;
+        public short ResponseCode { get; set; } = 500;
         public string Message { get; set; } = "Found";
         public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
-        public byte[] Body { get; set; }
+        public byte[] Body { get; set; } = new byte[0];
     }
     public class HttpContext
     {
@@ -73,20 +73,20 @@ namespace Mercy
         }
     }
 
-    public class HttpExcuter
-    {
-        public Middleware Middlewares { get; set; }
-        public HttpExcuter(Middleware middlewares)
-        {
-            Middlewares = middlewares;
-        }
-        public async Task Excute(HttpContext context)
-        {
-            context.Response = new Response();
-            Middlewares.Run(context);
-            context.Response.Headers.Add("Server","Mercy");
-        }
-    }
+    //public class HttpExcuter
+    //{
+    //    public Middleware Middlewares { get; set; }
+    //    public HttpExcuter(Middleware middlewares)
+    //    {
+    //        Middlewares = middlewares;
+    //    }
+    //    public async Task Excute(HttpContext context)
+    //    {
+    //        context.Response = new Response();
+    //        Middlewares.Run(context);
+    //        context.Response.Headers.Add("Server", "Mercy");
+    //    }
+    //}
     public class HttpReporter
     {
         public async Task Report(Response response, NetworkStream stream)
@@ -114,17 +114,27 @@ namespace Mercy
     {
         public int Port { get; set; }
         public HttpBuilder Builder { get; set; }
-        public HttpExcuter Excuter { get; set; }
         public HttpReporter Reporter { get; set; }
         public HttpRecorder Recorder { get; set; }
+
+        public List<FilterCollection> Conditions { get; set; } = new List<FilterCollection>();
+
         public MercyServer(int port)
         {
             Port = port;
         }
+
+        public MercyServer Bind(FilterCollection Condition)
+        {
+            this.Conditions.Add(Condition);
+            return this;
+        }
+
         public async Task Start()
         {
             var listener = new TcpListener(IPAddress.Any, Port);
             listener.Start();
+            Console.WriteLine($"Application started at http://localhost:{Port}/");
             while (true)
             {
                 var tcp = await listener.AcceptTcpClientAsync();
@@ -134,13 +144,24 @@ namespace Mercy
                     try
                     {
                         var httpContext = new HttpContext();
+
                         httpContext.Request = await Builder.Build(stream);
-                        await Excuter.Excute(httpContext);
+                        httpContext.Response = new Response();
+
+                        foreach (var condition in Conditions)
+                        {
+                            if (condition.Filt(httpContext))
+                            {
+                                condition.App.Run(httpContext);
+                                break;
+                            }
+                        }
                         await Reporter.Report(httpContext.Response, stream);
                         await Recorder.Record(httpContext);
                     }
                     catch (Exception e)
                     {
+                        stream.Dispose();
                         Console.WriteLine("Mercy server crashed: " + e.Message);
                     }
 
@@ -158,21 +179,87 @@ namespace Mercy
 
             string root = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "wwwroot";
 
-            var middlewares = new MiddlewareContainer()
+            var app = new App()
                 .InsertMiddleware(new DefaultFileMiddleware())
                 .InsertMiddleware(new StaticFileMiddleware(root))
                 .InsertMiddleware(new MvcMiddleware())
                 .InsertMiddleware(new NotFoundMiddleware());
 
+            var app2 = new App()
+                .InsertMiddleware(new NotFoundMiddleware());
+
+            var filter = new FilterCollection()
+                .InsertFilter(new DomainFilter("localhost"));
+
+            var filter2 = new FilterCollection()
+                .InsertFilter(new DomainFilter("127.0.0.1"));
+
+            server
+                .Bind(filter.When(app))
+                .Bind(filter2.When(app2));
+
             server.Builder = new HttpBuilder();
-            server.Excuter = new HttpExcuter(middlewares);
             server.Reporter = new HttpReporter();
             server.Recorder = new HttpRecorder();
 
-            Console.WriteLine($"Application started at http://localhost:{port}/");
             server.Start().Wait();
         }
     }
+
+    public abstract class Filter
+    {
+        public Filter NextFilter { get; set; }
+        public virtual bool SatisfyFilter(HttpContext context)
+        {
+            return true;
+        }
+        public virtual bool Filt(HttpContext context)
+        {
+            if (SatisfyFilter(context))
+            {
+                return NextFilter?.Filt(context) ?? true;
+            }
+            return false;
+        }
+    }
+    public class FilterCollection : Filter
+    {
+        public Middleware App { get; set; }
+
+        public virtual FilterCollection InsertFilter(Filter newFilter)
+        {
+            Filter pointer = this;
+            while (pointer.NextFilter != null)
+            {
+                pointer = pointer.NextFilter;
+            }
+            pointer.NextFilter = newFilter;
+            return this;
+        }
+        public FilterCollection When(Middleware app)
+        {
+            App = app;
+            return this;
+        }
+    }
+    public class DomainFilter : Filter
+    {
+        public string Domain { get; set; }
+        public DomainFilter(string domain)
+        {
+            Domain = domain;
+        }
+        public override bool SatisfyFilter(HttpContext context)
+        {
+            var runningDomain = context.Request.Headers["Host"].Trim();
+            if(Domain == "*")
+            {
+                return true;
+            }
+            return Domain == runningDomain;
+        }
+    }
+
     public abstract class Middleware
     {
         public Middleware NextMiddleware { get; set; }
@@ -207,7 +294,7 @@ namespace Mercy
         }
 
     }
-    public class MiddlewareContainer : Middleware
+    public class App : Middleware
     {
     }
 
