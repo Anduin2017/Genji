@@ -14,21 +14,21 @@ namespace Mercy.Models.Middlewares
         }
         protected override bool Excutable(HttpContext context)
         {
-            var items = Assembly.GetEntryAssembly().GetTypes();
-            foreach (var item in items)
-            {
-                if (IsController(item) && GetControllerName(item).ToLower() == context.Request.ControllerName)
-                {
-                    var methods = item.GetMethods();
-                    foreach (var method in methods)
-                    {
-                        if (method.Name.ToLower() == context.Request.ActionName)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
+            //var items = Assembly.GetEntryAssembly().GetTypes();
+            //foreach (var item in items)
+            //{
+            //    if (IsController(item) && GetControllerName(item).ToLower() == context.Request.ControllerName)
+            //    {
+            //        var methods = item.GetMethods();
+            //        foreach (var method in methods)
+            //        {
+            //            if (method.Name.ToLower() == context.Request.ActionName)
+            //            {
+            //                return true;
+            //            }
+            //        }
+            //    }
+            //}
             return false;
         }
 

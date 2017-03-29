@@ -3,7 +3,7 @@ using System.IO;
 using Mercy.Library;
 using Mercy.Models;
 
-namespace Mercy
+namespace MercyExample
 {
     public static class Program
     {

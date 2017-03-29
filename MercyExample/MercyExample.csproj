@@ -5,8 +5,9 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="Aiursoft.HSHarp" Version="1.0.1" />
+    <ProjectReference Include="..\Mercy\Mercy.csproj" />
   </ItemGroup>
 
   <ItemGroup>
