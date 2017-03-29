@@ -1,5 +1,7 @@
 ﻿using Mercy.Models.Abstract;
+using Mercy.Models.Conditions;
 using Mercy.Models.Middlewares;
+using Mercy.Models.Workers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,6 +33,24 @@ namespace Mercy.Library
         public static IMiddleware UseNotFound(this IMiddleware host, string root, string page)
         {
             return host.InsertMiddleware(new NotFoundMiddleware(root, page));
+        }
+
+        public static IServer UseDefaultBuilder(this IServer server)
+        {
+            return server.UseBuilder(new HttpBuilder());
+        }
+        public static IServer UseDefaultReporter(this IServer server)
+        {
+            return server.UseReporter(new HttpReporter());
+        }
+        public static IServer UseDefaultRecorder(this IServer server, bool recordIncoming = false)
+        {
+            return server.UseRecorder(new HttpRecorder(recordIncoming));
+        }
+
+        public static ICondition UseDomainCondition(this ICondition condition, string domain)
+        {
+            return condition.InsertCondition(new DomainCondition(domain));
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Mercy.Models.Workers
     public class HttpRecorder : IHttpRecorder
     {
         public bool RecordingIncoming { get; set; }
-        public HttpRecorder(bool recordingIncoming = false)
+        public HttpRecorder(bool recordIncoming = false)
         {
-            RecordingIncoming = recordingIncoming;
+            RecordingIncoming = recordIncoming;
         }
         public string ToTimeString(DateTime t)
         {

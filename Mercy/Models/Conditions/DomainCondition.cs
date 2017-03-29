@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Mercy.Models.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Mercy.Models.Conditions
 {
-    public class DomainCondition : ConditionCollection
+    public class DomainCondition : Condition, ICondition
     {
         public string Domain { get; set; }
+
         public DomainCondition(string domain)
         {
             Domain = domain;

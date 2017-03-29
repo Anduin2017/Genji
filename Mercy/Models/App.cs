@@ -1,9 +1,10 @@
 ﻿using Mercy.Models.Abstract;
+using Mercy.Models.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mercy.Models.Middlewares
+namespace Mercy.Models
 {
     public class App : Middleware, IMiddleware
     {

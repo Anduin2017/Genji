@@ -9,5 +9,6 @@ namespace Mercy.Models.Abstract
         ICondition NextCondition { get; set; }
         bool SatisfyCurrentCondition(HttpContext context);
         bool SatisfyAllConditions(HttpContext context);
+        ICondition InsertCondition(ICondition newCondition);
     }
 }

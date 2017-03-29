@@ -5,13 +5,12 @@ using System.Text;
 
 namespace Mercy.Models.Conditions
 {
-    public class ConditionCollection : ICondition
+    public abstract class Condition : ICondition
     {
         public ICondition NextCondition { get; set; }
-        public virtual bool SatisfyCurrentCondition(HttpContext context)
-        {
-            return true;
-        }
+
+        public abstract bool SatisfyCurrentCondition(HttpContext context);
+
         public bool SatisfyAllConditions(HttpContext context)
         {
             if (SatisfyCurrentCondition(context))
@@ -20,7 +19,7 @@ namespace Mercy.Models.Conditions
             }
             return false;
         }
-        public virtual ConditionCollection InsertCondition(ICondition newCondition)
+        public ICondition InsertCondition(ICondition newCondition)
         {
             ICondition pointer = this;
             while (pointer.NextCondition != null)
