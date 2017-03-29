@@ -20,6 +20,7 @@ namespace Mercy.Models.Workers
             await stream.WriteLine(string.Empty);
             await stream.WriteAsync(response.Body, 0, response.Body.Length);
             stream.Dispose();
+            response.Dispose();
         }
     }
 }

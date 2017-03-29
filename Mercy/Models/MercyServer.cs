@@ -48,10 +48,10 @@ namespace Mercy.Models
             return this;
         }
 
-        public void Start()
+        public Task Start()
         {
             Console.WriteLine($"Application started at http://localhost:{Port}/");
-            Task.Run(Listening);
+            return Task.Run(Listening);
         }
 
         private async Task Listening()

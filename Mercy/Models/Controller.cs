@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Mercy.Models
 {
-    public class Controller
+    public abstract class Controller
     {
-        public IActionResult View()
+        protected IActionResult View()
         {
             return null;
         }

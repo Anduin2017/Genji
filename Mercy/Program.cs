@@ -28,9 +28,7 @@ namespace Mercy
                 .UseDomainCondition("*");
 
             server.Bind(when: condition, run: app);
-            server.Start();
-
-            Console.ReadLine();
+            server.Start().Wait(); ;
         }
     }
 }

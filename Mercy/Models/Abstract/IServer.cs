@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.Abstract
 {
@@ -14,6 +15,6 @@ namespace Mercy.Models.Abstract
         IServer UseReporter(IHttpReporter Reporter);
         IServer UseRecorder(IHttpRecorder Recorder);
         IServer Bind(ICondition when, IMiddleware run);
-        void Start();
+        Task Start();
     }
 }
