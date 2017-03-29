@@ -1,22 +1,79 @@
-## What is Mercy
+# Mercy Home
 [![Build Status](https://travis-ci.org/Anduin2017/Mercy.svg?branch=master)](https://travis-ci.org/Anduin2017/Mercy)
 
-### So fast a framework
-Mercy is a web development framework based on dot net core.
+## So simple a web server
+Mercy is a simple but powerful web server based on .net standard. It is able to run alone to host a web server at any path, or intergrated with your own application. Using server you can start a server so easy!
 
-After .Net core is released, ASP.Net web apps run so much faster than .Net framework age. An ASP.Net core app starts costs about only 7 seconds while an ASP.Net app starts costs about 20 seconds. While ASP.Net core is fast, it is not fast enough.
+**Mercy DO NOT rely on Microsoft asp.net. So mercy is small, simple and fast. It can be used as a dependent module.**
+
+### functions
+- [Starting different types of server at the same time](#)
+- [Hosting at different ports at the same time](#)
+- [Depending on the domain user requests, hosting different apps at the same time](#)
+- [Depending on the ip address user requests, hosting different apps at the same time](#)
+- [Virtual path](#)
+
+## So easy a HTTP middleware
+Mercy is able to run as a HTTP middleware. Just like nginx or IIS, Mercy is able to act as a inverse proxy server or a load balance server.
+
+Everything you do in nginx and IIS, you can do in Mercy.
+
+### functions
+- [static HTTP server](#)
+- [FTP server](#)
+- [Inverse proxy server](#)
+- [Load balance server](#)
+- [MVC web application](#)
+
+## So fast a framework
+Mercy is a web development framework based on .net standard.
+
+Web app based on asp.net core works fast. App starts costs about 5 seconds.
 
 Web app based on Golong works faster. App starts costs about 2 seconds.
 
 But now Mercy is different. Mercy is sooo fast that it starts only costs **0.5 seconds**.
 
-### Cross platform
-Mercy is based on dot net core. Mercy do not depend on any third-party library that we have done all the works by ourselves. Also we have tested it on different operating systems. Mercy do not require a inverse-proxy server, like nginx or IIS.
+### functions
+- [MVVM web app](#)
+- [Dependency injection](#)
+- [Globalization and localization](#)
+- [Sign in control and user control](#)
 
-Just configure your target port, target domain and web root path, Mercy will run so easily.
+**Mercy do not rely on asp.net or asp.net core! All features of Mercy works differently with asp.net features!**
+
+## So small a module
+You can install Mercy as a module of your application using Nuget.
+
+`Install-Package Anduin.Mercy`
+
+or [Download as dll](#)
+
+Using Mercy as a module you can customize your server using your own code and in your own application.
 
 ### Mercy grammar
 Mercy is a server development framework that it is also able to operate source HTML. Using tag like `Mercy-if`, `Mercy-foreach` is so easy for you to learn and develope.
 
 ### Manage data with EF
 To manage your database Mercy uses EF core. EF core is also a cross-platform framework and also supports SQL Server, MySQL databases.
+
+### Platform supports
+Mercy is based on .net standard. So it is able to run at any platform witch .net standard supports.
+
+Including:
+- WPF on Windows
+- Windows Froms on Windows
+- ASP.Net on Windows
+- UWP on Windows 10, Windows 10 mobile, Xbox
+- ASP.Net Core on Windows, Linux and Mac OS
+- Xamarin on iOS, Android and OS X
+
+[![.netstandard](https://msdnshared.blob.core.windows.net/media/2016/09/dotnet-tomorrow.png)](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/)
+
+### Language supports
+Mercy is based on .net standard. So it is able to support any language witch .net supports.
+
+Including:
+- C#
+- F#
+- Visual Basic
