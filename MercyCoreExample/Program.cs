@@ -11,24 +11,21 @@ namespace MercyCoreExample
         {
             string root = $"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}wwwroot";
 
-            var server = new MercyServer();
-            
-            server.UseDefaultBuilder();
-            server.UseDefaultReporter();
-            server.UseDefaultRecorder(recordIncoming: true);
-            server.UsePort(12222);
+            var server = new MercyServer()
+                .UseDefaultBuilder()
+                .UseDefaultReporter()
+                .UseDefaultRecorder(recordIncoming: true)
+                .UsePort(12222);
 
-            var app = new App();
+            var app = new App()
+                .UseDefaultHeaders(serverName: "Mercy", keepAlive: true)
+                .UseDefaultFile("index.html")
+                .UseStaticFile(rootPath: root)
+                .UseMvc()
+                .UseNotFound(root, "/views/404.html");
 
-            app.UseDefaultHeaders(serverName: "Mercy", keepAlive: true);
-            app.UseDefaultFile("index.html");
-            app.UseStaticFile(rootPath: root);
-            app.UseMvc();
-            app.UseNotFound(root, "404.html");
-
-            var condition = new AppCondition();
-            
-            condition.UseDomainCondition("*");
+            var condition = new AppCondition()
+                .UseDomainCondition("*");
 
             server.Bind(when: condition, run: app);
             server.Start().Wait();

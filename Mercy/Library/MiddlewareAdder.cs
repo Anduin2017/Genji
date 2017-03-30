@@ -30,9 +30,9 @@ namespace Mercy.Library
             return host.InsertMiddleware(new MvcMiddleware());
         }
 
-        public static IMiddleware UseNotFound(this IMiddleware host, string root, string page)
+        public static IMiddleware UseNotFound(this IMiddleware host, string root, string errorPage)
         {
-            return host.InsertMiddleware(new NotFoundMiddleware(root, page));
+            return host.InsertMiddleware(new NotFoundMiddleware(root, errorPage));
         }
 
         public static IServer UseDefaultBuilder(this IServer server)
