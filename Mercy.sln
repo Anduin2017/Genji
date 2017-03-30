@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.10
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercyExample", "MercyExample\MercyExample.csproj", "{305797CC-1298-4C83-8779-27B2EF521D77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercyCoreExample", "MercyCoreExample\MercyCoreExample.csproj", "{305797CC-1298-4C83-8779-27B2EF521D77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercy", "Mercy\Mercy.csproj", "{0A795198-9914-4924-8369-0AF8D8C42453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mercy", "Mercy\Mercy.csproj", "{0A795198-9914-4924-8369-0AF8D8C42453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
