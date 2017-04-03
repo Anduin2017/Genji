@@ -16,7 +16,6 @@ namespace Mercy.Models
         public IHttpBuilder Builder { get; set; }
         public IHttpReporter Reporter { get; set; }
         public IHttpRecorder Recorder { get; set; }
-
         public Dictionary<ICondition, IMiddleware> Conditions { get; set; } = new Dictionary<ICondition, IMiddleware>();
         public MercyServer()
         {
@@ -91,7 +90,7 @@ namespace Mercy.Models
             {
                 if (condition.Key.SatisfyAllConditions(httpContext))
                 {
-                    condition.Value.Run(httpContext);
+                    await condition.Value.Run(httpContext);
                     break;
                 }
             }

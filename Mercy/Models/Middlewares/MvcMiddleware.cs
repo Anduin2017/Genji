@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.Middlewares
 {
@@ -12,7 +13,7 @@ namespace Mercy.Models.Middlewares
         {
 
         }
-        protected override bool Excutable(HttpContext context)
+        protected async override Task<bool> Excutable(HttpContext context)
         {
             //var items = Assembly.GetEntryAssembly().GetTypes();
             //foreach (var item in items)

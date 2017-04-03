@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.Middlewares
 {
@@ -20,7 +21,7 @@ namespace Mercy.Models.Middlewares
 
         }
 
-        protected override bool Excutable(HttpContext context)
+        protected async override Task<bool> Excutable(HttpContext context)
         {
             string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
             string filePath = RootPath + contextPath;

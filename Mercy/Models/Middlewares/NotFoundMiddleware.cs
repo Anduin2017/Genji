@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.Middlewares
 {
@@ -18,7 +19,7 @@ namespace Mercy.Models.Middlewares
         protected override void Mix(HttpContext context)
         {
         }
-        protected override bool Excutable(HttpContext context)
+        protected async override Task<bool> Excutable(HttpContext context)
         {
             return true;
         }

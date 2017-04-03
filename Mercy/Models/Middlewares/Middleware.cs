@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.Middlewares
 {
     public abstract class Middleware : IMiddleware
     {
         public IMiddleware NextMiddleware { get; set; }
-        protected abstract bool Excutable(HttpContext context);
+        protected abstract Task<bool> Excutable(HttpContext context);
         protected abstract void Excute(HttpContext context);
         protected abstract void Mix(HttpContext context);
 
@@ -22,10 +23,10 @@ namespace Mercy.Models.Middlewares
             pointer.NextMiddleware = newMiddleware;
             return this;
         }
-        public void Run(HttpContext context)
+        public async Task Run(HttpContext context)
         {
             Mix(context);
-            if (Excutable(context))
+            if (await Excutable(context))
             {
                 Excute(context);
             }
