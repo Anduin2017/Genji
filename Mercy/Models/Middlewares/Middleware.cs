@@ -32,7 +32,7 @@ namespace Mercy.Models.Middlewares
             }
             else
             {
-                NextMiddleware?.Run(context);
+                await NextMiddleware?.Run(context);
             }
         }
     }

@@ -14,16 +14,30 @@ namespace Mercy.Models.Middlewares
         {
             this.ProxyPath = proxyPath;
         }
+
+        private string _RightNowResult { get; set; }
+
         protected async override Task<bool> Excutable(HttpContext context)
         {
             string target = ProxyPath + context.Request.PathWithArguments;
             var http = new HTTPService();
-            var result = await http.Get(target);
-            return true;
+            try
+            {
+                _RightNowResult = await http.Get(target);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         protected override void Excute(HttpContext context)
         {
+            context.Response.ResponseCode = 200;
+            context.Response.Message = "OK";
+            context.Response.Headers.Add("Content-type", "text/html; charset=utf-8");
+            context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes(_RightNowResult);
         }
 
         protected override void Mix(HttpContext context)
