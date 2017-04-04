@@ -39,7 +39,7 @@ namespace Mercy.Library
             return retString;
         }
 
-        public async Task<string> Get(string Url, string Coding = "utf-8")
+        public async Task<WebResponse> Get(string Url, string Coding = "utf-8")
         {
             var request = WebRequest.CreateHttp(Url.ToString());
             if (CC.Count == 0)
@@ -54,12 +54,13 @@ namespace Mercy.Library
             request.Method = "GET";
             request.ContentType = "text/html;charset=" + Coding;
             var response = await request.GetResponseAsync();
-            var myResponseStream = response.GetResponseStream();
-            var myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding(Coding));
-            string retString = await myStreamReader.ReadToEndAsync();
-            myStreamReader.Dispose();
-            myResponseStream.Dispose();
-            return retString;
+            return response;
+            //var myResponseStream = response.GetResponseStream();
+            //var myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding(Coding));
+            //string retString = await myStreamReader.ReadToEndAsync();
+            //myStreamReader.Dispose();
+            //myResponseStream.Dispose();
+            //return retString;
         }
     }
 }

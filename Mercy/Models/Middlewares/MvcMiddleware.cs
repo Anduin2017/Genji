@@ -49,7 +49,7 @@ namespace Mercy.Models.Middlewares
         {
         }
 
-        protected override void Excute(HttpContext context)
+        protected async override Task Excute(HttpContext context)
         {
             throw new NotImplementedException();
         }

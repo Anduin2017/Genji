@@ -23,7 +23,7 @@ namespace MercyCoreExample
                 .UseDefaultFile("index.html")
                 .UseStaticFile(rootPath: root)
                 .UseMvc()
-                .InsertMiddleware(new ReverseProxyMiddleware("https://www.baidu.com"))
+                .InsertMiddleware(new ReverseProxyMiddleware("http://git.aiursoft.com"))
                 .UseNotFound(root, "/views/404.html");
 
             var condition = new AppCondition()

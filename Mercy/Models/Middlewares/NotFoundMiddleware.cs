@@ -23,7 +23,7 @@ namespace Mercy.Models.Middlewares
         {
             return true;
         }
-        protected override void Excute(HttpContext context)
+        protected async override Task Excute(HttpContext context)
         {
             context.Response.ResponseCode = 404;
             context.Response.Message = "Not found";

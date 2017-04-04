@@ -10,7 +10,7 @@ namespace Mercy.Models.Middlewares
     {
         public IMiddleware NextMiddleware { get; set; }
         protected abstract Task<bool> Excutable(HttpContext context);
-        protected abstract void Excute(HttpContext context);
+        protected abstract Task Excute(HttpContext context);
         protected abstract void Mix(HttpContext context);
 
         public IMiddleware InsertMiddleware(IMiddleware newMiddleware)
@@ -28,7 +28,7 @@ namespace Mercy.Models.Middlewares
             Mix(context);
             if (await Excutable(context))
             {
-                Excute(context);
+                await Excute(context);
             }
             else
             {

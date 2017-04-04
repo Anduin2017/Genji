@@ -28,7 +28,7 @@ namespace Mercy.Models.Middlewares
             return File.Exists(filePath);
         }
 
-        protected override void Excute(HttpContext context)
+        protected async override Task Excute(HttpContext context)
         {
             string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
             string filePath = RootPath + contextPath;
