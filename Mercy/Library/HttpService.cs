@@ -12,55 +12,30 @@ namespace Mercy.Library
     public class HTTPService
     {
         public CookieContainer CC = new CookieContainer();
-        public async Task<string> Post(string Url, string postDataStr, string Decode = "utf-8")
+        public async Task<WebResponse> Post(string Url, string postDataStr)
         {
             var request = WebRequest.CreateHttp(Url.ToString());
-            if (CC.Count == 0)
-            {
-                request.CookieContainer = new CookieContainer();
-                CC = request.CookieContainer;
-            }
-            else
-            {
-                request.CookieContainer = CC;
-            }
+            request.CookieContainer = CC;
             request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
             var myRequestStream = await request.GetRequestStreamAsync();
-            var myStreamWriter = new StreamWriter(myRequestStream, Encoding.GetEncoding("GB2312"));
-            await myStreamWriter.WriteAsync(postDataStr.ToString().Trim('?'));
-            myStreamWriter.Dispose();
+            var myStreamWriter = new StreamWriter(myRequestStream, Encoding.GetEncoding("utf-8"));
+            await myStreamWriter.WriteAsync(postDataStr);
+
             var response = await request.GetResponseAsync();
-            var myResponseStream = response.GetResponseStream();
-            var myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding(Decode));
-            string retString = await myStreamReader.ReadToEndAsync();
-            myStreamReader.Dispose();
-            myResponseStream.Dispose();
-            return retString;
+            //var myResponseStream = response.GetResponseStream();
+            //var myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+            //string retString = await myStreamReader.ReadToEndAsync();
+            myStreamWriter.Dispose();
+            return response;
         }
 
         public async Task<WebResponse> Get(string Url, string Coding = "utf-8")
         {
             var request = WebRequest.CreateHttp(Url.ToString());
-            if (CC.Count == 0)
-            {
-                request.CookieContainer = new CookieContainer();
-                CC = request.CookieContainer;
-            }
-            else
-            {
-                request.CookieContainer = CC;
-            }
+            request.CookieContainer = CC;
             request.Method = "GET";
-            request.ContentType = "text/html;charset=" + Coding;
             var response = await request.GetResponseAsync();
             return response;
-            //var myResponseStream = response.GetResponseStream();
-            //var myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding(Coding));
-            //string retString = await myStreamReader.ReadToEndAsync();
-            //myStreamReader.Dispose();
-            //myResponseStream.Dispose();
-            //return retString;
         }
     }
 }
