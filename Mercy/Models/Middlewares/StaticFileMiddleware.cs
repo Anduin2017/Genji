@@ -25,7 +25,7 @@ namespace Mercy.Models.Middlewares
         {
             string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
             string filePath = RootPath + contextPath;
-            return File.Exists(filePath);
+            return await Task.Run(() => File.Exists(filePath));
         }
 
         protected async override Task Excute(HttpContext context)
@@ -37,7 +37,7 @@ namespace Mercy.Models.Middlewares
             context.Response.Message = "OK";
             context.Response.Headers.Add("cache-control", "max-age=3600");
             context.Response.Headers.Add("Content-Type", MIME.MIMETypesDictionary[fileExtension]);
-            context.Response.Body = File.ReadAllBytes(filePath);
+            context.Response.Body = await Task.Run(() => { File.ReadAllBytes(filePath)});
         }
     }
 }

@@ -24,11 +24,13 @@ namespace Mercy.Models.Middlewares
 
         protected async override Task<bool> Excutable(HttpContext context)
         {
+            await Task.Delay(0);
             return false;
         }
 
         protected async override Task Excute(HttpContext context)
         {
+            await Task.Delay(0);
             throw new NotImplementedException();
         }
     }

@@ -15,6 +15,7 @@ namespace Mercy.Models.Middlewares
         }
         protected async override Task<bool> Excutable(HttpContext context)
         {
+            await Task.Delay(0);
             //var items = Assembly.GetEntryAssembly().GetTypes();
             //foreach (var item in items)
             //{
@@ -51,6 +52,7 @@ namespace Mercy.Models.Middlewares
 
         protected async override Task Excute(HttpContext context)
         {
+            await Task.Delay(0);
             throw new NotImplementedException();
         }
     }
