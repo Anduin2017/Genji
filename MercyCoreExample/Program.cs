@@ -20,8 +20,8 @@ namespace MercyCoreExample
 
             var app = new App()
                 .UseDefaultHeaders(serverName: "Mercy", keepAlive: true)
-                //.UseDefaultFile("index.html")
-                //.UseStaticFile(rootPath: root)
+                .UseDefaultFile("index.html")
+                .UseStaticFile(rootPath: root)
                 .UseMvc()
                 .InsertMiddleware(new ReverseProxyMiddleware("http://git.aiursoft.com"))
                 .UseNotFound(root, "/views/404.html");
