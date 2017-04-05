@@ -1,4 +1,4 @@
-# Mercy Home
+# Mercy - Everything you do in nginx, you can do it in Mercy
 [![Build Status](https://travis-ci.org/Anduin2017/Mercy.svg?branch=master)](https://travis-ci.org/Anduin2017/Mercy)
 
 ## So simple a web server
@@ -17,7 +17,7 @@ Mercy is able to run as a HTTP middleware. Just like nginx or IIS, Mercy is able
 
 Everything you do in nginx and IIS, you can do in Mercy.
 
-- [static HTTP server](#)
+- [Static HTTP server](#)
 - [FTP server](#)
 - [Inverse proxy server](#)
 - [Load balance server](#)
