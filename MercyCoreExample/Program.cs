@@ -16,18 +16,18 @@ namespace MercyCoreExample
                 .UseDefaultBuilder()
                 .UseDefaultReporter()
                 .UseDefaultRecorder(recordIncoming: true)
-                .UsePort(12222);
+                .UsePort(9000);
 
             var app = new App()
                 .UseDefaultHeaders(serverName: "Mercy", keepAlive: true)
                 .UseDefaultFile("index.html")
                 .UseStaticFile(rootPath: root)
                 .UseMvc()
-                .InsertMiddleware(new ReverseProxyMiddleware("http://git.aiursoft.com"))
+                //.InsertMiddleware(new ReverseProxyMiddleware("http://git.aiursoft.com"))
                 .UseNotFound(root, "/views/404.html");
 
             var condition = new AppCondition()
-                .UseDomainCondition("*");
+                .UseDomainCondition("localhost");
 
             server.Bind(when: condition, run: app);
             server.Start().Wait();
