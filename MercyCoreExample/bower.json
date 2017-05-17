@@ -1,0 +1,26 @@
+{
+  "name": "MercyCoreExample",
+  "homepage": "https://github.com/Anduin2017/Mercy",
+  "authors": [
+    "Anduin"
+  ],
+  "description": "Mercy Core Example",
+  "main": "Program.cs",
+  "keywords": [
+    "Mercy",
+    "Web"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "font-awesome": "^4.7.0"
+  }
+}
