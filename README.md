@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/Anduin2017/Mercy.svg?branch=master)](https://travis-ci.org/Anduin2017/Mercy)
 
 ## So simple a web server
-Mercy is a simple but powerful web server based on .net standard. It is able to run alone to host a web server at any path, or intergrated with your own application. Using server you can start a server so easy!
+Mercy is a simple but powerful web server based on .net standard. It is able to run alone to host a web server at any path, or intergrate with your own application. Using server you can start a server so easy!
 
 - [Starting different types of server at the same time](#)
 - [Hosting at different ports at the same time](#)
