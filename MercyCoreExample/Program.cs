@@ -15,7 +15,7 @@ namespace MercyCoreExample
             var server = new MercyServer()
                 .UseDefaultBuilder()
                 .UseDefaultReporter()
-                .UseDefaultRecorder(recordIncoming: true)
+                .UseDefaultRecorder(recordIncoming: false)
                 .UsePort(9000);
 
             var app = new App()
@@ -23,8 +23,7 @@ namespace MercyCoreExample
                 .UseDefaultFile("index.html")
                 .UseStaticFile(rootPath: root)
                 .UseMvc()
-                //.InsertMiddleware(new ReverseProxyMiddleware("http://git.aiursoft.com"))
-                .UseNotFound(root, "/views/404.html");
+                .UseNotFound(root, errorPage: "/404.html");
 
             var condition = new AppCondition()
                 .UseDomainCondition("localhost");

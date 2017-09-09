@@ -21,13 +21,14 @@ namespace Mercy.Models.Middlewares
         }
         protected async override Task<bool> Excutable(HttpContext context)
         {
+            await Task.Delay(0);
             return true;
         }
         protected async override Task Excute(HttpContext context)
         {
+            await Task.Delay(0);
             context.Response.ResponseCode = 404;
             context.Response.Message = "Not found";
-            //context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes("<h1>Not found!</h1>");
             context.Response.Headers.Add("Content-type", "text/html; charset=utf-8");
             if (string.IsNullOrEmpty(ErrorPage))
             {
