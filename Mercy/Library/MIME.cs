@@ -26,6 +26,7 @@ namespace Mercy.Library
             {"mid", "audio/midi"},
             {"mov", "video/quicktime"},
             {"mp3", "audio/mpeg"},
+            {"map", "application/octet-stream"},
             {"mp4", "video/mp4"},
             {"mpeg", "video/mpeg"},
             {"mpg", "video/mpeg"},

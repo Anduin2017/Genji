@@ -25,7 +25,10 @@ namespace Mercy.Models.Middlewares
         {
             string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
             string filePath = RootPath + contextPath;
-            return await Task.Run(() => File.Exists(filePath));
+            string fileExtension = Path.GetExtension(filePath).TrimStart('.');
+            var exists = await Task.Run(() => File.Exists(filePath));
+            var supports = MIME.MIMETypesDictionary.ContainsKey(fileExtension);
+            return exists && supports;
         }
 
         protected async override Task Excute(HttpContext context)

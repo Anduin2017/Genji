@@ -1,4 +1,5 @@
-﻿using Mercy.Models.Abstract;
+﻿using Mercy.Exceptions;
+using Mercy.Models.Abstract;
 using Mercy.Models.Conditions;
 using Mercy.Models.Middlewares;
 using System;
@@ -56,7 +57,7 @@ namespace Mercy.Models
         {
             var listener = new TcpListener(IPAddress.Any, Port);
             listener.Start();
-            Console.WriteLine($"Application started at http://localhost:{Port}/");
+            Recorder.Print($"Application started at http://localhost:{Port}/");
             while (true)
             {
                 var tcp = await listener.AcceptTcpClientAsync();
@@ -71,6 +72,10 @@ namespace Mercy.Models
             try
             {
                 await Calculate(stream);
+            }
+            catch (RequestTerminatedException)
+            {
+                Recorder.Print("A request was terminated!");
             }
             catch (Exception e)
             {

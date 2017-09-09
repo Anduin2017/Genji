@@ -1,4 +1,5 @@
-﻿using Mercy.Library;
+﻿using Mercy.Exceptions;
+using Mercy.Library;
 using Mercy.Models.Abstract;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Mercy.Models.Workers
             var source = await stream.ReadToEnd();
             if (string.IsNullOrWhiteSpace(source))
             {
-                throw new Exception("We recieved an empty network stream request!");
+                throw new RequestTerminatedException("A request was terminated!");
             }
             var lines = source.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             var firstRows = lines[0].Split(' ');

@@ -9,6 +9,7 @@ namespace Mercy.Models.Abstract
     {
         void Record(HttpContext context);
         void RecordException(Exception e);
+        void Print(string content);
         void RecordIncoming();
     }
 }

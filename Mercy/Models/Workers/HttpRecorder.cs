@@ -19,18 +19,31 @@ namespace Mercy.Models.Workers
         }
         public void Record(HttpContext context)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"{ToTimeString(DateTime.Now)} [{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.Path}");
+            Console.ResetColor();
+        }
+        public void Print(string content)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP ???: {content}");
+            Console.ResetColor();
         }
         public void RecordException(Exception e)
         {
-            Console.WriteLine("Mercy server crashed: " + e.Message);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP ???: Mercy server crashed: " + e.Message);
+            Console.WriteLine(e.StackTrace);
+            Console.ResetColor();
         }
 
         public void RecordIncoming()
         {
             if (RecordingIncoming)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP Incoming....");
+                Console.ResetColor();
             }
         }
     }

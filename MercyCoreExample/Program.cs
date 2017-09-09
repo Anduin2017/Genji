@@ -10,13 +10,14 @@ namespace MercyCoreExample
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Starting Mercy server....");
             string root = $"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}wwwroot";
 
             var server = new MercyServer()
                 .UseDefaultBuilder()
                 .UseDefaultReporter()
                 .UseDefaultRecorder(recordIncoming: false)
-                .UsePort(9000);
+                .UsePort(8001);
 
             var app = new App()
                 .UseDefaultHeaders(serverName: "Mercy", keepAlive: true)
