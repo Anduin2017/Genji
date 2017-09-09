@@ -40,7 +40,9 @@ namespace Mercy.Models.Middlewares
             return
                 type.Name.EndsWith("Controller") &&
                 type.Namespace.EndsWith("Controllers") &&
-                type.Name != "Controller";
+                type.Name != "Controller" &&
+                type.IsSubclassOf(typeof(Controller)) &&
+                type.IsPublic;
         }
         private string GetControllerName(Type type)
         {
