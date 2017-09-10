@@ -10,6 +10,8 @@ namespace Mercy.Models.Middlewares
 {
     public class MvcMiddleware : Middleware, IMiddleware
     {
+        private MethodInfo action = null;
+        private Type controller = null;
         public MvcMiddleware()
         {
 
@@ -22,11 +24,13 @@ namespace Mercy.Models.Middlewares
             {
                 if (IsController(item) && GetControllerName(item).ToLower() == context.Request.ControllerName)
                 {
+                    controller = item;
                     var methods = item.GetMethods();
                     foreach (var method in methods)
                     {
                         if (method.Name.ToLower() == context.Request.ActionName)
                         {
+                            action = method;
                             return true;
                         }
                     }
@@ -55,25 +59,7 @@ namespace Mercy.Models.Middlewares
 
         protected async override Task Excute(HttpContext context)
         {
-            //await Task.Delay(0);
-            var items = Assembly.GetEntryAssembly().GetTypes();
-            MethodInfo action = null;
-            Type controller = null;
-            foreach (var item in items)
-            {
-                if (IsController(item) && GetControllerName(item).ToLower() == context.Request.ControllerName)
-                {
-                    controller = item;
-                    var methods = item.GetMethods();
-                    foreach (var method in methods)
-                    {
-                        if (method.Name.ToLower() == context.Request.ActionName)
-                        {
-                            action = method;
-                        }
-                    }
-                }
-            }
+            await Task.Delay(0);
             var instance = Assembly.GetAssembly(controller).CreateInstance(controller.FullName) as Controller;
             instance.HttpContext = context;
             var result = action.Invoke(instance, null) as string;
