@@ -13,5 +13,9 @@ namespace Mercy.Library
         {
             return new StringResult(input);
         }
+        public JsonResult Json(object input)
+        {
+            return new JsonResult(input);
+        }
     }
 }

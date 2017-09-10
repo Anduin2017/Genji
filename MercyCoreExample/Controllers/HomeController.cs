@@ -18,5 +18,15 @@ namespace MercyCoreExample.Controllers
         {
             return String("About!");
         }
+
+        public IActionResult Me()
+        {
+            return Json(new
+            {
+                id = "something",
+                time = DateTime.Now,
+                value = "this is my value"
+            });
+        }
     }
 }
