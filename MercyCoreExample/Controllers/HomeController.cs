@@ -1,5 +1,6 @@
 ﻿using Mercy.Library;
 using Mercy.Models.Abstract;
+using MercyCoreExample.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace MercyCoreExample.Controllers
 {
     public class HomeController : Controller
     {
+        private ExampleDbContext _dbContext;
+        public HomeController(ExampleDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public IActionResult Index()
         {
             return String($"Hello world, {HttpContext.Request.Path}");
@@ -25,7 +32,8 @@ namespace MercyCoreExample.Controllers
             {
                 id = "something",
                 time = DateTime.Now,
-                value = "this is my value"
+                value = "this is my value",
+                count = _dbContext.Blogs.Count()
             });
         }
     }

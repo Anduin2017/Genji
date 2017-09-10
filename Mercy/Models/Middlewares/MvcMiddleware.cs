@@ -60,7 +60,15 @@ namespace Mercy.Models.Middlewares
         protected async override Task Excute(HttpContext context)
         {
             await Task.Delay(0);
-            var instance = Assembly.GetAssembly(controller).CreateInstance(controller.FullName) as Controller;
+            var constructor = controller.GetConstructors()[0];
+            var args = constructor.GetParameters();
+            object[] parameters = new object[args.Length];
+            for (int i = 0; i < args.Length; i++)
+            {
+                var type = args[i].ParameterType;
+                parameters[i] = Assembly.GetAssembly(type).CreateInstance(type.FullName, true);
+            }
+            var instance = Assembly.GetAssembly(controller).CreateInstance(controller.FullName, true, BindingFlags.Default, null, parameters, null, null) as Controller;
             instance.HttpContext = context;
             var result = action.Invoke(instance, null) as IActionResult;
             context.Response.ResponseCode = result.StatusCode;
