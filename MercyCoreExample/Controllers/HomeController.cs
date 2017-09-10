@@ -1,4 +1,5 @@
 ﻿using Mercy.Library;
+using Mercy.Models.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,14 @@ namespace MercyCoreExample.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return $"Hello world, {HttpContext.Request.Path}";
+            return String($"Hello world, {HttpContext.Request.Path}");
         }
 
-        public string About()
+        public IActionResult About()
         {
-            return "About!";
+            return String("About!");
         }
     }
 }

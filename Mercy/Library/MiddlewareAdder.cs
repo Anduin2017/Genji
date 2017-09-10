@@ -15,9 +15,9 @@ namespace Mercy.Library
             return host.InsertMiddleware(new DefaultHeadersMiddleware(serverName, keepAlive));
         }
 
-        public static IMiddleware UseDefaultFile(this IMiddleware host, string defaultFileName = "index.html")
+        public static IMiddleware UseDefaultFile(this IMiddleware host, string rootPath, string defaultFileName = "index.html")
         {
-            return host.InsertMiddleware(new DefaultFileMiddleware(defaultFileName));
+            return host.InsertMiddleware(new DefaultFileMiddleware(rootPath, defaultFileName));
         }
 
         public static IMiddleware UseStaticFile(this IMiddleware host, string rootPath)

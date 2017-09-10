@@ -21,7 +21,7 @@ namespace MercyCoreExample
 
             var app = new App()
                 .UseDefaultHeaders(serverName: "Mercy", keepAlive: true)
-                .UseDefaultFile("index.html")
+                .UseDefaultFile(rootPath: root, defaultFileName: "index.html")
                 .UseStaticFile(rootPath: root)
                 .UseMvc()
                 .UseNotFound(root, errorPage: "/404.html");

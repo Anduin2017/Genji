@@ -62,11 +62,11 @@ namespace Mercy.Models.Middlewares
             await Task.Delay(0);
             var instance = Assembly.GetAssembly(controller).CreateInstance(controller.FullName) as Controller;
             instance.HttpContext = context;
-            var result = action.Invoke(instance, null) as string;
-            context.Response.ResponseCode = 200;
-            context.Response.Message = "Ok";
-            context.Response.Headers.Add("Content-type", "text/html; charset=utf-8");
-            context.Response.Body = Encoding.GetEncoding("utf-8").GetBytes(result);
+            var result = action.Invoke(instance, null) as IActionResult;
+            context.Response.ResponseCode = result.StatusCode;
+            context.Response.Message = result.Messsage;
+            context.Response.Headers.Add("Content-type", result.ContentType);
+            context.Response.Body = result.Render;
             return;
         }
     }
