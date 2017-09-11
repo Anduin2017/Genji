@@ -34,6 +34,12 @@ namespace MercyCoreExample.Controllers
         }
 
         [HttpGet]
+        public IActionResult Time()
+        {
+            return Json(DateTime.Now);
+        }
+
+        [HttpGet]
         public IActionResult Me()
         {
             return Json(new

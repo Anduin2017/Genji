@@ -50,13 +50,13 @@ namespace Mercy.Library
         {
             return server.UseReporter(new HttpReporter());
         }
-        public static IServer UseDefaultRecorder(this IServer server, bool recordIncoming = false)
+        public static IServer UseDefaultRecorder(this IServer server, string logpath=null, bool recordIncoming = false)
         {
-            return server.UseRecorder(new HttpRecorder(recordIncoming));
+            return server.UseRecorder(new HttpRecorder(logpath, recordIncoming));
         }
-        public static IServer UseDefaultSettings(this IServer server)
+        public static IServer UseDefaultSettings(this IServer server, string logpath=null)
         {
-            return server.UseDefaultBuilder().UseDefaultReporter().UseDefaultRecorder(false);
+            return server.UseDefaultBuilder().UseDefaultReporter().UseDefaultRecorder(logpath, false);
         }
 
         public static ICondition UseDomainCondition(this ICondition condition, string domain)

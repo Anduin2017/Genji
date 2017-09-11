@@ -56,21 +56,27 @@ namespace Mercy.Models
 
         private async Task Listening()
         {
-            try
+            while (true)
             {
                 var listener = new TcpListener(IPAddress.Any, Port);
-                listener.Start();
-                Console.WriteLine($"Mercy server started at http://localhost:{Port}/");
-                while (true)
+                try
                 {
-                    var tcp = await listener.AcceptTcpClientAsync();
-                    var stream = tcp.GetStream();
-                    Excute(stream).GetAwaiter();
+
+                    listener.Start();
+                    Console.ResetColor();
+                    Console.WriteLine($"Mercy server started at http://localhost:{Port}/");
+                    while (true)
+                    {
+                        var tcp = await listener.AcceptTcpClientAsync();
+                        var stream = tcp.GetStream();
+                        Excute(stream).GetAwaiter();
+                    }
                 }
-            }
-            catch(Exception e)
-            {
-                Recorder.RecordException(e);
+                catch (Exception e)
+                {
+                    Recorder.RecordException(e);
+                    await Task.Delay(5000);
+                }
             }
         }
 
@@ -84,10 +90,6 @@ namespace Mercy.Models
             catch (RequestTerminatedException)
             {
                 Recorder.Print("A request was terminated!");
-            }
-            catch (IOException)
-            {
-                Recorder.Print("An existing connection was forcibly closed by the remote host.");
             }
             catch (Exception e)
             {

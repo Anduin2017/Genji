@@ -11,5 +11,6 @@ namespace Mercy.Models.Abstract
         void RecordException(Exception e);
         void Print(string content);
         void RecordIncoming();
+        void Warn(string content);
     }
 }
