@@ -16,9 +16,9 @@ namespace Mercy.Library
             return host.InsertMiddleware(new DefaultHeadersMiddleware(serverName, keepAlive));
         }
 
-        public static IMiddleware UseDefaultFile(this IMiddleware host, string rootPath, string defaultFileName = "index.html")
+        public static IMiddleware UseDefaultFile(this IMiddleware host, string location, string fileName = "index.html")
         {
-            return host.InsertMiddleware(new DefaultFileMiddleware(rootPath, defaultFileName));
+            return host.InsertMiddleware(new DefaultFileMiddleware(location, fileName));
         }
 
         public static IMiddleware UseStaticFile(this IMiddleware host, string rootPath)
@@ -26,9 +26,9 @@ namespace Mercy.Library
             return host.InsertMiddleware(new StaticFileMiddleware(rootPath));
         }
 
-        public static IMiddleware UseMvc(this IMiddleware host, ServiceGroup services)
+        public static IMiddleware UseMvc(this IMiddleware host,string viewLocation, ServiceGroup services)
         {
-            return host.InsertMiddleware(new MvcMiddleware(services));
+            return host.InsertMiddleware(new MvcMiddleware(viewLocation,services));
         }
 
         public static IMiddleware UseNotFound(this IMiddleware host, string root, string errorPage)

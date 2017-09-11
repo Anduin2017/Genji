@@ -15,6 +15,7 @@ namespace MercyCoreExample
         {
             string root = $"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}";
             string wwwroot = $"{root}wwwroot";
+            string viewroot = $"{root}Views";
 
             var server = new MercyServer()
                 .UseDefaultBuilder()
@@ -24,9 +25,9 @@ namespace MercyCoreExample
 
             var app = new App()
                 .UseDefaultHeaders(serverName: "Mercy", keepAlive: false)
-                .UseDefaultFile(rootPath: wwwroot, defaultFileName: "index.html")
+                .UseDefaultFile(location: wwwroot, fileName: "index.html")
                 .UseStaticFile(rootPath: wwwroot)
-                .UseMvc(services: ConfigServices())
+                .UseMvc(viewLocation: viewroot, services: ConfigServices())
                 .UseNotFound(root: root, errorPage: "/Views/Shared/404.html");
 
             var condition = new AppCondition()

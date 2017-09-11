@@ -14,9 +14,11 @@ namespace Mercy.Models.Middlewares
         private MethodInfo action = null;
         private Type controller = null;
         private ServiceGroup services = null;
-        public MvcMiddleware(ServiceGroup services)
+        private string viewLocation = string.Empty;
+        public MvcMiddleware(string viewLocation,ServiceGroup services)
         {
             this.services = services;
+            this.viewLocation = viewLocation;
         }
         protected async override Task<bool> Excutable(HttpContext context)
         {
@@ -64,6 +66,14 @@ namespace Mercy.Models.Middlewares
             await Task.Delay(0);
             var instance = this.services.GetService(controller) as Controller;
             instance.HttpContext = context;
+            var args = action.GetParameters();
+            object[] parameters = new object[args.Length];
+            for (int i = 0; i < args.Length; i++)
+            {
+
+                //var requirement = args[i].ParameterType;
+                //parameters[i] = GetService(requirement);
+            }
             var result = action.Invoke(instance, null) as IActionResult;
             context.Response.ResponseCode = result.StatusCode;
             context.Response.Message = result.Messsage;
