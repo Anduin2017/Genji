@@ -5,6 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Threading.Tasks;
 using Mercy.Library;
+using Mercy.Service;
 
 namespace Mercy.Models.Middlewares
 {
@@ -12,9 +13,10 @@ namespace Mercy.Models.Middlewares
     {
         private MethodInfo action = null;
         private Type controller = null;
-        public MvcMiddleware()
+        private ServiceGroup services = null;
+        public MvcMiddleware(ServiceGroup services)
         {
-
+            this.services = services;
         }
         protected async override Task<bool> Excutable(HttpContext context)
         {
@@ -60,15 +62,7 @@ namespace Mercy.Models.Middlewares
         protected async override Task Excute(HttpContext context)
         {
             await Task.Delay(0);
-            var constructor = controller.GetConstructors()[0];
-            var args = constructor.GetParameters();
-            object[] parameters = new object[args.Length];
-            for (int i = 0; i < args.Length; i++)
-            {
-                var type = args[i].ParameterType;
-                parameters[i] = Assembly.GetAssembly(type).CreateInstance(type.FullName, true);
-            }
-            var instance = Assembly.GetAssembly(controller).CreateInstance(controller.FullName, true, BindingFlags.Default, null, parameters, null, null) as Controller;
+            var instance = this.services.GetService(controller) as Controller;
             instance.HttpContext = context;
             var result = action.Invoke(instance, null) as IActionResult;
             context.Response.ResponseCode = result.StatusCode;

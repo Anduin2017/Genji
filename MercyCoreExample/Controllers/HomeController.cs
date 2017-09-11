@@ -1,5 +1,6 @@
 ﻿using Mercy.Library;
 using Mercy.Models.Abstract;
+using Mercy.Service;
 using MercyCoreExample.Data;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,17 @@ namespace MercyCoreExample.Controllers
     public class HomeController : Controller
     {
         private ExampleDbContext _dbContext;
-        public HomeController(ExampleDbContext dbContext)
+        private CleanerService _cleaner;
+        private UserManager<ExampleDbContext> _userManager;
+
+        public HomeController(
+            ExampleDbContext dbContext,
+            CleanerService cleaner,
+            UserManager<ExampleDbContext> userManager)
         {
             _dbContext = dbContext;
+            _cleaner = cleaner;
+            _userManager = userManager;
         }
 
         public IActionResult Index()

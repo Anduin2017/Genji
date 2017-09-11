@@ -2,6 +2,7 @@
 using Mercy.Models.Conditions;
 using Mercy.Models.Middlewares;
 using Mercy.Models.Workers;
+using Mercy.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,9 +26,9 @@ namespace Mercy.Library
             return host.InsertMiddleware(new StaticFileMiddleware(rootPath));
         }
 
-        public static IMiddleware UseMvc(this IMiddleware host)
+        public static IMiddleware UseMvc(this IMiddleware host, ServiceGroup services)
         {
-            return host.InsertMiddleware(new MvcMiddleware());
+            return host.InsertMiddleware(new MvcMiddleware(services));
         }
 
         public static IMiddleware UseNotFound(this IMiddleware host, string root, string errorPage)

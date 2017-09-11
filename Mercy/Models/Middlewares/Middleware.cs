@@ -23,6 +23,7 @@ namespace Mercy.Models.Middlewares
             pointer.NextMiddleware = newMiddleware;
             return this;
         }
+
         public async Task Run(HttpContext context)
         {
             Mix(context);
