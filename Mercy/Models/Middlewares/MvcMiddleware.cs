@@ -64,6 +64,19 @@ namespace Mercy.Models.Middlewares
             var instance = this.services.GetService(controller) as Controller;
             instance.HttpContext = context;
             instance.ViewLocation = viewLocation;
+
+            foreach (var attribute in action.GetCustomAttributes())
+            {
+                var art = attribute as Attribute;
+                if (art is IAuthorizeFilter)
+                {
+                    if (!(art as IAuthorizeFilter).ShouldContinue(context))
+                    {
+                        await NextMiddleware.Run(context);
+                        return;
+                    }
+                }
+            }
             var parameters = InjectArgs(action, context);
             var result = action.Invoke(instance, parameters);
             IActionResult response = null;

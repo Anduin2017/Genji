@@ -24,7 +24,8 @@ namespace MercyCoreExample.Controllers
 
         public IActionResult Index()
         {
-            return String($"Hello world, {HttpContext.Request.Path}");
+            Response.SetCookie("MyCookie", "asdf");
+            return String($"Hello world, {Request.Path}");
         }
 
         public IActionResult About(string id, string name)

@@ -12,6 +12,12 @@ namespace Mercy.Models
         public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
         public byte[] Body { get; set; } = new byte[0];
 
+        public void SetCookie(string name, string value, int maxage = 3600, bool httponly = true)
+        {
+            string httponlymark = httponly ? " httponly;" : string.Empty;
+            this.Headers.Add("set-Cookie", $"{name}={value}; samesite = strict;{httponlymark} max-age={maxage}");
+        }
+
         public void Dispose()
         {
             Body = null;

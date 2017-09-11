@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mercy.Models.Attributes;
 
 namespace MercyCoreExample.Controllers
 {
@@ -13,6 +14,8 @@ namespace MercyCoreExample.Controllers
         {
             return String("This is Account page.");
         }
+
+        [HttpPost]
         public IActionResult SignIn()
         {
             return View();

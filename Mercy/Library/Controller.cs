@@ -13,6 +13,8 @@ namespace Mercy.Library
     {
         public string ViewLocation { get; set; }
         public HttpContext HttpContext { get; set; }
+        public Request Request => HttpContext.Request;
+        public Response Response => HttpContext.Response;
         public StringResult String(string input)
         {
             return new StringResult(input);
