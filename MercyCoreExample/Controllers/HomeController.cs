@@ -45,5 +45,15 @@ namespace MercyCoreExample.Controllers
                 count = _dbContext.Blogs.Count()
             });
         }
+
+        public IActionResult CreateBlog()
+        {
+            _dbContext.Blogs.Add(new Blog
+            {
+                Url = "asdf"
+            });
+            _dbContext.SaveChanges();
+            return Json(new { message = "success." });
+        }
     }
 }
