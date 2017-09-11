@@ -20,10 +20,7 @@ namespace Mercy.Models.Middlewares
 
         protected override void Mix(HttpContext context)
         {
-            if (context.Request.Path == "/")
-            {
-                context.Request.Path = "/" + DefaultFileName;
-            }
+
         }
 
         protected async override Task<bool> Excutable(HttpContext context)
@@ -39,7 +36,7 @@ namespace Mercy.Models.Middlewares
         protected async override Task Excute(HttpContext context)
         {
             string contextPath = context.Request.Path.Replace('/', Path.DirectorySeparatorChar);
-            string filePath = RootPath + contextPath;
+            string filePath = RootPath + contextPath + DefaultFileName;
             var fileExtension = Path.GetExtension(filePath).TrimStart('.');
             context.Response.ResponseCode = 200;
             context.Response.Message = "OK";

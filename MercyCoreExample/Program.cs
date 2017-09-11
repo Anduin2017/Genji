@@ -50,8 +50,8 @@ namespace MercyCoreExample
                 .RegisterService<ExampleDbContext>()
                 .RegisterService<UserManager<ExampleDbContext>>();
 
-            var db = services.GetService(typeof(ExampleDbContext)) as ExampleDbContext;
-            db.Database.Migrate();
+            var database = services.GetService(typeof(ExampleDbContext)) as ExampleDbContext;
+            database.Database.Migrate();
 
             return services;
         }
