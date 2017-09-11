@@ -6,5 +6,6 @@ namespace Mercy.Exceptions
 {
     public class ServiceNotRegistered : Exception
     {
+        public ServiceNotRegistered(string message) : base(message) { }
     }
 }

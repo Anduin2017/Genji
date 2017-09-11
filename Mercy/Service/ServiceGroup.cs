@@ -12,9 +12,9 @@ namespace Mercy.Service
 
         public ServiceGroup RegisterController<T>() where T : class
         {
-            return Register<T>();
+            return RegisterService<T>();
         }
-        public ServiceGroup Register<T>() where T : class
+        public ServiceGroup RegisterService<T>() where T : class
         {
             Type typeParameterType = typeof(T);
             this.Services.Add(typeParameterType);
@@ -25,7 +25,7 @@ namespace Mercy.Service
         {
             if (!Services.Exists(t => t.Equals(type)))
             {
-                throw new ServiceNotRegistered();
+                throw new ServiceNotRegistered($"The service {type.FullName} you tried to inject is not registered. Please register it first!");
             }
             var constructor = type.GetConstructors()[0];
             var args = constructor.GetParameters();

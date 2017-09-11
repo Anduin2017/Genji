@@ -20,7 +20,7 @@ namespace Mercy.Models.Workers
         public void Record(HttpContext context)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"{ToTimeString(DateTime.Now)} [{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.Path}");
+            Console.WriteLine($"{ToTimeString(DateTime.Now)} [{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.PathWithArguments}");
             Console.ResetColor();
         }
         public void Print(string content)

@@ -8,12 +8,13 @@ namespace MercyCoreExample.Data
 {
     public class ExampleDbContext : DbContext
     {
+        public static string ConnectionString { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=blogging.db");
+            optionsBuilder.UseSqlite(ConnectionString);
         }
     }
     public class Blog

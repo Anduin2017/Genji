@@ -57,7 +57,7 @@ namespace Mercy.Models
         {
             var listener = new TcpListener(IPAddress.Any, Port);
             listener.Start();
-            Recorder.Print($"Application started at http://localhost:{Port}/");
+            Console.WriteLine($"Application started at http://localhost:{Port}/");
             while (true)
             {
                 var tcp = await listener.AcceptTcpClientAsync();
