@@ -1,4 +1,5 @@
-﻿using Mercy.Models.Abstract;
+﻿using Mercy.Models;
+using Mercy.Models.Abstract;
 using Mercy.Models.Conditions;
 using Mercy.Models.Middlewares;
 using Mercy.Models.Workers;
@@ -11,14 +12,14 @@ namespace Mercy.Library
 {
     public static class MiddlewareAdder
     {
-        public static IMiddleware UseDefaultHeaders(this IMiddleware host, string serverName = "Mercy", bool keepAlive = true)
+        public static IMiddleware UseHeaders(this IMiddleware host, string serverName = "Mercy", bool keepAlive = true)
         {
-            return host.InsertMiddleware(new DefaultHeadersMiddleware(serverName, keepAlive));
+            return host.InsertMiddleware(new HeadersMiddleware(serverName, keepAlive));
         }
 
-        public static IMiddleware UseDefaultFile(this IMiddleware host, string location, string fileName = "index.html")
+        public static IMiddleware UseDefaultFile(this IMiddleware host, string location, string pathMatch, string fileName = "index.html")
         {
-            return host.InsertMiddleware(new DefaultFileMiddleware(location, fileName));
+            return host.InsertMiddleware(new DefaultFileMiddleware(location, pathMatch, fileName));
         }
 
         public static IMiddleware UseStaticFile(this IMiddleware host, string rootPath)
@@ -26,9 +27,14 @@ namespace Mercy.Library
             return host.InsertMiddleware(new StaticFileMiddleware(rootPath));
         }
 
-        public static IMiddleware UseMvc(this IMiddleware host,string viewLocation, ServiceGroup services,bool checkPathCase)
+        public static IMiddleware UseRoute(this IMiddleware host, string sourcePath, string controllerName, string actionName)
         {
-            return host.InsertMiddleware(new MvcMiddleware(viewLocation,services, checkPathCase));
+            return host.InsertMiddleware(new RouteMiddleware(sourcePath, controllerName, actionName));
+        }
+
+        public static IMiddleware UseMvc(this IMiddleware host, string viewroot, ServiceGroup services, bool checkPathCase = false)
+        {
+            return host.InsertMiddleware(new MvcMiddleware(viewroot, services, checkPathCase));
         }
 
         public static IMiddleware UseNotFound(this IMiddleware host, string root, string errorPage)
@@ -47,6 +53,10 @@ namespace Mercy.Library
         public static IServer UseDefaultRecorder(this IServer server, bool recordIncoming = false)
         {
             return server.UseRecorder(new HttpRecorder(recordIncoming));
+        }
+        public static IServer UseDefaultSettings(this IServer server)
+        {
+            return server.UseDefaultBuilder().UseDefaultReporter().UseDefaultRecorder(false);
         }
 
         public static ICondition UseDomainCondition(this ICondition condition, string domain)

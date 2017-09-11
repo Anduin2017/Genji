@@ -1,6 +1,6 @@
-﻿using Mercy.Exceptions;
-using Mercy.Library;
+﻿using Mercy.Library;
 using Mercy.Models.Abstract;
+using Mercy.Models.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Net;

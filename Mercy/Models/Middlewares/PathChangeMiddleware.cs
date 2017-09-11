@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace Mercy.Models.Middlewares
 {
-    public class DefaultHeadersMiddleware : Middleware, IMiddleware
+    public class RouteMiddleware : Middleware, IMiddleware
     {
-        public string ServerName { get; set; }
-        public bool KeepAlive { get; set; }
-        public DefaultHeadersMiddleware(string serverName = "Mercy", bool keepAlive = true)
+        public string SourcePath { get; set; }
+        public string ControllerName { get; set; }
+        public string ActionName { get; set; }
+        public RouteMiddleware(string sourcePath, string controllerName, string actionName)
         {
-            ServerName = serverName;
-            KeepAlive = keepAlive;
+            SourcePath = sourcePath;
+            ControllerName = controllerName;
+            ActionName = actionName;
         }
 
         protected override void Mix(HttpContext context)
         {
-            context.Response.Headers.Add("Server", ServerName);
-            if (KeepAlive)
+            if (SourcePath == context.Request.Path)
             {
-                context.Response.Headers.Add("Connection", "keep-alive");
+                context.Request.ControllerName = ControllerName;
+                context.Request.ActionName = ActionName;
             }
         }
 

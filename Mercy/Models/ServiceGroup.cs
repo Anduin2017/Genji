@@ -1,10 +1,10 @@
-﻿using Mercy.Exceptions;
+﻿using Mercy.Model.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Mercy.Service
+namespace Mercy.Models
 {
     public class ServiceGroup
     {

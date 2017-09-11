@@ -14,32 +14,32 @@ namespace Mercy.Models.Middlewares
         private List<MethodInfo> actionsMatches = new List<MethodInfo>();
         private MethodInfo actionToRun;
         private Type controller = null;
-        private ServiceGroup services = null;
-        private string viewLocation = string.Empty;
-        private bool checkPathCase = false;
-        public MvcMiddleware(string viewLocation, ServiceGroup services, bool checkPathCase)
+        private ServiceGroup Services = null;
+        private string ViewRoot = string.Empty;
+        private bool CheckPathCase = false;
+        public MvcMiddleware(string viewroot, ServiceGroup services, bool checkPathCase = false)
         {
-            this.services = services;
-            this.viewLocation = viewLocation;
-            this.checkPathCase = checkPathCase;
+            this.Services = services;
+            this.ViewRoot = viewroot;
+            this.CheckPathCase = checkPathCase;
         }
 
         protected async override Task<bool> Excutable(HttpContext context)
         {
             await Task.Delay(0);
-            if(string.IsNullOrEmpty(context.Request.ControllerName) || string.IsNullOrEmpty(context.Request.ActionName))
+            if (string.IsNullOrEmpty(context.Request.ControllerName) || string.IsNullOrEmpty(context.Request.ActionName))
             {
                 return false;
             }
             actionsMatches.Clear();
             foreach (var item in Assembly.GetEntryAssembly().GetTypes())
             {
-                if (Methods.IsController(item) && Methods.GetControllerName(item).StringEquals(context.Request.ControllerName, checkPathCase))
+                if (Methods.IsController(item) && Methods.GetControllerName(item).StringEquals(context.Request.ControllerName, CheckPathCase))
                 {
                     controller = item;
                     foreach (var method in item.GetMethods())
                     {
-                        if (method.Name.StringEquals(context.Request.ActionName, checkPathCase))
+                        if (method.Name.StringEquals(context.Request.ActionName, CheckPathCase))
                         {
                             actionsMatches.Add(method);
                         }
@@ -70,9 +70,9 @@ namespace Mercy.Models.Middlewares
 
         protected async override Task Excute(HttpContext context)
         {
-            var instance = this.services.GetService(controller) as Controller;
+            var instance = this.Services.GetService(controller) as Controller;
             instance.HttpContext = context;
-            instance.ViewLocation = viewLocation;
+            instance.ViewLocation = ViewRoot;
             foreach (var action in actionsMatches)
             {
                 if (TryRun(context, action))

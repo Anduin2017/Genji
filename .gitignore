@@ -10,3 +10,4 @@ node_modules
 Storage
 .vscode
 Properties
+*.db

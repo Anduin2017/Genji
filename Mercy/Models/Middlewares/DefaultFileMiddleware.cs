@@ -12,10 +12,12 @@ namespace Mercy.Models.Middlewares
     {
         public string DefaultFileName { get; set; }
         public string RootPath { get; set; }
-        public DefaultFileMiddleware(string rootPath, string defaultFileName = "index.html")
+        public string PathMatch { get; set; }
+        public DefaultFileMiddleware(string rootPath, string pathMatch,string defaultFileName = "index.html")
         {
             DefaultFileName = defaultFileName;
             RootPath = rootPath;
+            PathMatch = pathMatch;
         }
 
         protected override void Mix(HttpContext context)
@@ -26,7 +28,7 @@ namespace Mercy.Models.Middlewares
         protected async override Task<bool> Excutable(HttpContext context)
         {
             await Task.Delay(0);
-            if (context.Request.Path == "/" && !string.IsNullOrEmpty(DefaultFileName))
+            if (context.Request.Path == PathMatch && !string.IsNullOrEmpty(DefaultFileName))
             {
                 return true;
             }

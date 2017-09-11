@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mercy.Exceptions
+namespace Mercy.Models.Exceptions
 {
     public class RequestTerminatedException : Exception
     {
