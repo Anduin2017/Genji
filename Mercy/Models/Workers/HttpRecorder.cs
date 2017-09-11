@@ -28,20 +28,17 @@ namespace Mercy.Models.Workers
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
             Console.WriteLine($"{ToTimeString(DateTime.Now)} [{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.PathWithArguments}");
-            Console.ResetColor();
         }
         public void Print(string content)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP ???: {content}");
-            Console.ResetColor();
         }
         public void RecordException(Exception e)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP ???: Mercy server crashed: " + e.Message);
+            Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP ???: Mercy server crashed because of {e.ToString()}: " +  e.Message);
             Console.WriteLine(e.StackTrace);
-            Console.ResetColor();
         }
 
         public void RecordIncoming()
@@ -50,7 +47,6 @@ namespace Mercy.Models.Workers
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{ToTimeString(DateTime.Now)} [???] HTTP Incoming....");
-                Console.ResetColor();
             }
         }
     }

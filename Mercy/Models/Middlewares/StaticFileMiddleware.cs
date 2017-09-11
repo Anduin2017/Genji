@@ -39,6 +39,7 @@ namespace Mercy.Models.Middlewares
             context.Response.ResponseCode = 200;
             context.Response.Message = "OK";
             context.Response.Headers.Add("cache-control", "max-age=3600");
+            context.Response.Headers.Add("Content-Length", new FileInfo(filePath).Length.ToString());
             context.Response.Headers.Add("Content-Type", MIME.MIMETypesDictionary[fileExtension]);
             context.Response.Body = await Task.Run(() => File.ReadAllBytes(filePath));
         }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.ActionResults
 {
@@ -16,6 +17,10 @@ namespace Mercy.Models.ActionResults
         public short StatusCode => 200;
         public string Messsage => "OK";
         public string ContentType => "application/json; charset=utf-8";
-        public byte[] Render => Encoding.GetEncoding("utf-8").GetBytes(JsonConvert.SerializeObject(obj));
+        public async Task<byte[]> Render()
+        {
+            return await Task.Run(() => 
+                Encoding.GetEncoding("utf-8").GetBytes(JsonConvert.SerializeObject(obj)));
+        }
     }
 }

@@ -11,102 +11,80 @@ namespace Mercy.Models.Middlewares
 {
     public class MvcMiddleware : Middleware, IMiddleware
     {
-        private MethodInfo action = null;
+        private List<MethodInfo> actionsMatches = new List<MethodInfo>();
+        private MethodInfo actionToRun;
         private Type controller = null;
         private ServiceGroup services = null;
         private string viewLocation = string.Empty;
-        public MvcMiddleware(string viewLocation, ServiceGroup services)
+        private bool checkPathCase = false;
+        public MvcMiddleware(string viewLocation, ServiceGroup services, bool checkPathCase)
         {
             this.services = services;
             this.viewLocation = viewLocation;
+            this.checkPathCase = checkPathCase;
         }
+
         protected async override Task<bool> Excutable(HttpContext context)
         {
             await Task.Delay(0);
-            var items = Assembly.GetEntryAssembly().GetTypes();
-            foreach (var item in items)
+            if(string.IsNullOrEmpty(context.Request.ControllerName) || string.IsNullOrEmpty(context.Request.ActionName))
             {
-                if (IsController(item) && Methods.GetControllerName(item) == context.Request.ControllerName)
+                return false;
+            }
+            actionsMatches.Clear();
+            foreach (var item in Assembly.GetEntryAssembly().GetTypes())
+            {
+                if (Methods.IsController(item) && Methods.GetControllerName(item).StringEquals(context.Request.ControllerName, checkPathCase))
                 {
                     controller = item;
-                    var methods = item.GetMethods();
-                    foreach (var method in methods)
+                    foreach (var method in item.GetMethods())
                     {
-                        if (method.Name == context.Request.ActionName)
+                        if (method.Name.StringEquals(context.Request.ActionName, checkPathCase))
                         {
-                            action = method;
-                            return true;
+                            actionsMatches.Add(method);
                         }
                     }
                 }
             }
-            return false;
+            return actionsMatches.Count > 0;
         }
-
-        private bool IsController(Type type)
-        {
-            return
-                type.Name.EndsWith("Controller") &&
-                type.Namespace.EndsWith("Controllers") &&
-                type.Name != "Controller" &&
-                type.IsSubclassOf(typeof(Controller)) &&
-                type.IsPublic;
-        }
-
 
         protected override void Mix(HttpContext context)
         {
         }
 
-        protected async override Task Excute(HttpContext context)
+        protected bool TryRun(HttpContext context, MethodBase action)
         {
-            await Task.Delay(0);
-            var instance = this.services.GetService(controller) as Controller;
-            instance.HttpContext = context;
-            instance.ViewLocation = viewLocation;
-
-            foreach (var attribute in action.GetCustomAttributes())
+            foreach (var attribute in Methods.ConnectAllAttributes(controller, action))
             {
-                var art = attribute as Attribute;
-                if (art is IAuthorizeFilter)
+                if (attribute is IAuthorizeFilter)
                 {
-                    if (!(art as IAuthorizeFilter).ShouldContinue(context))
+                    if (!(attribute as IAuthorizeFilter).ShouldContinue(context))
                     {
-                        await NextMiddleware.Run(context);
-                        return;
+                        return false;
                     }
                 }
             }
-            var parameters = InjectArgs(action, context);
-            var result = action.Invoke(instance, parameters);
-            IActionResult response = null;
-            if (result is IActionResult)
-            {
-                response = result as IActionResult;
-            }
-            if (result is Task<IActionResult>)
-            {
-                response = await (result as Task<IActionResult>);
-            }
-            context.Response.ResponseCode = response.StatusCode;
-            context.Response.Message = response.Messsage;
-            context.Response.Headers.Add("Content-type", response.ContentType);
-            context.Response.Body = response.Render;
-            return;
+            return true;
         }
 
-        protected object[] InjectArgs(MethodInfo action, HttpContext context)
+        protected async override Task Excute(HttpContext context)
         {
-            var args = action.GetParameters();
-            object[] parameters = new object[args.Length];
-            for (int i = 0; i < args.Length; i++)
+            var instance = this.services.GetService(controller) as Controller;
+            instance.HttpContext = context;
+            instance.ViewLocation = viewLocation;
+            foreach (var action in actionsMatches)
             {
-                if (context.Request.Arguments.ContainsKey(args[i].Name))
+                if (TryRun(context, action))
                 {
-                    parameters[i] = context.Request.Arguments[args[i].Name];
+                    actionToRun = action;
+                    break;
                 }
             }
-            return parameters;
+            var parameters = Methods.InjectArgs(actionToRun, context);
+            var result = actionToRun.Invoke(instance, parameters);
+            IActionResult response = result is IActionResult ? response = result as IActionResult : await (result as Task<IActionResult>);
+            await Methods.RenderResponse(context.Response, response);
         }
     }
 }

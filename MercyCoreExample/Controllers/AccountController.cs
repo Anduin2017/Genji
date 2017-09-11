@@ -15,10 +15,16 @@ namespace MercyCoreExample.Controllers
             return String("This is Account page.");
         }
 
+        [HttpGet]
+        public IActionResult SignIn(string path)
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult SignIn()
         {
-            return View();
+            return String("Successfully signed in.");
         }
     }
 }

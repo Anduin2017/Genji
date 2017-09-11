@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.ActionResults
 {
@@ -20,6 +21,10 @@ namespace Mercy.Models.ActionResults
 
         public string ContentType => "text/html; charset=utf-8";
 
-        public byte[] Render => File.ReadAllBytes(ViewFilePath);
+        public async Task<byte[]> Render()
+        {
+            return await Task.Run(() =>
+                File.ReadAllBytes(ViewFilePath));
+        }
     }
 }

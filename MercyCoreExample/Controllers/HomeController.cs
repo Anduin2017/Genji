@@ -1,5 +1,6 @@
 ﻿using Mercy.Library;
 using Mercy.Models.Abstract;
+using Mercy.Models.Attributes;
 using Mercy.Service;
 using MercyCoreExample.Data;
 using System;
@@ -33,6 +34,7 @@ namespace MercyCoreExample.Controllers
             return String("About!");
         }
 
+        [HttpGet]
         public IActionResult Me()
         {
             return Json(new
@@ -44,6 +46,7 @@ namespace MercyCoreExample.Controllers
             });
         }
 
+        [HttpPost]
         public async Task<IActionResult> CreateBlog()
         {
             _dbContext.Blogs.Add(new Blog

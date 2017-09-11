@@ -26,7 +26,6 @@ namespace Mercy.Models.Middlewares
         }
         protected async override Task Excute(HttpContext context)
         {
-            await Task.Delay(0);
             context.Response.ResponseCode = 404;
             context.Response.Message = "Not found";
             context.Response.Headers.Add("Content-type", "text/html; charset=utf-8");
@@ -37,7 +36,7 @@ namespace Mercy.Models.Middlewares
             else
             {
                 string filePath = Root + ErrorPage;
-                context.Response.Body = File.ReadAllBytes(filePath);
+                context.Response.Body = await Task.Run(() => File.ReadAllBytes(filePath));
             }
         }
     }

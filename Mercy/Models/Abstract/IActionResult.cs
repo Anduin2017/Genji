@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.Abstract
 {
@@ -9,6 +10,6 @@ namespace Mercy.Models.Abstract
         short StatusCode { get; }
         string Messsage { get; }
         string ContentType { get; }
-        byte[] Render { get; }
+        Task<byte[]> Render();
     }
 }

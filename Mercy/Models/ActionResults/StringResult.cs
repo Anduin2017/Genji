@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Mercy.Models.ActionResults
 {
@@ -15,7 +16,10 @@ namespace Mercy.Models.ActionResults
         public short StatusCode => 200;
         public string ContentType => "text/html; charset=utf-8";
         public string Messsage => "OK";
-        public byte[] Render => Encoding.GetEncoding("utf-8").GetBytes(_Content);
-
+        public async Task<byte[]> Render()
+        {
+            return await Task.Run(() =>
+                Encoding.GetEncoding("utf-8").GetBytes(_Content));
+        }
     }
 }

@@ -6,6 +6,7 @@ using Mercy.Models.Middlewares;
 using Mercy.Service;
 using MercyCoreExample.Data;
 using MercyCoreExample.Controllers;
+using Microsoft.EntityFrameworkCore;
 
 namespace MercyCoreExample
 {
@@ -27,7 +28,7 @@ namespace MercyCoreExample
                 .UseDefaultHeaders(serverName: "Mercy", keepAlive: false)
                 .UseDefaultFile(location: wwwroot, fileName: "index.html")
                 .UseStaticFile(rootPath: wwwroot)
-                .UseMvc(viewLocation: viewroot, services: ConfigServices())
+                .UseMvc(viewLocation: viewroot, services: ConfigServices(), checkPathCase: false)
                 .UseNotFound(root: viewroot, errorPage: "/Shared/404.html");
 
             var condition = new AppCondition()
@@ -48,6 +49,9 @@ namespace MercyCoreExample
             services
                 .RegisterService<ExampleDbContext>()
                 .RegisterService<UserManager<ExampleDbContext>>();
+
+            var db = services.GetService(typeof(ExampleDbContext)) as ExampleDbContext;
+            db.Database.Migrate();
 
             return services;
         }
