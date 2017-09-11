@@ -19,7 +19,14 @@ namespace Mercy.Models.Workers
         }
         public void Record(HttpContext context)
         {
-            Console.ForegroundColor = ConsoleColor.White;
+            if (context.Response.ResponseCode == 200)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
             Console.WriteLine($"{ToTimeString(DateTime.Now)} [{context.Response.ResponseCode}] HTTP {context.Request.Method}: {context.Request.PathWithArguments}");
             Console.ResetColor();
         }

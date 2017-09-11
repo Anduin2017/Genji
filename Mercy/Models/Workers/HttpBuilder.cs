@@ -35,8 +35,8 @@ namespace Mercy.Models.Workers
             var paths = request.Path.Split('/');
             if (paths.Length >= 3)
             {
-                request.ControllerName = paths[1].ToLower();
-                request.ActionName = paths[2].ToLower();
+                request.ControllerName = paths[1];
+                request.ActionName = paths[2];
             }
 
             //Argumtnets

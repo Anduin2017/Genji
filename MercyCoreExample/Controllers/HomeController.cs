@@ -12,16 +12,13 @@ namespace MercyCoreExample.Controllers
     public class HomeController : Controller
     {
         private ExampleDbContext _dbContext;
-        private CleanerService _cleaner;
         private UserManager<ExampleDbContext> _userManager;
 
         public HomeController(
             ExampleDbContext dbContext,
-            CleanerService cleaner,
             UserManager<ExampleDbContext> userManager)
         {
             _dbContext = dbContext;
-            _cleaner = cleaner;
             _userManager = userManager;
         }
 
@@ -30,7 +27,7 @@ namespace MercyCoreExample.Controllers
             return String($"Hello world, {HttpContext.Request.Path}");
         }
 
-        public IActionResult About()
+        public IActionResult About(string id, string name)
         {
             return String("About!");
         }
@@ -46,13 +43,13 @@ namespace MercyCoreExample.Controllers
             });
         }
 
-        public IActionResult CreateBlog()
+        public async Task<IActionResult> CreateBlog()
         {
             _dbContext.Blogs.Add(new Blog
             {
                 Url = "asdf"
             });
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
             return Json(new { message = "success." });
         }
     }

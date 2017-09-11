@@ -28,7 +28,7 @@ namespace MercyCoreExample
                 .UseDefaultFile(location: wwwroot, fileName: "index.html")
                 .UseStaticFile(rootPath: wwwroot)
                 .UseMvc(viewLocation: viewroot, services: ConfigServices())
-                .UseNotFound(root: root, errorPage: "/Views/Shared/404.html");
+                .UseNotFound(root: viewroot, errorPage: "/Shared/404.html");
 
             var condition = new AppCondition()
                 .UseDomainCondition("localhost");
@@ -47,8 +47,7 @@ namespace MercyCoreExample
 
             services
                 .RegisterService<ExampleDbContext>()
-                .RegisterService<UserManager<ExampleDbContext>>()
-                .RegisterService<CleanerService>();
+                .RegisterService<UserManager<ExampleDbContext>>();
 
             return services;
         }

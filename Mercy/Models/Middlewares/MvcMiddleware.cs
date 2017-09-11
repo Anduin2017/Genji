@@ -15,7 +15,7 @@ namespace Mercy.Models.Middlewares
         private Type controller = null;
         private ServiceGroup services = null;
         private string viewLocation = string.Empty;
-        public MvcMiddleware(string viewLocation,ServiceGroup services)
+        public MvcMiddleware(string viewLocation, ServiceGroup services)
         {
             this.services = services;
             this.viewLocation = viewLocation;
@@ -26,13 +26,13 @@ namespace Mercy.Models.Middlewares
             var items = Assembly.GetEntryAssembly().GetTypes();
             foreach (var item in items)
             {
-                if (IsController(item) && GetControllerName(item).ToLower() == context.Request.ControllerName)
+                if (IsController(item) && Methods.GetControllerName(item) == context.Request.ControllerName)
                 {
                     controller = item;
                     var methods = item.GetMethods();
                     foreach (var method in methods)
                     {
-                        if (method.Name.ToLower() == context.Request.ActionName)
+                        if (method.Name == context.Request.ActionName)
                         {
                             action = method;
                             return true;
@@ -52,10 +52,7 @@ namespace Mercy.Models.Middlewares
                 type.IsSubclassOf(typeof(Controller)) &&
                 type.IsPublic;
         }
-        private string GetControllerName(Type type)
-        {
-            return type.Name.Replace("Controller", "");
-        }
+
 
         protected override void Mix(HttpContext context)
         {
@@ -66,20 +63,37 @@ namespace Mercy.Models.Middlewares
             await Task.Delay(0);
             var instance = this.services.GetService(controller) as Controller;
             instance.HttpContext = context;
+            instance.ViewLocation = viewLocation;
+            var parameters = InjectArgs(action, context);
+            var result = action.Invoke(instance, parameters);
+            IActionResult response = null;
+            if (result is IActionResult)
+            {
+                response = result as IActionResult;
+            }
+            if (result is Task<IActionResult>)
+            {
+                response = await (result as Task<IActionResult>);
+            }
+            context.Response.ResponseCode = response.StatusCode;
+            context.Response.Message = response.Messsage;
+            context.Response.Headers.Add("Content-type", response.ContentType);
+            context.Response.Body = response.Render;
+            return;
+        }
+
+        protected object[] InjectArgs(MethodInfo action, HttpContext context)
+        {
             var args = action.GetParameters();
             object[] parameters = new object[args.Length];
             for (int i = 0; i < args.Length; i++)
             {
-
-                //var requirement = args[i].ParameterType;
-                //parameters[i] = GetService(requirement);
+                if (context.Request.Arguments.ContainsKey(args[i].Name))
+                {
+                    parameters[i] = context.Request.Arguments[args[i].Name];
+                }
             }
-            var result = action.Invoke(instance, null) as IActionResult;
-            context.Response.ResponseCode = result.StatusCode;
-            context.Response.Message = result.Messsage;
-            context.Response.Headers.Add("Content-type", result.ContentType);
-            context.Response.Body = result.Render;
-            return;
+            return parameters;
         }
     }
 }

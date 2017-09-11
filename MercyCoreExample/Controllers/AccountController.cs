@@ -13,5 +13,9 @@ namespace MercyCoreExample.Controllers
         {
             return String("This is Account page.");
         }
+        public IActionResult SignIn()
+        {
+            return View();
+        }
     }
 }
