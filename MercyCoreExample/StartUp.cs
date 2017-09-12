@@ -50,7 +50,6 @@ namespace MercyCoreExample
             var condition = new AppCondition()
                 .UseDomainCondition("localhost");
 
-
             server.Bind(when: condition, run: app);
             return server;
         }

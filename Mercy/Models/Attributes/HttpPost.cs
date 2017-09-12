@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Mercy.Models.Attributes
 {
-    public class HttpPost : Attribute, IAuthorizeFilter
+    public class HttpPost : Attribute, IFilter
     {
         public bool ShouldContinue(HttpContext context)
         {

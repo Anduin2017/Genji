@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Mercy.Models.Abstract
 {
-    public interface IAuthorizeFilter
+    public interface IFilter
     {
         bool ShouldContinue(HttpContext context);
     }

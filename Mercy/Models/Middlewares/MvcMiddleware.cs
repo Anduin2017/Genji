@@ -57,9 +57,9 @@ namespace Mercy.Models.Middlewares
         {
             foreach (var attribute in Methods.ConnectAllAttributes(controller, action))
             {
-                if (attribute is IAuthorizeFilter)
+                if (attribute is IFilter)
                 {
-                    if (!(attribute as IAuthorizeFilter).ShouldContinue(context))
+                    if (!(attribute as IFilter).ShouldContinue(context))
                     {
                         return false;
                     }

@@ -1,0 +1,547 @@
+/*
+ * monster one page template
+ * Author: ThemesGround
+ * Author URL: https://www.themesground.com/
+ * License: Attribution-NonCommercial CC BY-NC 
+
+ * 
+ * -------------------------------------------------------------------
+ * This theme under "Attribution-NonCommercial CC BY-NC". You can't remove footer credit link.
+ Text Domain: monster
+*/
+
+/* prettyPhoto styling for small screens */
+@media only screen and (max-width: 767px) {
+    .pp_pic_holder.pp_default {
+        width: 100% !important;
+        left: 0 !important;
+        overflow: hidden;
+    }
+
+    div.pp_default .pp_content_container .pp_left {
+        padding-left: 0 !important;
+    }
+
+    div.pp_default .pp_content_container .pp_right {
+        padding-right: 0 !important;
+    }
+
+    .pp_content {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .pp_fade {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    a.pp_expand, a.pp_contract, .pp_hoverContainer, .pp_gallery, .pp_top, .pp_bottom {
+        display: none !important;
+    }
+
+    #pp_full_res img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    #pp_full_res iframe {
+        width: 100%;
+        min-height: 200px
+    }
+
+    .pp_details {
+        width: 100% !important;
+        padding-left: 3%;
+        padding-right: 4%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #fff;
+        margin-top: -2px !important;
+    }
+
+    a.pp_close {
+        right: 10px !important;
+        top: 10px !important;
+    }
+
+    div.pp_default div .pp_content {
+        min-height: 100px;
+    }
+
+    .pp_details {
+        min-height: 45px;
+    }
+}
+
+
+
+
+
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+    outline: none;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {
+    margin: 0;
+    padding: 0;
+}
+
+    .flexslider .slides > li {
+        display: none;
+        -webkit-backface-visibility: hidden;
+    }
+    /* Hide the slides before the JS is loaded. Avoids image jumping */
+    .flexslider .slides img {
+        width: 100%;
+        display: block;
+    }
+
+.flex-pauseplay span {
+    text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+html[xmlns] .slides {
+    display: block;
+}
+
+* html .slides {
+    height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {
+    display: block;
+}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {
+    margin: 0;
+    position: relative;
+    zoom: 1;
+    overflow: hidden;
+}
+
+.flex-viewport {
+    max-height: 2000px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.loading .flex-viewport {
+    max-height: 300px;
+}
+
+.flexslider .slides {
+    zoom: 1;
+}
+
+.carousel li {
+    margin-right: 0;
+    position: relative;
+}
+
+.flex-control-thumbs {
+    display: none !important;
+}
+/* Control Nav */
+.flex-control-nav {
+    position: absolute;
+    bottom: 30px;
+    padding: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    top: auto;
+    height: 5px;
+}
+
+    .flex-control-nav li {
+        margin: 0 5px 0 6px;
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        vertical-align: top;
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+.flex-control-paging li a {
+    width: 10px;
+    height: 10px;
+    display: block;
+    cursor: pointer;
+    text-indent: -9999px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    box-shadow: none;
+    background: none;
+    border: #fff solid 1px;
+}
+
+    .flex-control-paging li a.flex-active {
+        cursor: default;
+    }
+
+    .flex-control-paging li a:hover,
+    .flex-control-paging li a.flex-active {
+        background: #abbd69;
+        border-color: #abbd69;
+    }
+
+.flex-control-nav {
+    z-index: 990 !important;
+    opacity: 1 !important;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100) !important;
+}
+
+/* Direction Nav */
+.flex-direction-nav {
+    *height: 0;
+}
+
+    .flex-direction-nav a {
+        text-decoration: none;
+        display: block;
+        width: 55px;
+        height: 50px;
+        margin: -24px 0 0 0;
+        border: #fff solid 1px;
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: center;
+        color: #fff !important;
+        opacity: 0.5;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+        .flex-direction-nav a i {
+            font-size: 32px;
+            line-height: 48px;
+        }
+
+    .flex-direction-nav .flex-prev {
+        left: 50px;
+        padding-right: 4px;
+    }
+
+    .flex-direction-nav .flex-next {
+        right: 50px;
+        padding-left: 4px;
+    }
+
+.flexslider:hover .flex-next:hover,
+.flexslider:hover .flex-prev:hover {
+    opacity: 1;
+}
+
+.flex-direction-nav .flex-disabled {
+    opacity: 0 !important;
+    filter: alpha(opacity=0);
+    cursor: default;
+}
+
+/* Slider */
+.full_slider {
+    width: 100% !important;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.flexslider .slides > li {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transform: translateZ(0) !important;
+}
+
+.flexslider .slides img.slide_bg {
+    display: none;
+}
+/***/
+
+
+
+/*---------------------------------- 
+ *  Owl Carousel - Animate Plugin
+-----------------------------------*/
+.owl-carousel .animated {
+    -webkit-animation-duration: 1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.owl-carousel .owl-animated-in {
+    z-index: 0;
+}
+
+.owl-carousel .owl-animated-out {
+    z-index: 1;
+}
+
+.owl-carousel .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+    -webkit-transition: height 500ms ease-in-out;
+    -moz-transition: height 500ms ease-in-out;
+    -ms-transition: height 500ms ease-in-out;
+    -o-transition: height 500ms ease-in-out;
+    transition: height 500ms ease-in-out;
+}
+
+/* 
+ *  Core Owl Carousel CSS File
+ */
+.owl-carousel {
+    display: none;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    /* position relative and z-index fix webkit rendering fonts issue */
+    position: relative;
+    z-index: 1;
+}
+
+    .owl-carousel .owl-stage {
+        position: relative;
+        -ms-touch-action: pan-Y;
+    }
+
+        .owl-carousel .owl-stage:after {
+            content: ".";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            line-height: 0;
+            height: 0;
+        }
+
+    .owl-carousel .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        /* fix for flashing background */
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+
+    .owl-carousel .owl-controls .owl-nav .owl-prev,
+    .owl-carousel .owl-controls .owl-nav .owl-next,
+    .owl-carousel .owl-controls .owl-dot {
+        cursor: pointer;
+        cursor: hand;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .owl-carousel.owl-loaded {
+        display: block;
+    }
+
+    .owl-carousel.owl-loading {
+        opacity: 0;
+        display: block;
+    }
+
+    .owl-carousel.owl-hidden {
+        opacity: 0;
+    }
+
+    .owl-carousel .owl-refresh .owl-item {
+        display: none;
+    }
+
+    .owl-carousel .owl-item {
+        position: relative;
+        min-height: 1px;
+        float: left;
+        -webkit-backface-visibility: hidden;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .owl-carousel .owl-item img {
+            display: block;
+            width: 100%;
+            -webkit-transform-style: preserve-3d;
+        }
+
+    .owl-carousel.owl-text-select-on .owl-item {
+        -webkit-user-select: auto;
+        -moz-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
+    }
+
+    .owl-carousel .owl-grab {
+        cursor: move;
+        cursor: -webkit-grab;
+        cursor: -o-grab;
+        cursor: -ms-grab;
+        cursor: grab;
+    }
+
+    .owl-carousel.owl-rtl {
+        direction: rtl;
+    }
+
+        .owl-carousel.owl-rtl .owl-item {
+            float: right;
+        }
+
+/* No Js */
+.no-js .owl-carousel {
+    display: block;
+}
+
+/* 
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item .owl-lazy {
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease;
+    -moz-transition: opacity 400ms ease;
+    -ms-transition: opacity 400ms ease;
+    -o-transition: opacity 400ms ease;
+    transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-item img {
+}
+
+/* 
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+    position: relative;
+    height: 100%;
+    background: #000;
+}
+
+.owl-carousel .owl-video-play-icon {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+    background: url("owl.video.play.png") no-repeat;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: scale 100ms ease;
+    -moz-transition: scale 100ms ease;
+    -ms-transition: scale 100ms ease;
+    -o-transition: scale 100ms ease;
+    transition: scale 100ms ease;
+}
+
+    .owl-carousel .owl-video-play-icon:hover {
+        -webkit-transition: scale(1.3, 1.3);
+        -moz-transition: scale(1.3, 1.3);
+        -ms-transition: scale(1.3, 1.3);
+        -o-transition: scale(1.3, 1.3);
+        transition: scale(1.3, 1.3);
+    }
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+    display: none;
+}
+
+.owl-carousel .owl-video-tn {
+    opacity: 0;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    -webkit-transition: opacity 400ms ease;
+    -moz-transition: opacity 400ms ease;
+    -ms-transition: opacity 400ms ease;
+    -o-transition: opacity 400ms ease;
+    transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-video-frame {
+    position: relative;
+    z-index: 1;
+}

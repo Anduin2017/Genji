@@ -1,5 +1,5 @@
 {
-  "name": "MercyCoreExample",
+  "name": "mercy",
   "homepage": "https://github.com/Anduin2017/Mercy",
   "authors": [
     "Anduin"
@@ -19,8 +19,10 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
-    "font-awesome": "^4.7.0"
+    "bootstrap": "^3.3.6",
+    "jquery": "^1.11.1",
+    "font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2",
+    "isotope": "isotope-layout#^3.0.4"
   }
 }

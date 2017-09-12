@@ -17,9 +17,7 @@ namespace MercyCoreExample
             Console.WriteLine("Starting Mercy server...");
 
             var services = StartUp.ConfigServices();
-
             var server = StartUp.ConfigureServer(services);
-
             server.Start().Wait();
         }
     }

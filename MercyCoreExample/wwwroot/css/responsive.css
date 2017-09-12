@@ -1,0 +1,531 @@
+/*
+ * monster one page template
+ * Author: ThemesGround
+ * Author URL: https://www.themesground.com/
+ * License: Attribution-NonCommercial CC BY-NC 
+
+ * 
+ * -------------------------------------------------------------------
+ * This theme under "Attribution-NonCommercial CC BY-NC". You can't remove footer credit link.
+ Text Domain: monster
+*/
+
+/* Responsive changes */
+/***mobile menu***/
+a.menu_toggler {
+    display: none;
+}
+
+@media (max-width: 490px) {
+    .full_slider_caption {
+    }
+
+    #page {
+        width: 100%
+    }
+
+    #home {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 1470px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 991px) {
+    .price-item {
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    .contact_form {
+        margin: 0 0 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    #top header nav {
+        display: none !important;
+    }
+
+    a.menu_toggler {
+        display: inline-block;
+        float: right;
+        margin: -17px 20px 0px 0;
+        border: none;
+        border-radius: 2px;
+        box-shadow: none;
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        overflow: hidden;
+        right: 0;
+        top: 50%;
+        background-color: #7ab55c;
+        background-image: linear-gradient(top, #7ab55c, #7ab55c);
+        background-image: -webkit-linear-gradient(top, #7ab55c, #7ab55c);
+        background-image: -moz-linear-gradient(top, #7ab55c, #7ab55c);
+        background-image: -ms-linear-gradient(top, #7ab55c, #7ab55c);
+        background-image: -o-linear-gradient(top, #7ab55c, #7ab55c);
+    }
+
+        a.menu_toggler:hover {
+            background-color: #000;
+            background-image: linear-gradient(top, #7ab55c, #7ab55c);
+            background-image: -webkit-linear-gradient(top, #7ab55c, #7ab55c);
+            background-image: -moz-linear-gradient(top, #7ab55c, #7ab55c);
+            background-image: -ms-linear-gradient(top, #7ab55c, #7ab55c);
+            background-image: -o-linear-gradient(top, #7ab55c, #7ab55c);
+        }
+
+        a.menu_toggler:before {
+            content: '\f0c9';
+            display: block;
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            color: #fff;
+            font: normal normal normal 14px/1 FontAwesome
+        }
+
+    .fixed-menu,
+    .fixed-menu:before,
+    .fixed-menu:after {
+        display: none !important;
+    }
+
+    .mobile_menu_wrapper {
+        display: block;
+        background: #262626;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        top: 70px;
+        left: 0;
+        padding: 15px 0;
+        text-align: left;
+    }
+
+        .mobile_menu_wrapper ul li {
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase
+        }
+
+            .mobile_menu_wrapper ul li:last-child {
+                margin-bottom: 0;
+            }
+
+        .mobile_menu_wrapper a {
+            color: #fff;
+        }
+
+            .mobile_menu_wrapper a:hover {
+                color: #7ab55c;
+            }
+
+    .full_slider_caption {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 22px;
+    }
+
+        .full_slider_caption .title {
+            font-size: 54px;
+            font-weight: 700;
+            line-height: 58px;
+        }
+
+
+    /* Text overlay video header bg */
+    div#overlay {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        font-size: 18px;
+        color: #FFF;
+        margin-top: 33%;
+        margin-left: 10%;
+    }
+
+    div#overlay-under {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        font-size: 13px;
+        color: #FFF;
+        margin-top: 37%;
+        margin-left: 10%;
+    }
+    /* end Text overlay video header bg */
+
+
+    body {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .about_block {
+        display: block;
+    }
+
+        .about_block .col_img,
+        .about_block .col_cont {
+            width: 100%;
+            float: none;
+            position: relative;
+        }
+
+    .pricing_block {
+        padding: 40px 0 30px;
+    }
+
+    .contact_form {
+        margin: 0 -15px 30px;
+        padding: 38px 15px 40px;
+    }
+
+        .contact_form .inp {
+            width: 100%;
+        }
+
+    .flex-direction-nav .flex-prev {
+        left: 15px;
+    }
+
+    .flex-direction-nav .flex-next {
+        right: 15px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    #top {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        border-bottom: none;
+        box-shadow: none;
+        background: #000
+    }
+
+        #top img {
+            width: 120px
+        }
+
+    #logo {
+        margin: 5px 0;
+        float: left;
+    }
+
+        #logo a {
+            font-size: 28px;
+            line-height: 21px;
+            padding: 0px;
+            background: none;
+        }
+
+    .full_slider_caption {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+        .full_slider_caption .title {
+            font-size: 30px;
+            line-height: 36px;
+            letter-spacing: -2px;
+            margin-bottom: 10px
+        }
+
+    .full_slider_caption {
+        bottom: 15%
+    }
+
+        .full_slider_caption span {
+            margin-bottom: 5px
+        }
+
+    .flex-direction-nav a {
+        height: 25px;
+        width: 25px;
+        line-height: 25px
+    }
+
+        .flex-direction-nav a i {
+            font-size: 14px;
+            line-height: 22px
+        }
+
+    .price-item {
+        margin-left: 0px;
+        margin-bottom: 20px
+    }
+
+    .pricing_block {
+        padding-bottom: 0px;
+        margin-bottom: 0px
+    }
+
+    .bg-img {
+        margin-bottom: 0px
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    #page {
+        width: 100%
+    }
+
+    #home {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .full_slider_caption {
+        bottom: 35%
+    }
+
+    .full_slider_caption {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+        .full_slider_caption .title {
+            font-size: 50px;
+            line-height: 36px;
+            letter-spacing: -2px;
+            margin-bottom: 10px
+        }
+
+        .full_slider_caption span {
+            margin-bottom: 5px
+        }
+
+    .flex-direction-nav a {
+        height: 25px;
+        width: 25px;
+        line-height: 25px
+    }
+
+        .flex-direction-nav a i {
+            font-size: 14px;
+            line-height: 22px
+        }
+
+    .price-item {
+        margin-left: 0px;
+        margin-bottom: 20px
+    }
+
+    .pricing_block {
+        padding-bottom: 0px;
+        margin-bottom: 0px
+    }
+
+    .bg-img {
+        margin-bottom: 0px
+    }
+
+    #top {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        border-bottom: none;
+        box-shadow: none;
+        background: #000
+    }
+
+        #top img {
+            width: 120px
+        }
+
+    #logo {
+        margin: 5px 0;
+        float: left;
+    }
+
+        #logo a {
+            font-size: 28px;
+            line-height: 21px;
+            padding: 0px;
+            background: none;
+        }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #top {
+        padding-bottom: 0px
+    }
+
+    #page {
+        width: 100%
+    }
+
+    #logo {
+        margin-bottom: 15px
+    }
+
+    #home {
+        position: relative;
+        margin-bottom: 30px;
+        margin-top: 0px !important
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .navmenu ul li {
+        margin: 0 10px 10px
+    }
+
+    .fixed-menu .container {
+        width: 100%
+    }
+
+        .fixed-menu .container .navmenu ul li {
+            margin: 0 10px 10px
+        }
+
+    .full_slider_caption {
+        bottom: 30%
+    }
+
+    .full_slider_caption {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+        .full_slider_caption .title {
+            font-size: 60px;
+            line-height: 36px;
+            letter-spacing: -2px;
+            margin-bottom: 20px
+        }
+
+        .full_slider_caption span {
+            margin-bottom: 10px
+        }
+
+    .flex-direction-nav a {
+        height: 35px;
+        width: 35px;
+        line-height: 35px
+    }
+
+        .flex-direction-nav a i {
+            font-size: 16px;
+            line-height: 33px
+        }
+
+    .price-item {
+        margin-left: 0px;
+        margin-bottom: 20px
+    }
+
+    .pricing_block {
+        padding-bottom: 0px;
+        margin-bottom: 0px
+    }
+
+    .bg-img {
+        margin-bottom: 0px
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1170px) {
+    #top {
+        padding-bottom: 0px
+    }
+
+    #page {
+        width: 100%
+    }
+
+    #logo {
+        margin-bottom: 15px
+    }
+
+    #home {
+        position: relative;
+        margin-bottom: 30px;
+        margin-top: 0px !important
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .navmenu ul li {
+        margin: 0 10px 10px
+    }
+
+    .fixed-menu .container {
+        width: 100%
+    }
+
+        .fixed-menu .container .navmenu ul li {
+            margin: 0 10px 10px
+        }
+}
+
+@media only screen and (min-width: 1171px) and (max-width: 1400px) {
+    #top {
+        padding-bottom: 0px
+    }
+
+    #page {
+        width: 100%
+    }
+
+    #logo {
+        margin-bottom: 15px
+    }
+
+    #home {
+        position: relative;
+        margin-bottom: 30px;
+        margin-top: 0px !important
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .navmenu ul li {
+        margin: 0 10px 10px
+    }
+
+    .fixed-menu .container {
+        width: 100%
+    }
+
+        .fixed-menu .container .navmenu ul li {
+            margin: 0 10px 10px
+        }
+}
