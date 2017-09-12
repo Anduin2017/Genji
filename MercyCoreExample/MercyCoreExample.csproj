@@ -20,8 +20,6 @@
     <Content Update="wwwroot\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-      <Content Update="Views\**\*">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
+    <Content Include="Views\**\*" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
