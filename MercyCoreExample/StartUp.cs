@@ -35,7 +35,7 @@ namespace MercyCoreExample
             string viewroot = root + "Views";
 
             var server = new MercyServer()
-                .UseDefaultSettings(logpath: @"D:\")
+                .UseDefaultSettings(logpath: root)
                 .UsePort(8001);
 
             var app = new App()
