@@ -8,7 +8,7 @@ namespace MercyCoreExample.Data
 {
     public class ExampleDbContext : DbContext
     {
-        public static string ConnectionString { get; set; }
+        public static string ConnectionString { get; set; } = "Data Source=blogging.db";
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
 

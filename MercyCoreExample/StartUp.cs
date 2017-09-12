@@ -17,8 +17,6 @@ namespace MercyCoreExample
     {
         public static ServiceGroup ConfigServices()
         {
-            ExampleDbContext.ConnectionString = "Data Source=blogging.db";
-
             var services = new ServiceGroup()
                 .RegisterController<HomeController>()
                 .RegisterController<AccountController>();
