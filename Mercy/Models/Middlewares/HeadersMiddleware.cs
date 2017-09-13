@@ -19,6 +19,7 @@ namespace Mercy.Models.Middlewares
         protected override void Mix(HttpContext context)
         {
             context.Response.Headers.Add("Server", ServerName);
+            context.Response.Headers.Add("Date", DateTime.Now.ToString("r"));
             if (KeepAlive)
             {
                 context.Response.Headers.Add("Connection", "keep-alive");
