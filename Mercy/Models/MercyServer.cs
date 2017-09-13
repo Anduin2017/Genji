@@ -61,7 +61,6 @@ namespace Mercy.Models
                 var listener = new TcpListener(IPAddress.Any, Port);
                 try
                 {
-
                     listener.Start();
                     Console.ResetColor();
                     Console.WriteLine($"Mercy server started at http://localhost:{Port}/");
@@ -75,6 +74,7 @@ namespace Mercy.Models
                 catch (Exception e)
                 {
                     Recorder.RecordException(e);
+                    listener.Stop();
                     await Task.Delay(5000);
                 }
             }

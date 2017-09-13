@@ -17,8 +17,6 @@ namespace MercyCoreExample
     {
         public static ServiceGroup ConfigServices()
         {
-            ExampleDbContext.ConnectionString = "Data Source=blogging.db";
-
             var services = new ServiceGroup()
                 .RegisterController<HomeController>()
                 .RegisterController<AccountController>();
@@ -37,7 +35,7 @@ namespace MercyCoreExample
             string viewroot = root + "Views";
 
             var server = new MercyServer()
-                .UseDefaultSettings(logpath: @"D:\")
+                .UseDefaultSettings(logpath: root)
                 .UsePort(8001);
 
             var app = new App()
