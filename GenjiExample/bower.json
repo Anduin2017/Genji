@@ -1,0 +1,28 @@
+{
+  "name": "genji",
+  "homepage": "https://github.com/Anduin2017/genji",
+  "authors": [
+    "Anduin"
+  ],
+  "description": "genji Core Example",
+  "main": "Program.cs",
+  "keywords": [
+    "genji",
+    "Web"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "1.11.1",
+    "font-awesome": "^4.7.0",
+    "animate.css": "^3.5.2",
+    "isotope": "isotope-layout#^3.0.4"
+  }
+}
