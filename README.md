@@ -1,6 +1,6 @@
 # Genji概览
 
-![](https://oss.aiursoft.com/MyPersonalFiles/genji.jpeg =250x)
+<img src="https://oss.aiursoft.com/MyPersonalFiles/genji.jpeg" alt="Drawing" style="width: 200px;"/>
 
 源氏，英文名为Genji，是一款强大、开源、高性能、跨平台、现代化、MVVM的Web应用开发框架。  
 
