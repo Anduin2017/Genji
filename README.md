@@ -28,7 +28,17 @@ Genji不但可以运行与Windows、Linux、Mac上，凭借其跨开发框架的
 
 ## 运行Genji示例应用
 
-TODO
+### 准备开发环境
+
+* 在Windows平台，推荐使用Visual Studio 2017，注意安装下面组件：
+    * Visual Studio .NET Core开发工具
+
+* 在Linux和Mac平台，你可以使用CLI工具来运行，手动安装下面组件:
+    * .NET Core runtime
+    * Nodejs & npm
+    * Bower & Git
+    * Visual Studio Code （推荐）
+
 
 ## 安装Genji作为依赖项
 
