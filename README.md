@@ -35,18 +35,32 @@ Genji不但可以运行与Windows、Linux、Mac上，凭借其跨开发框架的
 
 ## 运行Genji代码示例
 
-### 准备开发环境
+### Windows 平台
 
-* 在Windows平台，推荐使用[Visual Studio 2017](https://www.visualstudio.com/)，注意安装下面组件：
-    *  .NET Core cross-platform development
+#### 准备开发环境
 
-* 在其它平台，你可以使用CLI工具来运行，手动安装下面组件:
-    * [.NET Core runtime](https://www.microsoft.com/net)
-    * [Nodejs](https://nodejs.org/en/) & [npm](https://www.npmjs.com/)
-    * [Bower](https://bower.io/) & [Git](https://git-scm.com/)
-    * [Visual Studio Code](https://code.visualstudio.com/) （推荐）
+在Windows平台，推荐使用[Visual Studio 2017](https://www.visualstudio.com/)，注意安装下面组件：  
 
-### 恢复项目的依赖项
+    .NET Core cross-platform development开发工具
+
+#### 运行项目
+
+    按下 F5 键即可
+
+
+
+
+### 其它平台 (Linux, Mac)
+
+#### 准备开发环境
+
+你可以使用CLI工具来运行，手动安装下面组件:
+* [.NET Core runtime](https://www.microsoft.com/net)
+* [Nodejs](https://nodejs.org/en/) & [npm](https://www.npmjs.com/)
+* [Bower](https://bower.io/) & [Git](https://git-scm.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) （推荐）
+
+#### 恢复项目的依赖项
 
 在仓库的根目录执行下面命令：  
 
@@ -56,7 +70,7 @@ dotnet restore
 bower install  
 ```
 
-### 运行项目
+#### 运行项目
 
 在`GenjiExample`目录执行下面命令：
 
@@ -64,9 +78,7 @@ bower install
 dotnet run
 ```
 
-启动你的浏览器，浏览 http://localhost:8001
-
-
+最后，启动你的浏览器，浏览 http://localhost:8001
 
 ## 安装Genji作为依赖项
 
