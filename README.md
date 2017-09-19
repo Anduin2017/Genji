@@ -18,11 +18,17 @@ Genji作为HTTP服务器全部底层代码都是基于TCP/IP实现。它存在�
 * 极高的启动速度  
 Genji的启动速度比ASP.NET快至少30倍，不足1秒即可完全加载并达到最大性能。Genji视图更支持JIT编译，后端业务也可以像静态文件一样快速响应。
 
-* 简洁清爽的代码风格  
+* 简洁清爽的设计风格  
 Genji使用自动路由、依赖注入、MVVM设计模式、完整异步支持、强类型，让你的前端代码与后端代码保持分离，又具有最安全而便捷的交互。
 
 * 超多的自定义选项  
 Genji在保持简洁的基础下，可以像积木一样轻松插入和更换模块。注册自由定义的服务、应用绑定、中间件、过滤器或扩展Genji都极其简便。
+
+* 支持强大的C#
+Genji在设计时支持开发者使用C#进行开发。C#不但支持语言级异步、函数化编程、强类型、面向对象等众多出色的特性，更具有接近机器代码的性能。
+
+* 极低的资源占用  
+Genji在保证性能的前提下，花费了大量精力优化线程、垃圾的处理，使Genji的内存一般不超过20Mb。凭借语言级异步的支持，Genji不会阻塞IO。
 
 * 优秀繁多的工具支持  
 使用Microsoft强大的Visual Studio或是跨平台的Visual Studio Code都可以享受到完整的开发Genji时自动完成和实时跟踪调试功能。
@@ -35,15 +41,15 @@ Genji不但可以运行与Windows、Linux、Mac上，凭借其跨开发框架的
 
 ## 运行项目示例
 
-### Windows 平台
+### Windows
 
-在Windows平台，推荐使用[Visual Studio 2017](https://www.visualstudio.com/)
+在Windows平台，强烈推荐使用[Visual Studio 2017](https://www.visualstudio.com/)开发Genji。
 
 打开`Genji.sln`后，按下`F5`启动项目即可。
 
 
 
-### 其它平台 (Linux, Mac)
+### Windows, Linux or macOS
 
 你可以使用CLI工具来运行，手动安装下面组件:  
 * [.NET Core runtime](https://www.microsoft.com/net)
