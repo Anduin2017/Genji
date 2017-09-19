@@ -1,6 +1,13 @@
 # Genji概览
 
-源氏，英文名为Genji，是一款强大、开源、高性能、跨平台的Web应用开发框架。Genji由C#开发，并基于.NET Standard，使它可以面向任意的.NET平台，例如.NET Core。
+![](https://oss.aiursoft.com/MyPersonalFiles/genji.jpeg =250x)
+
+源氏，英文名为Genji，是一款强大、开源、高性能、跨平台、现代化、MVVM的Web应用开发框架。  
+
+Genji由C#开发，并基于 .NET Standard，使它可以面向任意的.NET平台，例如 .NET Core，并兼容不同的操作系统。
+
+Genji作为HTTP服务器全部底层代码都是基于TCP/IP实现。它存在的意义是代替 ASP.NET Core。
+
 
 ## Genji社区
 
